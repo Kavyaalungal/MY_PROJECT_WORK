@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { TextField, Button, Grid, Box, Typography, FormControl, InputLabel, Select, MenuItem, Autocomplete, FormControlLabel, FormGroup, Checkbox, Container, Paper } from '@mui/material';
-// import Navbar from './Navbar';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// import InputAdornment from '@mui/material/InputAdornment';
-// import SearchIcon from '@mui/icons-material/Search';
 import { CButton, CCard, CCardHeader } from '@coreui/react';
 
 const EditInvoice= () => {
@@ -95,16 +92,12 @@ const EditInvoice= () => {
     }
 }, [yearId]); // Run this effect whenever yrId changes
 
-// Function to update yrId
-// const updateYrId = (newValue) => {
-//     setYrId(newValue);
-// };
+
 
  useEffect(() => {
 
     setIsDataUpdated(
       prefix !== (invoiceData?.Inv_Tittle || '') ||
-      // labNo !== (invoiceData?.LabNo || '') ||
       name !== (invoiceData?.Inv_name || '') ||
       day !== (invoiceData?.Inv_ageDD || '') ||
       month !== (invoiceData?.Inv_ageMM || '') ||

@@ -11,10 +11,10 @@ const Spinners = React.lazy(() => import('./views/base/spinners/Spinners'))
 // Buttons
 const Buttons = React.lazy(() => import('./views/buttons/buttons/Buttons.jsx'))
 const ButtonGroups = React.lazy(() => import('./views/buttons/button-groups/ButtonGroups.jsx'))
-const Dropdowns = React.lazy(() => import('./views/buttons/dropdowns/Dropdowns.jsx'))
+// const Dropdowns = React.lazy(() => import('./views/buttons/dropdowns/Dropdowns.jsx'))
 
 
-const Widgets = React.lazy(() => import('./views/widgets/Widgets.jsx'))
+const Widgets = React.lazy(() => import('./views/widgets/WidgetsDropdown.jsx'))
   
 
 const routes = [
