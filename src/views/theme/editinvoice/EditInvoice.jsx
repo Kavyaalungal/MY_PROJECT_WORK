@@ -277,7 +277,11 @@ useEffect(() => {
       setInvDate(invoiceData.Inv_Date || '');
       setInvTime(invoiceData.Inv_time || '');
       setInvSmplDate(invoiceData.Inv_SmplDate)
+
+
+      setError('');
     } catch (error) {
+      console.log(error.message);
       setError(error.message);
     }
   };
