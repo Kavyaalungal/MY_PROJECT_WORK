@@ -6,6 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { CButton, CCard, CCardHeader } from '@coreui/react';
 
 const EditInvoice= () => {
+  // state variables declared for inputing and editing the form 
   const [labNo, setLabNo] = useState('');
   const [invNo, setInvNo] = useState('');
   const [branchId, setBranchId] = useState('');
@@ -51,7 +52,9 @@ const EditInvoice= () => {
   const [invoiceData, setInvoiceData] = useState(null);
   const [error, setError] = useState(null);
   const [errorAadhar, setErrorAadhar] = useState('');
+  // flag to check data is updated or not initially it is set to false
   const [isDataUpdated, setIsDataUpdated] = useState(false);
+  // state variables for email validation
   const [isEmailValid, setIsEmailValid] = useState(true); 
   const [isPhone1Valid, setIsPhone1Valid] = useState(true);
   const [isPhone2Valid, setIsPhone2Valid] = useState(true);
@@ -174,11 +177,13 @@ useEffect(() => {
   const validateEmail = (email) => {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(email);
+    
   };
 // function to validate phone number
   const validatePhone = (phone) => {
     const regex = /^[0-9]{10}$/;
     return regex.test(phone);
+    
   };
 
 // for fetching data
@@ -561,7 +566,6 @@ const saveDataToAPI = () => {
         setError(error.message);
       }
     };
-    //function to 
     const handleRefByChange = (event, newValue) => {
       if (newValue) {
         const selectedRefBy = searchResultsRefBy.find(result => result.AhMst_pName === newValue);
@@ -570,20 +574,25 @@ const saveDataToAPI = () => {
           setRefBy(newValue);
           setInvData(prevState => ({
             ...prevState,
-            Inv_DrId: selectedRefBy.AhMst_Key, 
+            Inv_DrId: selectedRefBy.AhMst_Key,
           }));
+          setOutDr('');
         }
       } else {
         setSelectedRefByKey('');
         setRefBy('');
         setInvData(prevState => ({
           ...prevState,
-          Inv_DrId: 0, 
+          Inv_DrId: 0,
         }));
       }
     };
-    
-    
+  
+    // Handler for changing Out Dr
+    const handleOutDrChange = (event) => {
+      setOutDr(event.target.value);
+      setRefBy(''); // Clear Ref By when Out Dr changes
+    };
    // Event handler for CollBy field changes
    const handleCollByChange = (event, newValue) => {
     if (newValue) {
@@ -1008,25 +1017,27 @@ const handleNewButtonClick = () => {
             variant="outlined"
             size="small"
             fullWidth
-            error={!!errorRefBy}
-            helperText={errorRefBy}
-            InputLabelProps={{ style: { fontSize: '16px' } }}
+            // error={!!errorRefBy}
+            // helperText={errorRefBy}
+            disabled={!!outDr}
+            InputLabelProps={{ style: { fontSize: '14px' } }}
           />
         )}
       />
-    </Grid>
-              <Grid item xs={12} sm={6}>
-              <TextField
-                id="outdr"
-                label="Out Dr"
-                variant="outlined"
-                size="small"
-                fullWidth
-                value={outDr}
-                onChange={(e) => setOutDr(e.target.value)}
-                InputLabelProps={{ style: { fontSize: '16px' } }}
-              />
-            </Grid>
+    </Grid>  
+      <Grid item xs={12} sm={6}>
+        <TextField
+          id="outDr"
+          label="Out Dr"
+          variant="outlined"
+          size="small"
+          fullWidth
+          value={outDr}
+          onChange={handleOutDrChange}
+          disabled={!!refBy} // Disable if Ref By has a value
+          InputLabelProps={{ style: { fontSize: '16px' } }}
+        />
+      </Grid>
             <Grid item xs={12} sm={6}>
             <TextField
                 id="passport"

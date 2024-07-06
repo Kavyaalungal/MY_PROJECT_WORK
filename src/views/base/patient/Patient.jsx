@@ -158,12 +158,19 @@
     }
 
     // Update state
+
     setPatientDetails((prevDetails) => ({
-      ...prevDetails,  // spreading all details fetched and updating only the age fields
-     Patient_Ageyy: ageYear.toString(),   // it becomes 23
-      Patient_Agemm: ageMonth.toString(),  // 6
-      Patient_Agedd: ageDay.toString(),// 17
+      ...prevDetails,
+      Patient_Ageyy: ageYear !== 0 ? ageYear.toString() : prevDetails.Patient_Ageyy,
+      Patient_Agemm: ageMonth !== 0 ? ageMonth.toString() : prevDetails.Patient_Agemm,
+      Patient_Agedd: ageDay !== 0 ? ageDay.toString() : prevDetails.Patient_Agedd,
     }));
+    // setPatientDetails((prevDetails) => ({
+    //   ...prevDetails,  // spreading all details fetched and updating only the age fields
+    //  Patient_Ageyy: ageYear.toString(),   // it becomes 23
+    //   Patient_Agemm: ageMonth.toString(),  // 6
+    //   Patient_Agedd: ageDay.toString(),// 17
+    // }));
   };
   // function to validate some fields before saving back to server
   const validate = () => {
@@ -187,10 +194,14 @@
       toast.error('please enter a valid email address')
     }
     // for validating the age fields are mandatory 
-    if (!patientDetails.Patient_Ageyy || !patientDetails.Patient_Agemm || !patientDetails.Patient_Agedd) {
-     newErrors.Patient_Age = 'Age is required';
-     toast.warn('Please fill in the age fields');
-   }
+    // if (
+    //   patientDetails.Patient_Ageyy === 0 &&
+    //   patientDetails.Patient_Agemm === 0 &&
+    //   patientDetails.Patient_Agedd === 0
+    // ) {
+    //   newErrors.Patient_Age = 'Age is required';
+    //   toast.warn('Please fill in the age fields');
+    // } 
 
    // for making gender field is mandatory
    if (!patientDetails.Patient_Ismale) {
