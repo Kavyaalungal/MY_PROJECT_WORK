@@ -269,6 +269,7 @@ const handleSaveOrUpdate = async () => {
     Patient_Name: patientDetails.Patient_Name.trim(),
     Patient_Email: patientDetails.Patient_Email.trim(),
     Patient_Phno: patientDetails.Patient_Phno.trim(),
+    Patient_mobile: patientDetails.Patient_mobile.trim(),
     // Add more fields as needed
   };
 
