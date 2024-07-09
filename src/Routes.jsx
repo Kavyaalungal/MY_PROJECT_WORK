@@ -25,6 +25,12 @@ const routes = [
   {path:'/editinvoice',name:'Edit Invoice', element:EditInvoice},
   {path:'/base',name:'Base',element:Patient,exact:true},
   {path:'/patient',name:'Patient Registration',element:Patient},
+  { path: '/base/spinners', name: 'Spinners', element: Spinners },
+  { path: '/buttons', name: 'Buttons', element: Buttons, exact: true },
+ { path: '/buttons/buttons', name: 'Buttons', element: Buttons },
+//   { path: '/buttons/dropdowns', name: 'Dropdowns', element: Dropdowns },
+  { path: '/buttons/button-groups', name: 'Button Groups', element: ButtonGroups },
+  { path: '/widgets', name: 'Widgets', element: Widgets },
 ]
 
 export default routes
