@@ -1077,8 +1077,8 @@ const handleNewButtonClick = () => {
         variant="outlined"
         size="small"
         fullWidth
-        error={!!errorBranch}
-        helperText={errorBranch}
+        // error={!!errorBranch}
+        // helperText={errorBranch}
         InputLabelProps={{ style: { fontSize: '16px' } }}
       />
     )}
@@ -1138,8 +1138,8 @@ const handleNewButtonClick = () => {
         variant="outlined"
         size="small"
         fullWidth
-        error={!!errorCollMode}
-        helperText={errorCollMode}
+        // error={!!errorCollMode}
+        // helperText={errorCollMode}
         InputLabelProps={{ style: { fontSize: '16px' } }}
       />
     )}
@@ -1161,8 +1161,8 @@ const handleNewButtonClick = () => {
               variant="outlined"
               size="small"
               fullWidth
-              error={!!errorCollBy}
-              helperText={errorCollBy}
+              // error={!!errorCollBy}
+              // helperText={errorCollBy}
               InputLabelProps={{ style: { fontSize: '16px' } }}
             />
           )}
@@ -1242,7 +1242,8 @@ const handleNewButtonClick = () => {
           </Grid>
       </Paper>
     </Container>
-     <ToastContainer />
+     {/* <ToastContainer /> */}
+     <ToastContainer position="top-center" autoClose={3000} hideProgressBar />
     </div>
     </CCard>
     </>

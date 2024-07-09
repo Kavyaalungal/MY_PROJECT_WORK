@@ -193,15 +193,15 @@
       newErrors.Patient_Email = 'Invalid email address';      // white space and after @ some characters after that . should there and some characters after that without any whitespace
       toast.error('please enter a valid email address')
     }
-    // for validating the age fields are mandatory 
-    // if (
-    //   patientDetails.Patient_Ageyy === 0 &&
-    //   patientDetails.Patient_Agemm === 0 &&
-    //   patientDetails.Patient_Agedd === 0
-    // ) {
-    //   newErrors.Patient_Age = 'Age is required';
-    //   toast.warn('Please fill in the age fields');
-    // } 
+   // for validating the age fields are mandatory 
+    if (
+      patientDetails.Patient_Ageyy === 0 &&
+      patientDetails.Patient_Agemm === 0 &&
+      patientDetails.Patient_Agedd === 0
+    ) {
+      newErrors.Patient_Age = 'Age is required';
+      toast.warn('Please fill in the age fields');
+    } 
 
    // for making gender field is mandatory
    if (!patientDetails.Patient_Ismale) {
