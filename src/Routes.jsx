@@ -6,7 +6,7 @@ const EditInvoice = React.lazy(() => import('./views/theme/editinvoice/EditInvoi
 
 // Base
 const Patient = React.lazy(() => import('./views/base/patient/Patient.jsx'))
-const Spinners = React.lazy(() => import('./views/base/spinners/Spinners'))
+const Spinners = React.lazy(() => import('./views/base/spinners/Spinners.jsx'))
 
 // Buttons
 const Buttons = React.lazy(() => import('./views/buttons/buttons/Buttons.jsx'))
