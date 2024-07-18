@@ -514,7 +514,7 @@ const Bill = () => {
                 color: ' #599eb4 ',
               }}
             >
-              CANCEL INVOICE
+              BILL WISE COLLECTION
             </Typography>
           </Grid>
           <Grid item xs={12} md={4}>

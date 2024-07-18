@@ -6,7 +6,8 @@ import {
  cilSpreadsheet,
 cilSpeedometer,
 cilBackspace,
-cilBarcode
+cilBarcode,
+cilAddressBook
   
 } from '@coreui/icons'
 import {  CNavItem } from '@coreui/react'
@@ -61,7 +62,7 @@ const _nav = [
   component: CNavItem,
   name: 'Patient Views',
   to:'/patientbill',
-  icon: <CIcon icon={cilGroup} customClassName="nav-icon"/>,
+  icon: <CIcon icon={cilAddressBook} customClassName="nav-icon"/>,
 },
 {
   component: CNavItem,

@@ -370,7 +370,7 @@ const PatientBill = () => {
                   color: ' #599eb4 ',
                 }}
               >
-                CANCEL INVOICE
+                PATIENT VIEWS
               </Typography>
             </Grid>
             <Grid item xs={12} md={4}>

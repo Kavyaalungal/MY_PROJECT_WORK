@@ -382,7 +382,7 @@ const Account = () => {
                   color: ' #599eb4 ',
                 }}
               >
-                CANCEL INVOICE
+                ACCOUNT LEDGER
               </Typography>
             </Grid>
             <Grid item xs={12} md={4}>
@@ -423,8 +423,8 @@ const Account = () => {
           <Grid item xs={12}>
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
               <TextField
-                id="amount"
-                label="Amount"
+                id="ledger"
+                label="Ledger Name"
                 variant="outlined"
                 size="small"
                 fullWidth
@@ -438,8 +438,8 @@ const Account = () => {
           <Grid item xs={12}>
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
               <TextField
-                id="amount"
-                label="Amount"
+                id="groupname"
+                label="A/C Group Name"
                 variant="outlined"
                 size="small"
                 fullWidth
@@ -453,8 +453,8 @@ const Account = () => {
           <Grid item xs={12}>
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
               <TextField
-                id="amount"
-                label="Amount"
+                id="group"
+                label="Group"
                 variant="outlined"
                 size="small"
                 fullWidth
@@ -468,8 +468,8 @@ const Account = () => {
           <Grid item xs={12}>
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
               <TextField
-                id="amount"
-                label="Amount"
+                id="customer"
+                label="Customer Type"
                 variant="outlined"
                 size="small"
                 fullWidth
@@ -483,8 +483,8 @@ const Account = () => {
           <Grid item xs={6}>
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
               <TextField
-                id="amount"
-                label="Amount"
+                id="scheme"
+                label="Scheme"
                 variant="outlined"
                 size="small"
                 fullWidth
@@ -501,8 +501,8 @@ const Account = () => {
           <Grid item xs={12} sm={3}>
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
               <TextField
-                id="amount"
-                label="Amount"
+                id="openingbalance"
+                label="Opening Balance"
                 variant="outlined"
                 size="small"
                 fullWidth
@@ -524,22 +524,10 @@ const Account = () => {
               </Select>
             </FormControl>
           </Grid>
-          {/* <Grid item xs={3}>
-            <Box sx={{ display: 'flex', alignItems: 'center' }}>
-              <TextField
-                id="amount"
-                label="Amount"
-                variant="outlined"
-                size="small"
-                fullWidth
-                InputLabelProps={{ style: { fontSize: '14px' } }}
-              />
-            </Box>
-          </Grid> */}
             <Grid item xs={12} sm={3}>
             <TextField
-              id='mobile' 
-              label="amount"
+              id='creditdays' 
+              label="Credit Days"
               fullWidth 
               variant="outlined"
               size='small'
@@ -549,8 +537,8 @@ const Account = () => {
           <Grid item xs={12} sm={3}>
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
               <TextField
-                id="amount"
-                label="Amount"
+                id="creditlimit"
+                label="Credit Limit"
                 variant="outlined"
                 size="small"
                 fullWidth
@@ -560,8 +548,8 @@ const Account = () => {
           </Grid>
           <Grid item xs={12} sm={12}>
             <TextField
-              id="reason"
-              label="Reason"
+              id="address"
+              label="Address"
               variant="outlined"
               size="small"
               fullWidth
@@ -582,31 +570,21 @@ const Account = () => {
           </Grid>
           <Grid item xs={12} sm={6}>
             <FormControl variant="outlined" size="small" fullWidth>
-              <InputLabel id="genderLabel"></InputLabel>
+              <InputLabel id="genderLabel">Mode</InputLabel>
               <Select
                 labelId="genderLabel"
                 id="gender"
                 label="Gender"
               >
-                <MenuItem value="M">Male</MenuItem>
-                <MenuItem value="F">Female</MenuItem>
+                <MenuItem value="M">DIRECT</MenuItem>
+                <MenuItem value="F">MOBILE</MenuItem>
                 <MenuItem value="O">Other</MenuItem>
               </Select>
             </FormControl>
           </Grid>
-          {/* <Grid item xs={12} sm={6}>
-            <TextField 
-              id='phone'
-              label="phone"
-              fullwidth
-              variant="outlined"
-              size='small'
-              InputLabelProps={{style: {fontSize:'16px'}}}
-            />
-          </Grid> */}
           <Grid item xs={12} sm={6}>
             <TextField
-              id='mobile' 
+              id='phone' 
               label="Phone"
               fullWidth 
               variant="outlined"

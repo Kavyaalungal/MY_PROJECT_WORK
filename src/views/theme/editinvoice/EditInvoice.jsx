@@ -736,42 +736,7 @@ const handleNewButtonClick = () => {
           </Grid>
         </Box>
         <hr/>
-     {/* <CCardHeader> */}
-   
-      {/* <strong style={{ fontSize: '2rem', color: '#523885', fontWeight: 'bold' }}>EDIT INVOICE</strong> */}
-
-            {/* <Grid item xs={12} sm={8} md={6} lg={4}> */}
-          {/* <Box sx={{ display: 'flex', justifyContent: 'flex-end', gap: '16px' }}> */}
-              {/* <CButton color="secondary" onClick={handleNewButtonClick}>NEW</CButton> */}
-              {/* <CButton color="primary" onClick={saveDataToAPI} disabled={!isDataUpdated}>SAVE</CButton> */}
-            {/* <CButton color="secondary">EXIT</CButton> */}
-          {/* </Box> */}
-        {/* </Grid> */}
-          {/* </CCardHeader> */}
-     {/* <div style={{  minHeight: '100vh', padding: '20px'   }}> */}
-     {/* <Typography
-              variant="h6"
-              sx={{
-                margin: 0,
-                fontSize: '24px',
-                fontWeight: 'bold',
-                color: '#333'
-              }}
-            >
-         EDIT INVOICE
-            </Typography> */}
-      
-        {/* <Grid item xs={12} sm={8} md={6} lg={4}>
-          <Box sx={{ display: 'flex', justifyContent: 'center', gap: '16px', marginBottom: '20px' }}>
-              <CButton color="secondary" onClick={handleNewButtonClick}>NEW</CButton>
-              <CButton color="primary" onClick={saveDataToAPI} disabled={!isDataUpdated}>SAVE</CButton>
-            <CButton color="secondary">EXIT</CButton>
-          </Box>
-        </Grid> */}
-     
-    {/* <Container component="main" maxWidth="md" > */}
-      {/* <Paper elevation={3} style={{ padding: '16px', borderRadius: '15px' }}> */}
-        <Grid container spacing={2}>
+     <Grid container spacing={2}>
           <Grid item xs={12} sm={6}>
               <TextField
                 id="labno"
@@ -1292,11 +1257,8 @@ const handleNewButtonClick = () => {
             </>
           )}
           </Grid>
-      {/* </Paper> */}
-    {/* </Container> */}
      {/* <ToastContainer /> */}
      <ToastContainer position="top-center" autoClose={3000} hideProgressBar />
-    {/* </div> */}
     </CCardBody>
     </CCard>
     </>

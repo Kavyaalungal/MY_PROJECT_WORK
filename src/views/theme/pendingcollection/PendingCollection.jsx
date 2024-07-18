@@ -77,35 +77,6 @@ const PendingCollection = () => {
           </Grid>
         </Box>
         <hr/>
-        {/* <CCardHeader>
-      <strong style={{ fontSize: '2rem',  color: '#523885', fontWeight: 'bold' }}>PENDING COLLECTION</strong>
-    </CCardHeader> */}
-    {/* <div style={{ minHeight: '100vh', padding: '20px' }}> */}
-    
-      {/* <Container maxWidth="lg"> */}
-        {/* <Grid container alignItems="center" spacing={2} style={{ marginBottom: '20px' }}> */}
-          {/* <Grid item xs={12} sm={6}>
-            <Typography
-              variant="h6"
-              sx={{
-                margin: 0,
-                fontSize: '24px',
-                fontWeight: 'bold',
-                color: '#333'
-              }}
-            >
-              PENDING COLLECTION
-            </Typography>
-          </Grid> */}
-          {/* <Grid item xs={12} sm={6}> */}
-            {/* <Box sx={{ display: 'flex', justifyContent: 'flex-start', gap: '16px', flexWrap: 'wrap' }}> */}
-              {/* <CButton color="primary">PRINT</CButton> */}
-              {/* <CButton color="secondary">SAVE</CButton> */}
-              {/* <CButton color="primary">EXIT</CButton> */}
-            {/* </Box> */}
-          {/* </Grid> */}
-        {/* </Grid> */}
-
         {/* Form and Table */}
         <Grid container spacing={2}>
           {/* Left side - Form */}
@@ -429,9 +400,6 @@ const PendingCollection = () => {
             </Paper>
           </Grid>
         </Grid>
-     
-      {/* </Container> */}
-    {/* </div> */}
     </CCardBody>
     </CCard>
   );
