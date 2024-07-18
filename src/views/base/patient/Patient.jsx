@@ -3,7 +3,7 @@
   import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
   import axios from 'axios';
-  import { CCard, CCardHeader } from '@coreui/react';
+  import { CCard, CCardHeader,CCardBody,CButton } from '@coreui/react';
 
     const Patient = () => {
       // declaring state variables needed
@@ -90,19 +90,19 @@
       console.log('Response from fetchPatientDetails:', response); // Log API response for debugging
 
       if (response.data && response.data.patDetails) { // if response data exists and patdetils is not null then spreading the details and also normalizing the title
-        const { patDetails } = response.data;
+        const { patDetails } = response.data; // destructuring the patientdetails from response.data
 
         // Function to trim string values and remove commas
-        const trimStrings = (obj) => {
-          const trimmedObj = {};
-          Object.keys(obj).forEach(key => {
-            if (typeof obj[key] === 'string') {
-              trimmedObj[key] = obj[key].trim().replace(/\s*,\s*/g, ','); 
+        const trimStrings = (obj) => { // obj is passed as an argument to trimStrings function
+          const trimmedObj = {}; // an empty is created to store the  processed key value pairs
+          Object.keys(obj).forEach(key => { // iterate over each key in obj object
+            if (typeof obj[key] === 'string') { // checks if the value associated with the key of the type is string 
+              trimmedObj[key] = obj[key].trim().replace(/\s*,\s*/g, ','); // remove all the white spaces around it replace with th regular expression trim all spaces before and after comma
             } else {
-              trimmedObj[key] = obj[key];
+              trimmedObj[key] = obj[key];  //if it is not string directly assigned to the key in trimmedObj without any modification
             }
           });
-          return trimmedObj;
+          return trimmedObj;// return the trimmed object
         };
         
 
@@ -385,11 +385,61 @@ const handleSaveOrUpdate = async () => {
       return (
         <>
           <CCard className="mb-4">
-            <CCardHeader>
+          <CCardBody>
+        <Box sx={{ padding: 2 }}>
+          <Grid container spacing={2} alignItems="center">
+            <Grid item xs={12} md={8}>
+              <Typography
+                variant="h6"
+                sx={{
+                  margin: 0,
+                  fontSize: '24px',
+                  fontWeight: 'bold',
+                  color: ' #599eb4 ',
+                }}
+              >
+                PATIENT REGISTRATION
+              </Typography>
+            </Grid>
+            {/* <Grid item xs={12} md={4}>
+              <Box sx={{ display: 'flex', justifyContent: { xs: 'center', md: 'flex-end' }, gap: '16px' }}>
+                <CButton
+                  color='primary'
+                  style={{
+                    width: '100%',
+                    maxWidth: { xs: '100%', sm: 'auto' },
+                  }}
+                >
+                  NEW
+                </CButton>
+                <CButton
+                  color="primary"
+                  style={{
+                    width: '100%',
+                    maxWidth: { xs: '100%', sm: 'auto' },
+                  }}
+                >
+                  SAVE
+                </CButton>
+                <CButton
+                  color="primary"
+                  style={{
+                    width: '100%',
+                    maxWidth: { xs: '100%', sm: 'auto' },
+                  }}
+                >
+                  EXIT
+                </CButton>
+              </Box>
+            </Grid> */}
+          </Grid>
+        </Box>
+        <hr/>
+            {/* <CCardHeader>
               <strong style={{ fontSize: '2rem', color: '#523885', fontWeight: 'bold' }}>PATIENT REGISTRATION</strong>
-            </CCardHeader>
-            <div style={{ minHeight: '100vh', padding: '20px' }}>
-              <Container component="main" maxWidth="md">
+            </CCardHeader> */}
+            {/* <div style={{ minHeight: '100vh', padding: '20px' }}> */}
+              {/* <Container component="main" maxWidth="md"> */}
                 <Grid container spacing={2}>
                 <Grid item xs={12} sm={4}>
                   <FormControl fullWidth variant="outlined" sx={{ height: '40px', marginBottom: '25px' }}>
@@ -719,10 +769,11 @@ const handleSaveOrUpdate = async () => {
     </Grid>
   </Grid>
 
-             </Container>
+             {/* </Container> */}
              {/* <ToastContainer/> */}
               <ToastContainer position="top-center" autoClose={3000} hideProgressBar />
-            </div>
+            {/* </div> */}
+            </CCardBody>
           </CCard>
         </>
       );

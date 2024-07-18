@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Grid, Paper, TextField, Typography, FormControl, InputLabel, Select, MenuItem, TableContainer, Table, TableHead, TableBody, TableRow, TableCell, Box, FormGroup, FormControlLabel, Checkbox } from '@mui/material';
-import { CButton, CCard, CCardHeader } from '@coreui/react';
+import { CButton, CCard, CCardHeader,CCardBody } from '@coreui/react';
 
 const PendingCollection = () => {
   const [error, setError] = useState('');
@@ -27,13 +27,63 @@ const PendingCollection = () => {
 
   return (
     <CCard className="mb-4">
-        <CCardHeader>
+        <CCardBody>
+        <Box sx={{ padding: 2 }}>
+          <Grid container spacing={2} alignItems="center">
+            <Grid item xs={12} md={8}>
+              <Typography
+                variant="h6"
+                sx={{
+                  margin: 0,
+                  fontSize: '24px',
+                  fontWeight: 'bold',
+                  color: ' #599eb4 ',
+                }}
+              >
+                CANCEL INVOICE
+              </Typography>
+            </Grid>
+            <Grid item xs={12} md={4}>
+              <Box sx={{ display: 'flex', justifyContent: { xs: 'center', md: 'flex-end' }, gap: '16px' }}>
+                <CButton
+                  color='primary'
+                  style={{
+                    width: '100%',
+                    maxWidth: { xs: '100%', sm: 'auto' },
+                  }}
+                >
+                  NEW
+                </CButton>
+                <CButton
+                  color="primary"
+                  style={{
+                    width: '100%',
+                    maxWidth: { xs: '100%', sm: 'auto' },
+                  }}
+                >
+                  SAVE
+                </CButton>
+                <CButton
+                  color="primary"
+                  style={{
+                    width: '100%',
+                    maxWidth: { xs: '100%', sm: 'auto' },
+                  }}
+                >
+                  EXIT
+                </CButton>
+              </Box>
+            </Grid>
+          </Grid>
+        </Box>
+        <hr/>
+        {/* <CCardHeader>
       <strong style={{ fontSize: '2rem',  color: '#523885', fontWeight: 'bold' }}>PENDING COLLECTION</strong>
-    </CCardHeader>
-    <div style={{ minHeight: '100vh', padding: '20px' }}>
+    </CCardHeader> */}
+    {/* <div style={{ minHeight: '100vh', padding: '20px' }}> */}
     
-      <Container maxWidth="lg">
-        <Grid container alignItems="center" spacing={2} style={{ marginBottom: '20px' }}>
+      {/* <Container maxWidth="lg"> */}
+        {/* <Grid container alignItems="center" spacing={2} style={{ marginBottom: '20px' }}> */}
           {/* <Grid item xs={12} sm={6}>
             <Typography
               variant="h6"
@@ -47,14 +97,14 @@ const PendingCollection = () => {
               PENDING COLLECTION
             </Typography>
           </Grid> */}
-          <Grid item xs={12} sm={6}>
-            <Box sx={{ display: 'flex', justifyContent: 'flex-start', gap: '16px', flexWrap: 'wrap' }}>
-              <CButton color="primary">PRINT</CButton>
-              <CButton color="secondary">SAVE</CButton>
-              <CButton color="primary">EXIT</CButton>
-            </Box>
-          </Grid>
-        </Grid>
+          {/* <Grid item xs={12} sm={6}> */}
+            {/* <Box sx={{ display: 'flex', justifyContent: 'flex-start', gap: '16px', flexWrap: 'wrap' }}> */}
+              {/* <CButton color="primary">PRINT</CButton> */}
+              {/* <CButton color="secondary">SAVE</CButton> */}
+              {/* <CButton color="primary">EXIT</CButton> */}
+            {/* </Box> */}
+          {/* </Grid> */}
+        {/* </Grid> */}
 
         {/* Form and Table */}
         <Grid container spacing={2}>
@@ -380,8 +430,9 @@ const PendingCollection = () => {
           </Grid>
         </Grid>
      
-      </Container>
-    </div>
+      {/* </Container> */}
+    {/* </div> */}
+    </CCardBody>
     </CCard>
   );
 };

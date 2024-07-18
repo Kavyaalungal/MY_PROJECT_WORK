@@ -3,7 +3,7 @@ import axios from 'axios';
 import { TextField, Button, Grid, Box, Typography, FormControl, InputLabel, Select, MenuItem, Autocomplete, FormControlLabel, FormGroup, Checkbox, Container, Paper } from '@mui/material';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { CButton, CCard, CCardHeader } from '@coreui/react';
+import { CButton, CCard, CCardHeader,CCardBody } from '@coreui/react';
 
 const EditInvoice= () => {
   // state variables declared for inputing and editing the form 
@@ -684,19 +684,71 @@ const handleNewButtonClick = () => {
   return (
     <>
      <CCard className="mb-4">
-     <CCardHeader>
+     <CCardBody>
+        <Box sx={{ padding: 2 }}>
+          <Grid container spacing={2} alignItems="center">
+            <Grid item xs={12} md={8}>
+              <Typography
+                variant="h6"
+                sx={{
+                  margin: 0,
+                  fontSize: '24px',
+                  fontWeight: 'bold',
+                  color: ' #599eb4 ',
+                }}
+              >
+                EDIT INVOICE
+              </Typography>
+            </Grid>
+            <Grid item xs={12} md={4}>
+              <Box sx={{ display: 'flex', justifyContent: { xs: 'center', md: 'flex-end' }, gap: '16px' }}>
+                <CButton
+                  color='secondary'
+                  style={{
+                    width: '100%',
+                    maxWidth: { xs: '100%', sm: 'auto' },
+                  }}
+                  onClick={handleNewButtonClick}
+                >
+                  NEW
+                </CButton>
+                <CButton
+                  color="primary"
+                  style={{
+                    width: '100%',
+                    maxWidth: { xs: '100%', sm: 'auto' },
+                  }}
+                  onClick={saveDataToAPI} disabled={!isDataUpdated}
+                >
+                  SAVE
+                </CButton>
+                <CButton
+                  color="secondary"
+                  style={{
+                    width: '100%',
+                    maxWidth: { xs: '100%', sm: 'auto' },
+                  }}
+                >
+                  EXIT
+                </CButton>
+              </Box>
+            </Grid>
+          </Grid>
+        </Box>
+        <hr/>
+     {/* <CCardHeader> */}
    
-      <strong style={{ fontSize: '2rem', color: '#523885', fontWeight: 'bold' }}>EDIT INVOICE</strong>
+      {/* <strong style={{ fontSize: '2rem', color: '#523885', fontWeight: 'bold' }}>EDIT INVOICE</strong> */}
 
             {/* <Grid item xs={12} sm={8} md={6} lg={4}> */}
-          <Box sx={{ display: 'flex', justifyContent: 'flex-end', gap: '16px' }}>
-              <CButton color="secondary" onClick={handleNewButtonClick}>NEW</CButton>
-              <CButton color="primary" onClick={saveDataToAPI} disabled={!isDataUpdated}>SAVE</CButton>
-            <CButton color="secondary">EXIT</CButton>
-          </Box>
+          {/* <Box sx={{ display: 'flex', justifyContent: 'flex-end', gap: '16px' }}> */}
+              {/* <CButton color="secondary" onClick={handleNewButtonClick}>NEW</CButton> */}
+              {/* <CButton color="primary" onClick={saveDataToAPI} disabled={!isDataUpdated}>SAVE</CButton> */}
+            {/* <CButton color="secondary">EXIT</CButton> */}
+          {/* </Box> */}
         {/* </Grid> */}
-          </CCardHeader>
-     <div style={{  minHeight: '100vh', padding: '20px'   }}>
+          {/* </CCardHeader> */}
+     {/* <div style={{  minHeight: '100vh', padding: '20px'   }}> */}
      {/* <Typography
               variant="h6"
               sx={{
@@ -717,8 +769,8 @@ const handleNewButtonClick = () => {
           </Box>
         </Grid> */}
      
-    <Container component="main" maxWidth="md" >
-      <Paper elevation={3} style={{ padding: '16px', borderRadius: '15px' }}>
+    {/* <Container component="main" maxWidth="md" > */}
+      {/* <Paper elevation={3} style={{ padding: '16px', borderRadius: '15px' }}> */}
         <Grid container spacing={2}>
           <Grid item xs={12} sm={6}>
               <TextField
@@ -1240,11 +1292,12 @@ const handleNewButtonClick = () => {
             </>
           )}
           </Grid>
-      </Paper>
-    </Container>
+      {/* </Paper> */}
+    {/* </Container> */}
      {/* <ToastContainer /> */}
      <ToastContainer position="top-center" autoClose={3000} hideProgressBar />
-    </div>
+    {/* </div> */}
+    </CCardBody>
     </CCard>
     </>
   );
