@@ -520,7 +520,7 @@ const Bill = () => {
           <Grid item xs={12} md={4}>
             <Box sx={{ display: 'flex', justifyContent: { xs: 'center', md: 'flex-end' }, gap: '16px' }}>
               <CButton
-                color='primary'
+                color='secondary'
                 style={{
                   width: '100%',
                   maxWidth: { xs: '100%', sm: 'auto' },
