@@ -9,7 +9,6 @@ import { CButton, CCard, CCardHeader,CCardBody } from '@coreui/react';
 const Cancelinvoice= () => {
 // initializing state variables to manage form data  and request parameters 
   const initialFormData = {
- 
     PatTitle: '',
     BillDate: '',
     PatName: '',
@@ -37,17 +36,23 @@ const Cancelinvoice= () => {
     CancelDate:'',
     Reason:''
   };
-
-  const [formData, setFormData] = useState(initialFormData);
-
-  const clearDetails = () => {
-    setFormData(initialFormData);
-  };
-  const [params, setParams] = useState({
+  const initialParams = {
     LabNo: '',
     YrId: 2324,
     CmId: 2
-  });
+  };
+
+  const [formData, setFormData] = useState(initialFormData);
+   const [params, setParams] = useState(initialParams);
+  const clearDetails = () => {
+    setFormData(initialFormData);
+     setParams(initialParams); 
+  };
+  // const [params, setParams] = useState({
+  //   LabNo: '',
+  //   YrId: 2324,
+  //   CmId: 2
+  // });
   // useEffect(() => {
   //   const currentDate = new Date().toISOString().split('T')[0];
   //   console.log('Setting CancelDate in useEffect:', currentDate);
@@ -116,7 +121,7 @@ const Cancelinvoice= () => {
 
   const handleSave = () => {
     console.log('Form Data before save:', formData); // Check if CancelDate is correct
-    const { PatName, CancelDate, LabNo, Reason,cmpyid,yrid } = formData;
+    const { PatName, CancelDate, LabNo, Reason,cmpyid,yrid,PatPhone, PatEmail, PatAgedd, PatAgemm, PatAgeyy } = formData;
     const finalCancelDate = CancelDate || new Date().toISOString().split('T')[0];
     console.log('Final CancelDate:', finalCancelDate);
     console.log('Data being sent :', {
@@ -135,6 +140,43 @@ const Cancelinvoice= () => {
       console.error('Validation failed: Reason field is empty');
       toast.error('Please provide a reason.');
       return;
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (PatEmail && !emailRegex.test(PatEmail)) {
+      console.error('Validation failed: Invalid email format');
+      toast.error('Please provide a valid email address.');
+      return;
+    }
+  
+    // Validate Phone Number
+    const phoneRegex = /^[0-9]{10,15}$/; // Adjust the regex as needed for your phone number format
+    if (PatPhone && !phoneRegex.test(PatPhone)) {
+      console.error('Validation failed: Invalid phone number');
+      toast.error('Please provide a valid phone number.');
+      return;
+    }
+  
+    // Validate Age
+    const calculateAge = (dd, mm, yyyy) => {
+      const today = new Date();
+      const birthDate = new Date(`${yyyy}-${mm}-${dd}`);
+      const age = today.getFullYear() - birthDate.getFullYear();
+      const monthDifference = today.getMonth() - birthDate.getMonth();
+      
+      if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+      }
+      
+      return age;
+    };
+  
+    if (PatAgedd && PatAgemm && PatAgeyy) {
+      const age = calculateAge(PatAgedd, PatAgemm - 1, PatAgeyy); // Months are zero-indexed in Date object
+      if (age > 100) {
+        console.error('Validation failed: Age is greater than 100');
+        toast.error('Age cannot be greater than 100.');
+        return;
+      }
     }
   
     // Create a new object with only the required fields
@@ -238,7 +280,7 @@ const Cancelinvoice= () => {
       value={formData.BillDate}
        type="datetime-local"
       InputLabelProps={{ shrink: true }}
-      style={{ marginTop: '10px' }}
+      // style={{ marginTop: '2px' }}
     />
      </Grid>
             <Grid item xs={12} sm={2}>
@@ -521,12 +563,12 @@ const Cancelinvoice= () => {
 />
 
             </Grid>
-            <TextField
+            {/* <TextField
   id="CancelDate"
   value={formData.CancelDate || ''} // Ensure value is set correctly
   onChange={handleFormChange}
   type="hidden" // Make the field hidden
-/>
+/> */}
 
         
 
