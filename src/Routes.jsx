@@ -6,6 +6,7 @@ const EditInvoice = React.lazy(() => import('./views/theme/editinvoice/EditInvoi
 const BillWise = React.lazy(() => import('./views/base/billwise/Bill.jsx'))
 const PatientBill = React.lazy(() => import('./views/base/patientviews/PatientBill.jsx'))
 const Account = React.lazy(()=> import('./views/base/account/Account.jsx'))
+const Cashpayment = React.lazy(()=>import('./views/base/cashpayment/Cashpayment.jsx'))
 
 // Base
 const Patient = React.lazy(() => import('./views/base/patient/Patient.jsx'))
@@ -32,7 +33,8 @@ const routes = [
   { path: '/cancelinvoice', name: 'Cancelinvoice', element: Cancelinvoice },
   {path: '/billwise' , name:'Billwise Collection' , element: BillWise},
   {path: '/patientbill', name:'Patient Views', element:PatientBill},
-  {path: 'account',name:'Account Ledger',element:Account},
+  {path: '/account',name:'Account Ledger',element:Account},
+  {path:'/cashpayment',name:'Cash Payment', element:Cashpayment},
   { path: '/base/spinners', name: 'Spinners', element: Spinners },
  
   { path: '/buttons', name: 'Buttons', element: Buttons, exact: true },

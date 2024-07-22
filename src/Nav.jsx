@@ -7,8 +7,8 @@ import {
 cilSpeedometer,
 cilBackspace,
 cilBarcode,
-cilAddressBook
-  
+cilAddressBook,
+cilCash 
 } from '@coreui/icons'
 import {  CNavItem } from '@coreui/react'
 
@@ -70,6 +70,12 @@ const _nav = [
   to:'/account',
   icon: <CIcon icon={cilGroup} customClassName="nav-icon"/>,
 },
+{
+  component:CNavItem,
+  name:'Cash Payment',
+  to:'/cashpayment',
+  icon:<CIcon icon={cilCash} customClassName="nav-icon"/>
+}
 ]
 
 export default _nav
