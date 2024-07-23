@@ -788,7 +788,7 @@ const handleNewButtonClick = () => {
         </Grid>
           <Grid container spacing={2}>
           {error && <Typography variant="body2" color="error">{error}</Typography>}
-          {/* {invoiceData && ( */}
+          {invoiceData && (
              <>
           <Grid item xs={12} sm={6}>
               <TextField
@@ -797,14 +797,13 @@ const handleNewButtonClick = () => {
                 variant="outlined"
                 size="small"
                 fullWidth
-                // value={labNo}
-                value={invoiceData ? invoiceData.labNo : ''}
+                value={labNo}
                 onChange={(e) => setLabNo(e.target.value)}
                 InputLabelProps={{ style: { fontSize: '16px' } }}
                  style={{ marginTop: '10px' }}
               />
             </Grid>
-            {/* <Grid item xs={12} sm={6}>
+            <Grid item xs={12} sm={6}>
             <TextField
       id="invDateTime"
       label="Date"
@@ -1254,9 +1253,9 @@ const handleNewButtonClick = () => {
                 onChange={(e) => setNotes(e.target.value)}
                 InputLabelProps={{ style: { fontSize: '16px' } }}
               />
-            </Grid> */}
+            </Grid>
             </>
-          {/* )} */}
+          )}
           </Grid>
      {/* <ToastContainer /> */}
      <ToastContainer position="top-center" autoClose={3000} hideProgressBar />

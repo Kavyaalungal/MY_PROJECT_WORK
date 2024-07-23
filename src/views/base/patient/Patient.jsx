@@ -4,9 +4,12 @@
   import CloseIcon from '@mui/icons-material/Close';
   import 'react-toastify/dist/ReactToastify.css';
   import axios from 'axios';
-  import { CCard, CCardHeader,CCardBody,CButton } from '@coreui/react';
+  import { CCard, CCardHeader,CCardBody,CButton, CModal, CModalHeader, CModalTitle, CModalBody } from '@coreui/react';
 
     const Patient = () => {
+      const [visibleXL, setVisibleXL] = useState(false)
+const [visibleLg, setVisibleLg] = useState(false)
+const [visibleSm, setVisibleSm] = useState(false)
       // declaring state variables needed
       const [searchCriteria, setSearchCriteria] = useState('Patient ID'); // state variable for the searchcrieteria ie, whether it is name,id,email,phone
       const [searchValue, setSearchValue] = useState('');// state variable for searchitem value depends on the search criteria
@@ -343,9 +346,27 @@ const handleSaveOrUpdate = async () => {
       );
       };
 
-      return (
-        <>
-          <CCard className="mb-4">
+      
+
+
+
+return (
+  <>
+    {/* <CButton color="primary" onClick={() => setVisibleXL(!visibleXL)}>Extra large modal</CButton> */}
+    <CButton color="primary" onClick={() => setVisibleLg(!visibleLg)}>PATIENT REGISTRATION</CButton>
+ 
+
+    <CModal
+      size="lg"
+      visible={visibleLg}
+      onClose={() => setVisibleLg(false)}
+      aria-labelledby="OptionalSizesExample2"
+    >
+      <CModalHeader>
+        <CModalTitle id="OptionalSizesExample2">PATIENT REGISTRATION</CModalTitle>
+      </CModalHeader>
+      <CModalBody>
+      <CCard className="mb-4">
           <CCardBody>
           <Box sx={{ border: '1px solid #ccc', borderRadius: 2, backgroundColor: '#fff', width: '100%', margin: '0 auto' }}>
              <Box
@@ -358,35 +379,16 @@ const handleSaveOrUpdate = async () => {
                  padding: '8px 16px',
                }}
              >
-               <Typography variant="h6" sx={{ margin: 0, fontSize: '24px', fontWeight: 'bold' }}>
+               <Typography variant="h6" sx={{ margin: 0, fontSize: '24px', fontWeight: 'bold'}}>
                  PATIENT REGISTRATION
                </Typography>
-               <IconButton size="small" sx={{ color: '#fff' }} onClick={resetForm}>
+               {/* <IconButton size="small" sx={{ color: '#fff' }} onClick={resetForm}>
                  <CloseIcon />
-               </IconButton>
+               </IconButton> */}
            </Box>
   
     </Box>
-        {/* <Box>
-          <Grid container spacing={2} alignItems="center">
-            <Grid item xs={12} md={8}>
-              <Typography
-                variant="h6"
-                sx={{
-                  margin: 0,
-                  fontSize: '24px',
-                  fontWeight: 'bold',
-                  color: ' #fff ',
-                  backgroundColor:' #599eb4',
-                
-                }}
-              >
-                PATIENT REGISTRATION
-              </Typography>
-            </Grid>
-          
-          </Grid>
-        </Box> */}
+
         <hr/>
         <Box sx={{ border: '1px solid #ddd', padding: '16px', borderRadius: '8px',marginBottom:'10px' }}>
                 <Grid container spacing={2}>
@@ -714,53 +716,19 @@ const handleSaveOrUpdate = async () => {
                 </Button>
               </Grid>
             </Grid>
-   {/* <Grid container spacing={2} justifyContent="flex-end">
-    <Grid item>
-      {!isEditMode ? (
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={() => setIsEditMode(true)}
-          sx={{ marginTop: 2 }} // Adds margin top
-        >
-          Edit
-        </Button>
-      ) : (
-        <>
-         <Button
-           variant="contained"
-            onClick={() => setIsEditMode(false)}
-            sx={{ marginTop: 2, marginRight: 1 }} 
-         >
-           Cancel
-          </Button>
-         <Button
-            variant="contained"
-            color="primary"
-            onClick={handleSaveOrUpdate}
-            sx={{ marginTop: 2 }} 
-          >
-            Save
-          </Button>
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={resetForm}
-            sx={{ marginTop: 2, marginLeft: 2 }} 
-         >
-            NEW
-         </Button>
-        </>
-      )}
-    </Grid>
-  </Grid> */}
   
               <ToastContainer position="top-center" autoClose={3000} hideProgressBar />
             {/* </div> */}
             </CCardBody>
           </CCard>
-        </>
-      );
+      </CModalBody>
+    </CModal>
+
+    
+  </>
+)
+          
+      
     };
 
  export default Patient;

@@ -12,7 +12,10 @@ cilCash
 } from '@coreui/icons'
 import {  CNavItem } from '@coreui/react'
 
-const _nav = [
+const _nav =
+
+
+[
   {
     component: CNavItem,
     name: 'Dashboard',
