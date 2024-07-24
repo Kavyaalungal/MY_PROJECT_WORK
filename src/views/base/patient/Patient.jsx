@@ -5,7 +5,7 @@
   import 'react-toastify/dist/ReactToastify.css';
   import axios from 'axios';
   import { CCard, CCardHeader,CCardBody,CButton, CModal, CModalHeader, CModalTitle, CModalBody } from '@coreui/react';
-
+  import './Patient.css';
     const Patient = () => {
       const [visibleXL, setVisibleXL] = useState(false)
 const [visibleLg, setVisibleLg] = useState(false)
@@ -362,13 +362,13 @@ return (
       onClose={() => setVisibleLg(false)}
       aria-labelledby="OptionalSizesExample2"
     >
-      <CModalHeader>
-        <CModalTitle id="OptionalSizesExample2">PATIENT REGISTRATION</CModalTitle>
+      <CModalHeader className="custom-modal-header">
+        <CModalTitle id="OptionalSizesExample2"  className="custom-modal-title">Patient Registration</CModalTitle>
       </CModalHeader>
       <CModalBody>
-      <CCard className="mb-4">
+      {/* <CCard className="mb-4"> */}
           <CCardBody>
-          <Box sx={{ border: '1px solid #ccc', borderRadius: 2, backgroundColor: '#fff', width: '100%', margin: '0 auto' }}>
+          {/* <Box sx={{ border: '1px solid #ccc', borderRadius: 2, backgroundColor: '#fff', width: '100%', margin: '0 auto' }}>
              <Box
                sx={{
                  backgroundColor: '#3095E5',
@@ -382,15 +382,13 @@ return (
                <Typography variant="h6" sx={{ margin: 0, fontSize: '24px', fontWeight: 'bold'}}>
                  PATIENT REGISTRATION
                </Typography>
-               {/* <IconButton size="small" sx={{ color: '#fff' }} onClick={resetForm}>
-                 <CloseIcon />
-               </IconButton> */}
+             
            </Box>
   
     </Box>
 
-        <hr/>
-        <Box sx={{ border: '1px solid #ddd', padding: '16px', borderRadius: '8px',marginBottom:'10px' }}>
+        <hr/> */}
+        {/* <Box sx={{ border: '1px solid #ddd', padding: '16px', borderRadius: '8px',marginBottom:'10px' }}> */}
                 <Grid container spacing={2}>
                 
                 <Grid item xs={12} sm={4}>
@@ -425,7 +423,7 @@ return (
                        variant="outlined"
                         size="small"
                         fullWidth
-                        InputLabelProps={{ style: { fontSize: '14px' } }} 
+                        InputLabelProps={{ style: { fontSize: '1rem',} }} 
                         InputProps={{
                           ...params.InputProps,
                            style: { marginBottom:'20px' }, 
@@ -442,7 +440,7 @@ return (
                 </Grid>
              
                 </Grid>
-                </Box>
+                {/* </Box> */}
                 {/* {patientDetails && ( */}
                 <Box sx={{ border: '1px solid #ddd', padding: '16px', borderRadius: '8px',marginBottom:'10px' }}>
                   <Grid container spacing={2}>
@@ -499,7 +497,7 @@ return (
                         // helperText={errors.Patient_Name}
                       />
                     </Grid>
-                  <Grid item xs={12} sm={1}>
+                  {/* <Grid item xs={12} sm={1}>
                        <Typography
                          style={{
                            color: 'rgba(0, 0, 0, 0.6)',
@@ -511,28 +509,28 @@ return (
                         >
                           Age:
                         </Typography>
-                     </Grid>                     
+                     </Grid>                      */}
                      <Grid item container xs={12} sm={7} spacing={1}>
-                        <Grid item xs={3}>
-                         <TextField
-                          id="dd"
-                            label="Day"                          
+                     <Grid item xs={3}>
+                          <TextField
+                            id="yyyy"
+                            label="Age year"
                             variant="outlined"
-                           size="small"
-                          fullWidth
-                          value={patientDetails ? patientDetails.Patient_Agedd : ''}    
-                          // value={patientDetails.Patient_Agedd}                         
-                          onChange={(e) => {
-                           setPatientDetails({ ...patientDetails, Patient_Agedd: e.target.value });
-                           setErrors((prevErrors) => ({ ...prevErrors, Patient_Age: '' }));
-                         }}
-                            InputLabelProps={{ style: { fontSize: '14px' } }}
+                            size="small"
+                            value={patientDetails ? patientDetails.Patient_Ageyy : ''}    
+                            // value={patientDetails.Patient_Ageyy}
+                            onChange={(e) => {
+                             setPatientDetails({ ...patientDetails, Patient_Ageyy: e.target.value });
+                             setErrors((prevErrors) => ({ ...prevErrors, Patient_Age: '' }));
+                           }}
+                            fullWidth
+                            InputLabelProps={{ style: { fontSize: '1rem' } }}
                             // disabled={!isEditMode} 
                             error={!!errors.Patient_Age}
                             helperText={errors.Patient_Age}
-                          />
+                         />
                         </Grid>
-                       <Grid item xs={3}>
+                        <Grid item xs={3}>
                           <TextField
                             id="mm"
                             label="Month"
@@ -551,25 +549,27 @@ return (
                             helperText={errors.Patient_Age}
                           />
                         </Grid>
+                        
                         <Grid item xs={3}>
-                          <TextField
-                            id="yyyy"
-                            label="Year"
+                         <TextField
+                          id="dd"
+                            label="Day"                          
                             variant="outlined"
-                            size="small"
-                            value={patientDetails ? patientDetails.Patient_Ageyy : ''}    
-                            // value={patientDetails.Patient_Ageyy}
-                            onChange={(e) => {
-                             setPatientDetails({ ...patientDetails, Patient_Ageyy: e.target.value });
-                             setErrors((prevErrors) => ({ ...prevErrors, Patient_Age: '' }));
-                           }}
-                            fullWidth
-                            InputLabelProps={{ style: { fontSize: '14px' } }}
+                           size="small"
+                          fullWidth
+                          value={patientDetails ? patientDetails.Patient_Agedd : ''}    
+                          // value={patientDetails.Patient_Agedd}                         
+                          onChange={(e) => {
+                           setPatientDetails({ ...patientDetails, Patient_Agedd: e.target.value });
+                           setErrors((prevErrors) => ({ ...prevErrors, Patient_Age: '' }));
+                         }}
+                            InputLabelProps={{ style: { fontSize: '1rem' } }}
                             // disabled={!isEditMode} 
                             error={!!errors.Patient_Age}
                             helperText={errors.Patient_Age}
-                         />
+                          />
                         </Grid>
+                       
                         <Grid item xs={12} sm={3}>
                        <FormControl variant="outlined" size="small" fullWidth>
                           <InputLabel id="genderLabel">Gender</InputLabel>
@@ -720,7 +720,7 @@ return (
               <ToastContainer position="top-center" autoClose={3000} hideProgressBar />
             {/* </div> */}
             </CCardBody>
-          </CCard>
+          {/* </CCard> */}
       </CModalBody>
     </CModal>
 

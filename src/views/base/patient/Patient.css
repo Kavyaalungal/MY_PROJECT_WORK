@@ -1,0 +1,23 @@
+/* .custom-modal-header {
+    background-color: #f5f5f5;
+    color: #333; 
+  
+  }
+  
+  .custom-modal-title {
+    font-size: 1.5rem; 
+    font-weight: bold; 
+  }
+   */
+
+   .custom-modal-header {
+    padding: 0.5rem 1rem; 
+    border-bottom: 1px solid #ddd; 
+    background-color: #3095E5 ;
+    color: #fff;
+  }
+  
+  .custom-modal-title {
+    margin: 0; 
+  }
+  
