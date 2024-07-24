@@ -3,9 +3,13 @@ import axios from 'axios';
 import { TextField, Button, Grid, Box, Typography, FormControl, InputLabel, Select, MenuItem, Autocomplete, FormControlLabel, FormGroup, Checkbox, Container, Paper } from '@mui/material';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { CButton, CCard, CCardHeader,CCardBody } from '@coreui/react';
+import { CButton, CCard, CCardHeader,CCardBody, CModal, CModalHeader, CModalTitle, CModalBody } from '@coreui/react';
 
 const EditInvoice= () => {
+
+
+  const [visibleXL, setVisibleXL] = useState(false)
+  const [visibleLg, setVisibleLg] = useState(false)
   // state variables declared for inputing and editing the form 
   const [labNo, setLabNo] = useState('');
   const [invNo, setInvNo] = useState('');
@@ -681,8 +685,22 @@ const handleNewButtonClick = () => {
   clearDetails();
 };
 
-  return (
-    <>
+ 
+   
+return (
+  <>
+    {/* <CButton color="primary" onClick={() => setVisibleXL(!visibleXL)}>Edit Invoice</CButton> */}
+    <CButton color="primary" onClick={() => setVisibleLg(!visibleLg)}>Edit Invoice</CButton>
+    <CModal
+      size="xl"
+      visible={visibleXL}
+      onClose={() => setVisibleXL(false)}
+      aria-labelledby="OptionalSizesExample1"
+    >
+      <CModalHeader>
+        <CModalTitle id="OptionalSizesExample1">Extra large modal</CModalTitle>
+      </CModalHeader>
+      <CModalBody>   
      <CCard className="mb-4">
      <CCardBody>
         <Box sx={{ padding: 2 }}>
@@ -788,7 +806,7 @@ const handleNewButtonClick = () => {
         </Grid>
           <Grid container spacing={2}>
           {error && <Typography variant="body2" color="error">{error}</Typography>}
-          {/* {invoiceData && ( */}
+          {invoiceData && (
              <>
           <Grid item xs={12} sm={6}>
               <TextField
@@ -804,7 +822,7 @@ const handleNewButtonClick = () => {
                  style={{ marginTop: '10px' }}
               />
             </Grid>
-            {/* <Grid item xs={12} sm={6}>
+            <Grid item xs={12} sm={6}>
             <TextField
       id="invDateTime"
       label="Date"
@@ -1254,16 +1272,610 @@ const handleNewButtonClick = () => {
                 onChange={(e) => setNotes(e.target.value)}
                 InputLabelProps={{ style: { fontSize: '16px' } }}
               />
-            </Grid> */}
+            </Grid>
             </>
-          {/* )} */}
+          )}
           </Grid>
      {/* <ToastContainer /> */}
      <ToastContainer position="top-center" autoClose={3000} hideProgressBar />
     </CCardBody>
-    </CCard>
-    </>
-  );
+    </CCard></CModalBody>
+    </CModal>
+    <CModal
+      size="lg"
+      visible={visibleLg}
+      onClose={() => setVisibleLg(false)}
+      aria-labelledby="OptionalSizesExample2"
+    >
+      <CModalHeader>
+        <CModalTitle id="OptionalSizesExample2">Large modal</CModalTitle>
+      </CModalHeader>
+      <CModalBody>   
+     <CCard className="mb-4">
+     <CCardBody>
+        <Box sx={{ padding: 2 }}>
+          <Grid container spacing={2} alignItems="center">
+            <Grid item xs={12} md={8}>
+              <Typography
+                variant="h6"
+                sx={{
+                  margin: 0,
+                  fontSize: '24px',
+                  fontWeight: 'bold',
+                  color: ' #599eb4 ',
+                }}
+              >
+                EDIT INVOICE
+              </Typography>
+            </Grid>
+            <Grid item xs={12} md={4}>
+              <Box sx={{ display: 'flex', justifyContent: { xs: 'center', md: 'flex-end' }, gap: '16px' }}>
+                <CButton
+                  color='secondary'
+                  style={{
+                    width: '100%',
+                    maxWidth: { xs: '100%', sm: 'auto' },
+                  }}
+                  onClick={handleNewButtonClick}
+                >
+                  NEW
+                </CButton>
+                <CButton
+                  color="primary"
+                  style={{
+                    width: '100%',
+                    maxWidth: { xs: '100%', sm: 'auto' },
+                  }}
+                  onClick={saveDataToAPI} disabled={!isDataUpdated}
+                >
+                  SAVE
+                </CButton>
+                <CButton
+                  color="secondary"
+                  style={{
+                    width: '100%',
+                    maxWidth: { xs: '100%', sm: 'auto' },
+                  }}
+                >
+                  EXIT
+                </CButton>
+              </Box>
+            </Grid>
+          </Grid>
+        </Box>
+        <hr/>
+     <Grid container spacing={2}>
+          <Grid item xs={12} sm={6}>
+              <TextField
+                id="labno"
+                label="Lab No"
+                variant="outlined"
+                size="small"
+                fullWidth
+                value={labNo}
+                onChange={(e) => setLabNo(e.target.value)}
+                InputLabelProps={{ style: { fontSize: '16px' } }}
+                style={{ marginBottom: '10px' }}
+              />
+            </Grid>
+        
+        {/* <Grid item xs={12} sm={6}>
+          <TextField
+          id="branchId"
+                label="Branch Id"
+                variant="outlined"
+                size="small"
+                fullWidth
+                value={branchId}
+                onChange={(e) => setBranchId(e.target.value)}
+                InputLabelProps={{ style: { fontSize: '14px' } }}
+              />
+            </Grid>
+            
+          <Grid item xs={12} sm={6}>
+          <TextField
+                id="yearId"
+                label="Year Id"
+                variant="outlined"
+                size="small"
+                fullWidth
+                value={yearId}
+                onChange={(e) => setYearId(e.target.value)}
+                InputLabelProps={{ style: { fontSize: '14px' } }}
+                style={{ marginBottom: '20px' }}
+              />
+            </Grid> */}
+            <Grid item xs={12} sm={6}>
+               <CButton color="primary" onClick={fetchData}
+               style={{ 
+                marginBottom:'5px'
+               
+              }}
+               >SEARCH</CButton>
+            </Grid>
+        </Grid>
+          <Grid container spacing={2}>
+          {error && <Typography variant="body2" color="error">{error}</Typography>}
+          {invoiceData && (
+             <>
+          <Grid item xs={12} sm={6}>
+              <TextField
+                id="labno"
+                label="Lab No"
+                variant="outlined"
+                size="small"
+                fullWidth
+                // value={labNo}
+                value={invoiceData ? invoiceData.labNo : ''}
+                onChange={(e) => setLabNo(e.target.value)}
+                InputLabelProps={{ style: { fontSize: '16px' } }}
+                 style={{ marginTop: '10px' }}
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+            <TextField
+      id="invDateTime"
+      label="Date"
+      variant="outlined"
+      size="small"
+      fullWidth
+      type="datetime-local"
+      value={invDateTime}
+      onChange={handleDateTimeChange}
+      InputLabelProps={{ shrink: true }}
+      style={{ marginTop: '10px' }}
+    />
+     </Grid>
+            <Grid item xs={12} sm={2}>
+  <FormControl fullWidth variant="outlined" sx={{ width: '100%' , height: '100%' }}  >
+    <InputLabel  sx={{
+    fontSize: '1rem',
+    color: 'rgba(0, 0, 0, 0.6)', 
+    marginTop: '-1px'
+  }}>Prefix</InputLabel>
+    <Select
+      name="prefix"
+      value={prefix}
+      onChange={(e) => setPrefix(e.target.value)}
+      label="Prefix"
+      sx={{ width: '100%',height:'75%' }}>
+       <MenuItem value=""><em>None</em></MenuItem>
+                    <MenuItem value="Mr">Mr</MenuItem>
+                    <MenuItem value="Mrs">Mrs</MenuItem>
+                    <MenuItem value="Ms">Ms</MenuItem>
+                    <MenuItem value="Miss">Miss</MenuItem>
+    </Select>
+  </FormControl>
+</Grid>
+<Grid item xs={12} sm={10}>
+              <TextField
+                id="name"
+                label="Name"
+                variant="outlined"
+                size="small"
+                fullWidth
+                value={name}
+                  onChange={(e) => setName(e.target.value)}
+                InputLabelProps={{ style: { fontSize: '16px' } }}
+              />
+            </Grid>
+        
+            <Grid item xs={12} sm={1}>
+              <Typography
+                variant="body1"
+                gutterBottom
+                sx={{
+                  fontWeight: 'bold',
+                  color: 'rgba(0, 0, 0, 0.7)',
+                  fontSize: '16px',
+                  marginTop: '8px',
+                  textAlign: 'left',
+                }}
+              >
+                Age
+              </Typography>
+            </Grid>
+              <Grid item container xs={12} sm={7} spacing={1}>
+              <Grid item xs={3}>
+              <TextField
+                id="dd"
+                label="Day"
+                variant="outlined"
+                size="small"
+                fullWidth
+                value={day}
+                onChange={(e) => setDay(e.target.value)}
+                InputLabelProps={{ style: { fontSize: '16px' } }}
+              />
+            </Grid>
+            <Grid item xs={3}>
+              <TextField
+                id="mm"
+                label="Month"
+                variant="outlined"
+                size="small"
+                fullWidth
+                value={month}
+                onChange={(e) => setMonth(e.target.value)}
+                InputLabelProps={{ style: { fontSize: '16px' } }}
+              />
+            </Grid>
+            <Grid item xs={3}>
+              <TextField
+                id="yyyy"
+                label="Year"
+                variant="outlined"
+                size="small"
+                fullWidth
+                value={year}
+                onChange={(e) => setYear(e.target.value)}
+                InputLabelProps={{ style: { fontSize: '16px' } }}
+              />
+            </Grid> 
+            <Grid item xs={12} sm={3}>
+                  <FormControl variant="outlined" size="small" fullWidth>
+                    <InputLabel id="genderLabel"
+                    sx={{
+                      fontSize: '1rem',
+                      color: 'rgba(0, 0, 0, 0.6)', 
+                      marginTop: '-1px'
+                    }}>Gender</InputLabel>
+                    <Select
+                      labelId="genderLabel"
+                      id="gender"
+                      value={gender}
+                      onChange={(e) => setGender(e.target.value)}
+                      label="Gender"
+                    >
+                      <MenuItem value=""><em>None</em></MenuItem>
+                      <MenuItem value="M">Male</MenuItem>
+                      <MenuItem value="F">Female</MenuItem>
+                      <MenuItem value="O">Other</MenuItem>
+                    </Select>
+                  </FormControl>
+                </Grid>
+              </Grid>
+              <Grid item xs={12} sm={4}>
+              <TextField
+                id="dob"
+                label="Date of Birth"
+                type="date"
+                variant="outlined"
+                size="small"
+                fullWidth
+                value={dob}
+                onChange={(e) => {
+                  setDob(e.target.value);
+                  calculateAge(e.target.value);
+                }}
+                InputLabelProps={{ shrink: true, style: { fontSize: '16px' } }}
+              />
+            </Grid>
+
+        
+<Grid item xs={12} sm={4}>
+                <TextField
+                  id="phone1"
+                  label="Phone1"
+                  variant="outlined"
+                  size="small"
+                  fullWidth
+                   value={phone1}
+                  onChange={(e) => {
+                    setPhone1(e.target.value)
+                    setIsPhone1Valid(true)
+                  }}
+                  InputLabelProps={{ style: { fontSize: '16px' } }}
+                   error={!isPhone1Valid}
+                   helperText={!isPhone1Valid ? "Invalid Phone number" : ""}
+                />
+              </Grid>
+              <Grid item xs={12} sm={4}>
+              <TextField
+                id="phone2"
+                label="Phone2"
+                variant="outlined"
+                size="small"
+                fullWidth
+                value={phone2}
+                onChange={(e) => {
+                  setPhone2(e.target.value)
+                  setIsPhone2Valid(true)
+                }}
+                InputLabelProps={{ style: { fontSize: '16px' } }}
+                 error={!isPhone2Valid} 
+                 helperText={!isPhone2Valid ? "Invalid Phone number" : ""}
+              />
+            </Grid>
+            <Grid item xs={12} sm={4}>
+              <TextField
+                id="email"
+                label="Email"
+                variant="outlined"
+                size="small"
+                fullWidth
+                 value={email}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                  setIsEmailValid(true);
+                }}
+                InputLabelProps={{ style: { fontSize: '16px' } }}
+                 error={!isEmailValid}
+                 helperText={!isEmailValid ? "Invalid email address" : ""}
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                id="nationality"
+                label="Nationality"
+                variant="outlined"
+                size="small"
+                fullWidth
+                value={nationality}
+                onChange={(e) => setNationality(e.target.value)}
+                InputLabelProps={{ style: { fontSize: '16px' } }}
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                id="address"
+                label="Address"
+                variant="outlined"
+                size="small"
+                fullWidth
+                 value={address}
+                onChange={(e) => setAddress(e.target.value)}
+                InputLabelProps={{ style: { fontSize: '16px' } }}
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+      <Autocomplete
+        freeSolo
+        options={searchResultsRefBy.map((result) => result ? result.AhMst_pName : '')}
+        value={refBy}
+        onInputChange={(event, newValue) => handleSearchChange('RefBy', newValue, setSearchResultsRefBy, setErrorRefBy)}
+        onChange={handleRefByChange}
+        renderInput={(params) => (
+          <TextField
+            {...params}
+            id="refBy"
+            label="Ref By"
+            variant="outlined"
+            size="small"
+            fullWidth
+            // error={!!errorRefBy}
+            // helperText={errorRefBy}
+            disabled={!!outDr}
+            InputLabelProps={{ style: { fontSize: '14px' } }}
+          />
+        )}
+      />
+    </Grid>  
+      <Grid item xs={12} sm={6}>
+        <TextField
+          id="outDr"
+          label="Out Dr"
+          variant="outlined"
+          size="small"
+          fullWidth
+          value={outDr}
+          onChange={handleOutDrChange}
+          disabled={!!refBy} // Disable if Ref By has a value
+          InputLabelProps={{ style: { fontSize: '16px' } }}
+        />
+      </Grid>
+            <Grid item xs={12} sm={6}>
+            <TextField
+                id="passport"
+                label="Passport"
+                variant="outlined"
+                size="small"
+                fullWidth
+                value={passport}
+                onChange={(e) => setPassport(e.target.value)}
+                InputLabelProps={{ style: { fontSize: '16px' } }}
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+            <TextField
+                id="srfno"
+                label="SRF No."
+                variant="outlined"
+                size="small"
+                fullWidth
+                value={srfNo}
+                onChange={(e) => setSrfNo(e.target.value)}
+                InputLabelProps={{ style: { fontSize: '16px' } }}
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+  <Autocomplete
+    freeSolo
+    options={searchResultsBranch.map((result) => result ? result.BrMst_Name : '')}
+    value={branch}
+    onInputChange={(event, newValue) => handleSearchChange('Branch', newValue, setSearchResultsBranch, setErrorBranch)}
+    onChange={handleBranchChange}
+    renderInput={(params) => (
+      <TextField
+        {...params}
+        id="branch"
+        label="Branch"
+        variant="outlined"
+        size="small"
+        fullWidth
+        // error={!!errorBranch}
+        // helperText={errorBranch}
+        InputLabelProps={{ style: { fontSize: '16px' } }}
+      />
+    )}
+  />
+</Grid>
+            <Grid item xs={12} sm={6}>
+            <TextField
+          id="aadhar"
+          label="Aadhar"
+          variant="outlined"
+          size="small"
+          fullWidth
+          value={aadhar}
+          onChange={handleAadharChange}
+          onBlur={handleAadharBlur}
+          InputLabelProps={{ style: { fontSize: '16px' } }}
+          error={!!errorAadhar}
+          helperText={errorAadhar}
+        />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+            <TextField
+                id="wardno"
+                label="Ward No"
+                variant="outlined"
+                size="small"
+                fullWidth
+                value={wardNo}
+                onChange={(e) => setWardNo(e.target.value)}
+                InputLabelProps={{ style: { fontSize: '16px' } }}
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+            <TextField
+                id="ipopno"
+                label="IP/OP NO"
+                variant="outlined"
+                size="small"
+                fullWidth
+                value={ipOpNo}
+                onChange={(e) => setIpOpNo(e.target.value)}
+                InputLabelProps={{ style: { fontSize: '16px' } }}
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+  <Autocomplete
+    freeSolo
+    options={searchResultsCollMode.filter(result => result).map(result => result.Mstr_Desc || '')}
+    value={collMode}
+    onInputChange={(event, newValue) => handleSearchChange('CollMode', newValue, setSearchResultsCollMode, setErrorCollMode)}
+    onChange={handleCollModeChange}
+    renderInput={(params) => (
+      <TextField
+        {...params}
+        id="collMode"
+        label="Coll Mode"
+        variant="outlined"
+        size="small"
+        fullWidth
+        // error={!!errorCollMode}
+        // helperText={errorCollMode}
+        InputLabelProps={{ style: { fontSize: '16px' } }}
+      />
+    )}
+  />
+</Grid>
+
+          <Grid item xs={12} sm={6}>
+        <Autocomplete
+          freeSolo
+          options={searchResultsCollBy.map((result) => result ? result.AhMst_pName : '')}
+          value={collBy}
+          onInputChange={(event, newValue) => handleSearchChange('CollBy', newValue, setSearchResultsCollBy, setErrorCollBy)}
+          onChange={handleCollByChange}
+          renderInput={(params) => (
+            <TextField
+              {...params}
+              id="collBy"
+              label="Coll By"
+              variant="outlined"
+              size="small"
+              fullWidth
+              // error={!!errorCollBy}
+              // helperText={errorCollBy}
+              InputLabelProps={{ style: { fontSize: '16px' } }}
+            />
+          )}
+        />
+      </Grid>
+      <Grid item xs={12} sm={6}>
+  <TextField
+    id="sampleOn"
+    label="Sample On"
+    type="datetime-local"
+    variant="outlined"
+    size="small"
+    fullWidth
+    value={smplDate}
+    onChange={handleSmplDateChange}
+    InputLabelProps={{ shrink: true, style: { fontSize: '16px' } }}
+  />
+</Grid>
+<Grid item xs={12} sm={6}>
+  <TextField
+    id="reportTime"
+    label="Report Time"
+    type="datetime-local"
+    variant="outlined"
+    size="small"
+    fullWidth
+    value={repTime}
+    onChange={handleRepTimeChange}
+    InputLabelProps={{ shrink: true, style: { fontSize: '16px' } }}
+  />
+</Grid>
+        
+            <Grid item xs={12}>
+      <FormControl component="fieldset">
+        <Typography variant="body1" gutterBottom>Report Requested Through</Typography>
+        <FormGroup row>
+          <FormControlLabel
+             control={<Checkbox checked={reportRequestedThrough.personally} onChange={handleCheckboxChange} name="personally" />}
+            label="Personally"
+          />
+           <FormControlLabel
+             control={<Checkbox checked={reportRequestedThrough.courier} onChange={handleCheckboxChange} name="courier" />}
+            label="Courier"
+          />
+          <FormControlLabel
+             control={<Checkbox checked={reportRequestedThrough.phone} onChange={handleCheckboxChange} name="phone" />}
+            label="phone"
+          />
+         
+          <FormControlLabel
+             control={<Checkbox checked={reportRequestedThrough.email} onChange={handleCheckboxChange} name="email" />}
+            label="Email"
+          />
+          <FormControlLabel
+            control={<Checkbox checked={reportRequestedThrough.sms} onChange={handleCheckboxChange} name="sms" />}
+            label="SMS"
+          />
+         
+        </FormGroup>
+      </FormControl>
+      
+    </Grid>
+    <Grid item xs={12} sm={12}>
+              <TextField
+                id="notes"
+                label="Notes"
+                variant="outlined"
+                size="small"
+                fullWidth
+                value={notes}
+                onChange={(e) => setNotes(e.target.value)}
+                InputLabelProps={{ style: { fontSize: '16px' } }}
+              />
+            </Grid>
+            </>
+          )}
+          </Grid>
+     {/* <ToastContainer /> */}
+     <ToastContainer position="top-center" autoClose={3000} hideProgressBar />
+    </CCardBody>
+    </CCard></CModalBody>
+    </CModal>
+ </>
+)
+ 
+    
+  
 };
 
 export default  EditInvoice;

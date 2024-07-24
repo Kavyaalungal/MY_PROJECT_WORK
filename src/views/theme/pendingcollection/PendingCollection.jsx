@@ -32,7 +32,7 @@ const PendingCollection = () => {
 return (
   <>
     <CButton color="primary" onClick={() => setVisibleXL(!visibleXL)}>PENDING COLLECTION</CButton>
-    {/* <CButton color="primary" onClick={() => setVisibleLg(!visibleLg)}>Large modal</CButton> */}
+    <CButton color="primary" onClick={() => setVisibleLg(!visibleLg)}>Large modal</CButton>
    
     <CModal
       size="xl"

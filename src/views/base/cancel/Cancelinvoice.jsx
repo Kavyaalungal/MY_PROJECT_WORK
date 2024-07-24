@@ -163,7 +163,7 @@ const [visibleLg, setVisibleLg] = useState(false)
     const calculateAge = (dd, mm, yyyy) => {
       const today = new Date();
       const birthDate = new Date(`${yyyy}-${mm}-${dd}`);
-      const age = today.getFullYear() - birthDate.getFullYear();
+      let age = today.getFullYear() - birthDate.getFullYear();
       const monthDifference = today.getMonth() - birthDate.getMonth();
       
       if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
@@ -225,7 +225,7 @@ return (
       </CModalHeader>
       <CModalBody> <CCard className="mb-4">
       <CCardBody>
-        <Box sx={{ padding: 2 }}>
+        {/* <Box sx={{ padding: 2 }}>
           <Grid container spacing={2} alignItems="center">
             <Grid item xs={12} md={8}>
               <Typography
@@ -274,7 +274,7 @@ return (
             </Grid>
           </Grid>
         </Box>
-        <hr/>
+        <hr/> */}
   <Grid container spacing={2}>
           <Grid item xs={12} sm={6}>
           <TextField
@@ -598,12 +598,51 @@ return (
     </CCard></CModalBody>
     </CModal>
     <CModal
-      size="lg"
-      visible={visibleLg}
-      onClose={() => setVisibleLg(false)}
-      aria-labelledby="OptionalSizesExample2"
-    >
-      <CModalHeader>
+  size="lg"
+  visible={visibleLg}
+  onClose={() => setVisibleLg(false)}
+  aria-labelledby="OptionalSizesExample2"
+>
+  {/* <CModalHeader>
+    <CModalTitle id="OptionalSizesExample2">Large modal</CModalTitle>
+    <Box sx={{ flexGrow: 1 }} />
+    <Grid container spacing={2}>
+      <Grid item xs={12} md={12}>
+        <Box sx={{ display: 'flex', justifyContent: 'flex-end', gap: '12px' }}>
+          <CButton
+            color="primary"
+            style={{
+              width: 'auto',
+              maxWidth: 'auto',
+            }}
+            onClick={handleSave}
+          >
+            SAVE
+          </CButton>
+          <CButton
+            color="primary"
+            style={{
+              width: 'auto',
+              maxWidth: 'auto',
+            }}
+          >
+            EXIT
+          </CButton>
+          <CButton
+            color="primary"
+            style={{
+              width: 'auto',
+              maxWidth: 'auto',
+            }}
+            onClick={clearDetails}
+          >
+            NEW
+          </CButton>
+        </Box>
+      </Grid>
+    </Grid>
+  </CModalHeader> */}
+  <CModalHeader>
         <CModalTitle id="OptionalSizesExample2">Large modal</CModalTitle>
       </CModalHeader>
       <CModalBody> <CCard className="mb-4">
@@ -994,546 +1033,6 @@ return (
 
 export default  Cancelinvoice;
 
-
-
-
-// Importing necessary conditions for the react component
-// import React, { useState, useEffect } from 'react';
-// import axios from 'axios';
-// import { TextField, Button, Grid, Box, Typography, FormControl, InputLabel, Select, MenuItem, FormControlLabel, FormGroup, Checkbox, Container, Paper } from '@mui/material';
-// import { ToastContainer, toast } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
-// import { CButton, CCard, CCardHeader, CCardBody } from '@coreui/react';
-
-// const Cancelinvoice = () => {
-//   // Initializing state variables to manage form data and request parameters
-//   const initialFormData = {
-//     PatTitle: '',
-//     BillDate: '',
-//     PatName: '',
-//     PatAgedd: '',
-//     PatAgemm: '',
-//     PatAgeyy: '',
-//     PatGender: '',
-//     PatPhone: '',
-//     PatEmail: '',
-//     RefBy: '',
-//     OutDr: '',
-//     BranchName: '',
-//     PatOpNo: '',
-//     CollMode: '',
-//     collBy: '',
-//     SampleOn: '',
-//     ReportTime: '',
-//     ReportRequest: '',
-//     Reportreqpersonal: false,
-//     ReportReqphn: false,
-//     ReportReqcourier: false,
-//     ReportReqemail: false,
-//     ReportReqsms: false,
-//     NetAmount: '',
-//     CancelDate: '',
-//     Reason: ''
-//   };
-
-//   const [formData, setFormData] = useState(initialFormData);
-
-//   const clearDetails = () => {
-//     setFormData(initialFormData);
-//   };
-
-//   const [params, setParams] = useState({
-//     LabNo: '',
-//     YrId: 2324,
-//     CmId: 2
-//   });
-
-//   useEffect(() => {
-//     const currentDate = new Date().toISOString().split('T')[0];
-//     setFormData(prevState => ({
-//       ...prevState,
-//       CancelDate: currentDate
-//     }));
-//   }, []);
-
-//   const handleInputChange = (e) => {
-//     const { id, value } = e.target;
-//     setParams(prevState => ({
-//       ...prevState,
-//       [id]: value
-//     }));
-//   };
-
-//   const handleFormChange = (e) => {
-//     const { id, value, type, checked } = e.target;
-//     setFormData(prevState => ({
-//       ...prevState,
-//       [id]: type === 'checkbox' ? checked : value
-//     }));
-//   };
-
-//   const handleKeyPress = (e) => {
-//     if (e.key === 'Enter') {
-//       fetchData();
-//     }
-//   };
-
-//   const fetchData = () => {
-//     const { LabNo, YrId, CmId } = params;
-//     axios.get(`http://172.16.16.10:8082/api/Cancelinvget`, {
-//       params: {
-//         LabNo,
-//         YrId,
-//         CmId
-//       }
-//     })
-//       .then(response => {
-//         const data = response.data.exist_dlts[0];
-//         setFormData(data);
-//         toast.success('Data fetched successfully');
-//       })
-//       .catch(error => {
-//         console.error('Error fetching the data', error);
-//         toast.error('Error in fetching data');
-//       });
-//   };
-
-//   const handleSave = () => {
-//     const { PatName, CancelDate, LabNo, Reason } = formData;
-
-//     // Create a new object with only the required fields
-//     const dataToSave = {
-//       PatName,
-//       CancelDate,
-//       LabNo,
-//       Reason
-//     };
-
-//     console.log('Data being sent to the backend:', dataToSave);
-
-//     axios.put('http://172.16.16.10:8082/api/cancelpatdetails/dltscancel', dataToSave)
-//       .then(response => {
-//         console.log('Data saved successfully', response);
-//         toast.success('Data saved successfully!');
-//       })
-//       .catch(error => {
-//         console.error('Error saving the data', error);
-//         toast.error('Error saving the data.');
-//       });
-//   };
-
-//   return (
-//     <>
-//       <CCard className="mb-4">
-//         <CCardBody>
-//           <Box sx={{ padding: 2 }}>
-//             <Grid container spacing={2} alignItems="center">
-//               <Grid item xs={12} md={8}>
-//                 <Typography
-//                   variant="h6"
-//                   sx={{
-//                     margin: 0,
-//                     fontSize: '24px',
-//                     fontWeight: 'bold',
-//                     color: ' #599eb4 ',
-//                   }}
-//                 >
-//                   CANCEL INVOICE
-//                 </Typography>
-//               </Grid>
-//               <Grid item xs={12} md={4}>
-//                 <Box sx={{ display: 'flex', justifyContent: { xs: 'center', md: 'flex-end' }, gap: '16px' }}>
-//                   <CButton
-//                     color="primary"
-//                     style={{
-//                       width: '100%',
-//                       maxWidth: { xs: '100%', sm: 'auto' },
-//                     }}
-//                     onClick={handleSave}
-//                   >
-//                     SAVE
-//                   </CButton>
-//                   <CButton
-//                     color="primary"
-//                     style={{
-//                       width: '100%',
-//                       maxWidth: { xs: '100%', sm: 'auto' },
-//                     }}
-//                   >
-//                     EXIT
-//                   </CButton>
-//                   <CButton
-//                     color='primary'
-//                     style={{
-//                       width: '100%',
-//                       maxWidth: { xs: '100%', sm: 'auto' }
-//                     }}
-//                     onClick={clearDetails}
-//                   >
-//                     NEW
-//                   </CButton>
-//                 </Box>
-//               </Grid>
-//             </Grid>
-//           </Box>
-//           <hr />
-//           <Grid container spacing={2}>
-//             <Grid item xs={12} sm={6}>
-//               <TextField
-//                 id="LabNo"
-//                 label="Lab No"
-//                 variant="outlined"
-//                 size="small"
-//                 fullWidth
-//                 value={params.LabNo}
-//                 onChange={handleInputChange}
-//                 onKeyPress={handleKeyPress}
-//                 InputLabelProps={{ style: { fontSize: '14px' } }}
-//               />
-//             </Grid>
-//             <Grid item xs={12} sm={6}>
-//               <TextField
-//                 id="BillDate"
-//                 label="Date"
-//                 variant="outlined"
-//                 size="small"
-//                 fullWidth
-//                 value={formData.BillDate}
-//                 type="datetime-local"
-//                 InputLabelProps={{ shrink: true }}
-//                 style={{ marginTop: '10px' }}
-//               />
-//             </Grid>
-//             <Grid item xs={12} sm={2}>
-//               <FormControl fullWidth variant="outlined" sx={{ width: '100%', height: '100%' }}  >
-//                 <InputLabel sx={{
-//                   fontSize: '1rem',
-//                   color: 'rgba(0, 0, 0, 0.6)',
-//                   marginTop: '-2px'
-//                 }}>Prefix</InputLabel>
-//                 <Select
-//                   id="PatTitle"
-//                   name="PatTitle"
-//                   label="Prefix"
-//                   value={formData.PatTitle}
-//                   onChange={handleFormChange}
-//                   sx={{ width: '100%', height: '75%' }}
-//                 >
-//                   <MenuItem value=""><em>None</em></MenuItem>
-//                   <MenuItem value="Mr">Mr</MenuItem>
-//                   <MenuItem value="Mrs">Mrs</MenuItem>
-//                   <MenuItem value="Ms">Ms</MenuItem>
-//                   <MenuItem value="Miss">Miss</MenuItem>
-//                 </Select>
-//               </FormControl>
-//             </Grid>
-//             <Grid item xs={12} sm={10}>
-//               <TextField
-//                 id="PatName"
-//                 label="Name"
-//                 variant="outlined"
-//                 size="small"
-//                 value={formData.PatName}
-//                 onChange={handleFormChange}
-//                 fullWidth
-//                 InputLabelProps={{ style: { fontSize: '16px' } }}
-//               />
-//             </Grid>
-//             <Grid item xs={12} sm={1}>
-//               <Typography
-//                 variant="body1"
-//                 gutterBottom
-//                 sx={{
-//                   fontWeight: 'bold',
-//                   color: 'rgba(0, 0, 0, 0.7)',
-//                   fontSize: '16px',
-//                   marginTop: '8px',
-//                   textAlign: 'left',
-//                 }}
-//               >
-//                 Age
-//               </Typography>
-//             </Grid>
-//             <Grid item container xs={12} sm={7} spacing={1}>
-//               <Grid item xs={3}>
-//                 <TextField
-//                   id="PatAgedd"
-//                   label="Day"
-//                   variant="outlined"
-//                   value={formData.PatAgedd}
-//                   size="small"
-//                   onChange={handleFormChange}
-//                   fullWidth
-//                   InputLabelProps={{ style: { fontSize: '16px' } }}
-//                 />
-//               </Grid>
-//               <Grid item xs={3}>
-//                 <TextField
-//                   id="PatAgemm"
-//                   label="Month"
-//                   variant="outlined"
-//                   value={formData.PatAgemm}
-//                   size="small"
-//                   onChange={handleFormChange}
-//                   fullWidth
-//                   InputLabelProps={{ style: { fontSize: '16px' } }}
-//                 />
-//               </Grid>
-//               <Grid item xs={3}>
-//                 <TextField
-//                   id="PatAgeyy"
-//                   label="Year"
-//                   variant="outlined"
-//                   value={formData.PatAgeyy}
-//                   size="small"
-//                   onChange={handleFormChange}
-//                   fullWidth
-//                   InputLabelProps={{ style: { fontSize: '16px' } }}
-//                 />
-//               </Grid>
-//               <Grid item xs={3}>
-//                 <FormControl fullWidth variant="outlined" sx={{ width: '100%' }}>
-//                   <InputLabel sx={{
-//                     fontSize: '1rem',
-//                     color: 'rgba(0, 0, 0, 0.6)',
-//                     marginTop: '-2px'
-//                   }}>Sex</InputLabel>
-//                   <Select
-//                     id="PatGender"
-//                     name="PatGender"
-//                     label="Sex"
-//                     value={formData.PatGender}
-//                     onChange={handleFormChange}
-//                     sx={{ width: '100%' }}
-//                   >
-//                     <MenuItem value=""><em>None</em></MenuItem>
-//                     <MenuItem value="Male">Male</MenuItem>
-//                     <MenuItem value="Female">Female</MenuItem>
-//                     <MenuItem value="Other">Other</MenuItem>
-//                   </Select>
-//                 </FormControl>
-//               </Grid>
-//             </Grid>
-//             <Grid item xs={12} sm={4}>
-//               <TextField
-//                 id="PatPhone"
-//                 label="Phone"
-//                 variant="outlined"
-//                 value={formData.PatPhone}
-//                 size="small"
-//                 onChange={handleFormChange}
-//                 fullWidth
-//                 InputLabelProps={{ style: { fontSize: '16px' } }}
-//               />
-//             </Grid>
-//             <Grid item xs={12} sm={8}>
-//               <TextField
-//                 id="PatEmail"
-//                 label="Email"
-//                 variant="outlined"
-//                 value={formData.PatEmail}
-//                 size="small"
-//                 onChange={handleFormChange}
-//                 fullWidth
-//                 InputLabelProps={{ style: { fontSize: '16px' } }}
-//               />
-//             </Grid>
-//             <Grid item xs={12} sm={6}>
-//               <TextField
-//                 id="RefBy"
-//                 label="Referred By"
-//                 variant="outlined"
-//                 value={formData.RefBy}
-//                 size="small"
-//                 onChange={handleFormChange}
-//                 fullWidth
-//                 InputLabelProps={{ style: { fontSize: '16px' } }}
-//               />
-//             </Grid>
-//             <Grid item xs={12} sm={6}>
-//               <TextField
-//                 id="OutDr"
-//                 label="Outside Dr"
-//                 variant="outlined"
-//                 value={formData.OutDr}
-//                 size="small"
-//                 onChange={handleFormChange}
-//                 fullWidth
-//                 InputLabelProps={{ style: { fontSize: '16px' } }}
-//               />
-//             </Grid>
-//             <Grid item xs={12} sm={6}>
-//               <TextField
-//                 id="BranchName"
-//                 label="Branch Name"
-//                 variant="outlined"
-//                 value={formData.BranchName}
-//                 size="small"
-//                 onChange={handleFormChange}
-//                 fullWidth
-//                 InputLabelProps={{ style: { fontSize: '16px' } }}
-//               />
-//             </Grid>
-//             <Grid item xs={12} sm={6}>
-//               <TextField
-//                 id="PatOpNo"
-//                 label="Patient OP No"
-//                 variant="outlined"
-//                 value={formData.PatOpNo}
-//                 size="small"
-//                 onChange={handleFormChange}
-//                 fullWidth
-//                 InputLabelProps={{ style: { fontSize: '16px' } }}
-//               />
-//             </Grid>
-//             <Grid item xs={12} sm={6}>
-//               <FormControl fullWidth variant="outlined" sx={{ width: '100%', height: '100%' }}  >
-//                 <InputLabel sx={{
-//                   fontSize: '1rem',
-//                   color: 'rgba(0, 0, 0, 0.6)',
-//                   marginTop: '-2px'
-//                 }}>Collection Mode</InputLabel>
-//                 <Select
-//                   id="CollMode"
-//                   name="CollMode"
-//                   label="Collection Mode"
-//                   value={formData.CollMode}
-//                   onChange={handleFormChange}
-//                   sx={{ width: '100%', height: '75%' }}
-//                 >
-//                   <MenuItem value=""><em>None</em></MenuItem>
-//                   <MenuItem value="Home Visit">Home Visit</MenuItem>
-//                   <MenuItem value="OPD">OPD</MenuItem>
-//                 </Select>
-//               </FormControl>
-//             </Grid>
-//             <Grid item xs={12} sm={6}>
-//               <TextField
-//                 id="collBy"
-//                 label="Collected By"
-//                 variant="outlined"
-//                 value={formData.collBy}
-//                 size="small"
-//                 onChange={handleFormChange}
-//                 fullWidth
-//                 InputLabelProps={{ style: { fontSize: '16px' } }}
-//               />
-//             </Grid>
-//             <Grid item xs={12} sm={6}>
-//               <TextField
-//                 id="SampleOn"
-//                 label="Sample On"
-//                 variant="outlined"
-//                 value={formData.SampleOn}
-//                 size="small"
-//                 onChange={handleFormChange}
-//                 fullWidth
-//                 InputLabelProps={{ style: { fontSize: '16px' } }}
-//               />
-//             </Grid>
-//             <Grid item xs={12} sm={6}>
-//               <TextField
-//                 id="ReportTime"
-//                 label="Report Time"
-//                 variant="outlined"
-//                 value={formData.ReportTime}
-//                 size="small"
-//                 onChange={handleFormChange}
-//                 fullWidth
-//                 InputLabelProps={{ style: { fontSize: '16px' } }}
-//               />
-//             </Grid>
-//             <Grid item xs={12} sm={6}>
-//               <TextField
-//                 id="ReportRequest"
-//                 label="Report Request"
-//                 variant="outlined"
-//                 value={formData.ReportRequest}
-//                 size="small"
-//                 onChange={handleFormChange}
-//                 fullWidth
-//                 InputLabelProps={{ style: { fontSize: '16px' } }}
-//               />
-//             </Grid>
-//             <Grid item xs={12} sm={12}>
-//               <FormGroup row>
-//                 <FormControlLabel
-//                   control={<Checkbox id="Reportreqpersonal" checked={formData.Reportreqpersonal} onChange={handleFormChange} />}
-//                   label="Personal"
-//                 />
-//                 <FormControlLabel
-//                   control={<Checkbox id="ReportReqphn" checked={formData.ReportReqphn} onChange={handleFormChange} />}
-//                   label="Phone"
-//                 />
-//                 <FormControlLabel
-//                   control={<Checkbox id="ReportReqcourier" checked={formData.ReportReqcourier} onChange={handleFormChange} />}
-//                   label="Courier"
-//                 />
-//                 <FormControlLabel
-//                   control={<Checkbox id="ReportReqemail" checked={formData.ReportReqemail} onChange={handleFormChange} />}
-//                   label="Email"
-//                 />
-//                 <FormControlLabel
-//                   control={<Checkbox id="ReportReqsms" checked={formData.ReportReqsms} onChange={handleFormChange} />}
-//                   label="SMS"
-//                 />
-//               </FormGroup>
-//             </Grid>
-//             <Grid item xs={12} sm={12}>
-//               <TextField
-//                 id="NetAmount"
-//                 label="Net Amount"
-//                 variant="outlined"
-//                 value={formData.NetAmount}
-//                 size="small"
-//                 onChange={handleFormChange}
-//                 fullWidth
-//                 InputLabelProps={{ style: { fontSize: '16px' } }}
-//               />
-//             </Grid>
-//             <Grid item xs={12} sm={12}>
-//               <TextField
-//                 id="CancelDate"
-//                 label="Cancel Date"
-//                 variant="outlined"
-//                 value={formData.CancelDate}
-//                 size="small"
-//                 onChange={handleFormChange}
-//                 fullWidth
-//                 InputLabelProps={{ style: { fontSize: '16px' } }}
-//               />
-//             </Grid>
-//             <Grid item xs={12} sm={12}>
-//               <FormControl fullWidth variant="outlined" sx={{ width: '100%', height: '100%' }}  >
-//                 <InputLabel sx={{
-//                   fontSize: '1rem',
-//                   color: 'rgba(0, 0, 0, 0.6)',
-//                   marginTop: '-2px'
-//                 }}>Reason</InputLabel>
-//                 <Select
-//                   id="Reason"
-//                   name="Reason"
-//                   label="Reason"
-//                   value={formData.Reason}
-//                   onChange={handleFormChange}
-//                   sx={{ width: '100%', height: '75%' }}
-//                 >
-//                   <MenuItem value=""><em>None</em></MenuItem>
-//                   <MenuItem value="Patient Request">Patient Request</MenuItem>
-//                   <MenuItem value="Lab Error">Lab Error</MenuItem>
-//                   <MenuItem value="Other">Other</MenuItem>
-//                 </Select>
-//               </FormControl>
-//             </Grid>
-//           </Grid>
-//         </CCardBody>
-//       </CCard>
-//       <ToastContainer />
-//     </>
-//   );
-// };
-
-// export default Cancelinvoice;
 
 
 // import React, { useState, useEffect } from 'react';
