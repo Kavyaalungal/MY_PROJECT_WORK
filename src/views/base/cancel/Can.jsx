@@ -908,124 +908,370 @@ export default  Cancelinvoice;
 //     NetAmount: '',
 //   });
 
-  
+//   useEffect(() => {
+//     axios.get(`http://172.16.16.10:8082/api/Cancelinvget`, {
+//       params: {
+//         LabNo: 2,
+//         YrId: 2324,
+//         CmId: 2
+//       }
+//     })
+//       .then(response => {
+//         const data = response.data.exist_dlts[0];
+//         setFormData(data);
+//       })
+//       .catch(error => {
+//         console.error('Error fetching the data', error);
+//       });
+//   }, [labNo, yrId, cmId]);
+
+//   return (
+//     <CCard className="mb-4">
+//       <CCardBody>
+//         <Box sx={{ padding: 2 }}>
+//           <Grid container spacing={2} alignItems="center">
+//             <Grid item xs={12} md={8}>
+//               <Typography
+//                 variant="h6"
+//                 sx={{
+//                   margin: 0,
+//                   fontSize: '24px',
+//                   fontWeight: 'bold',
+//                   color: ' #599eb4 ',
+//                 }}
+//               >
+//                 CANCEL INVOICE
+//               </Typography>
+//             </Grid>
+//             <Grid item xs={12} md={4}>
+//               <Box sx={{ display: 'flex', justifyContent: { xs: 'center', md: 'flex-end' }, gap: '16px' }}>
+//                 <CButton color='primary' style={{ width: '100%', maxWidth: { xs: '100%', sm: 'auto' } }}>NEW</CButton>
+//                 <CButton color="primary" style={{ width: '100%', maxWidth: { xs: '100%', sm: 'auto' } }}>SAVE</CButton>
+//                 <CButton color="primary" style={{ width: '100%', maxWidth: { xs: '100%', sm: 'auto' } }}>EXIT</CButton>
+//               </Box>
+//             </Grid>
+//           </Grid>
+//         </Box>
+//         <hr/>
+//         <Grid container spacing={3}>
+//           <Grid item xs={12}>
+//             <Box sx={{ display: 'flex', alignItems: 'center' }}>
+//               <TextField
+//                 id="PatName"
+//                 label="Patient Name"
+//                 variant="outlined"
+//                 size="small"
+//                 fullWidth
+//                 value={formData.PatName}
+//                 InputLabelProps={{ style: { fontSize: '14px' } }}
+//               />
+//               <IconButton color="primary">
+//                 <MoreHorizIcon />
+//               </IconButton>
+//             </Box>
+//           </Grid>
+//           <Grid item xs={12}>
+//             <TextField
+//               id="PatPhone"
+//               label="Phone"
+//               variant="outlined"
+//               size="small"
+//               fullWidth
+//               value={formData.PatPhone}
+//               InputLabelProps={{ style: { fontSize: '14px' } }}
+//             />
+//           </Grid>
+//           <Grid item xs={12}>
+//             <TextField
+//               id="PatEmail"
+//               label="Email"
+//               variant="outlined"
+//               size="small"
+//               fullWidth
+//               value={formData.PatEmail}
+//               InputLabelProps={{ style: { fontSize: '14px' } }}
+//             />
+//           </Grid>
+//           <Grid item xs={6}>
+//             <FormControl variant="outlined" size="small" fullWidth>
+//               <InputLabel id="PatGenderLabel">Gender</InputLabel>
+//               <Select
+//                 labelId="PatGenderLabel"
+//                 id="PatGender"
+//                 label="Gender"
+//                 value={formData.PatGender}
+//               >
+//                 <MenuItem value="M">Male</MenuItem>
+//                 <MenuItem value="F">Female</MenuItem>
+//                 <MenuItem value="O">Other</MenuItem>
+//               </Select>
+//             </FormControl>
+//           </Grid>
+//           <Grid item xs={12} sm={6}>
+//             <TextField
+//               id="NetAmount"
+//               label="Net Amount"
+//               variant="outlined"
+//               size="small"
+//               fullWidth
+//               value={formData.NetAmount}
+//               InputLabelProps={{ style: { fontSize: '14px' } }}
+//             />
+//           </Grid>
+//           <Grid item xs={12} sm={6}>
+//             <FormControlLabel
+//               control={<Checkbox checked={formData.Reportreqpersonal} />}
+//               label="Report Requested Personally"
+//             />
+//           </Grid>
+//           <Grid item xs={12} sm={6}>
+//             <FormControlLabel
+//               control={<Checkbox checked={formData.ReportReqemail} />}
+//               label="Report Request by Email"
+//             />
+//           </Grid>
+//           {/* Add more fields as needed */}
+//         </Grid>
+//       </CCardBody>
+//     </CCard>
+//   );
+// };
+
+// export default CancelInvoice;
 
 
-             
-           
-            
-           
-           
-             
-               
-               
-               
-               
-               
-               
-               
-            
+// import React, { useState, useEffect } from 'react';
+// import {
+//   Box,
+//   TextField,
+//   FormControlLabel,
+//   FormControl,
+//   InputLabel,
+//   Select,
+//   Checkbox,
+//   Grid,
+//   Typography,
+//   IconButton,
+//   MenuItem,
+// } from '@mui/material';
+// import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+// import { CButton, CCard, CCardBody } from '@coreui/react';
+// import axios from 'axios';
 
-           
-                
-          
-           
+// const CancelInvoice = () => {
+//   const [formData, setFormData] = useState({
+//     PatTitle: '',
+//     BillDate: '',
+//     PatName: '',
+//     PatAgedd: '',
+//     PatAgemm: '',
+//     PatAgeyy: '',
+//     PatGender: '',
+//     PatPhone: '',
+//     PatEmail: '',
+//     RefBy: '',
+//     OutDr: '',
+//     BranchName: '',
+//     PatOpNo: '',
+//     CollMode: '',
+//     collBy: '',
+//     SampleOn: '',
+//     ReportTime: '',
+//     ReportRequest: '',
+//     Reportreqpersonal: false,
+//     ReportReqphn: false,
+//     ReportReqcourier: false,
+//     ReportReqemail: false,
+//     ReportReqsms: false,
+//     NetAmount: '',
+//   });
 
+//   const [params, setParams] = useState({
+//     LabNo: '',
+//     YrId: 2324,
+//     CmId: 2
+//   });
 
+//   const handleInputChange = (e) => {
+//     const { id, value } = e.target;
+//     setParams(prevState => ({
+//       ...prevState,
+//       [id]: value
+//     }));
+//   };
 
- 
- 
+//   const handleKeyPress = (e) => {
+//     if (e.key === 'Enter') {
+//       fetchData();
+//     }
+//   };
 
- 
-     
-     
-    
-    
-    
-    
-    
-   
+//   const fetchData = () => {
+//     const { LabNo, YrId, CmId } = params;
+//     axios.get(`http://172.16.16.10:8082/api/Cancelinvget`, {
+//       params: {
+//         LabNo,
+//         YrId,
+//         CmId
+//       }
+//     })
+//       .then(response => {
+//         const data = response.data.exist_dlts[0];
+//         setFormData(data);
+//       })
+//       .catch(error => {
+//         console.error('Error fetching the data', error);
+//       });
+//   };
 
-   
-    
-    
-     
-  
+//   return (
+//     <CCard className="mb-4">
+//       <CCardBody>
+//         <Box sx={{ padding: 2 }}>
+//           <Grid container spacing={2} alignItems="center">
+//             <Grid item xs={12} md={8}>
+//               <Typography
+//                 variant="h6"
+//                 sx={{
+//                   margin: 0,
+//                   fontSize: '24px',
+//                   fontWeight: 'bold',
+//                   color: ' #599eb4 ',
+//                 }}
+//               >
+//                 CANCEL INVOICE
+//               </Typography>
+//             </Grid>
+//             <Grid item xs={12} md={4}>
+//               <Box sx={{ display: 'flex', justifyContent: { xs: 'center', md: 'flex-end' }, gap: '16px' }}>
+//                 <CButton color="primary" style={{ width: '100%', maxWidth: { xs: '100%', sm: 'auto' } }}>SAVE</CButton>
+//                 <CButton color="primary" style={{ width: '100%', maxWidth: { xs: '100%', sm: 'auto' } }}>EXIT</CButton>
+//               </Box>
+//             </Grid>
+//           </Grid>
+//         </Box>
+//         <hr/>
+//         <Grid container spacing={3}>
+//           <Grid item xs={12}>
+//             <TextField
+//               id="LabNo"
+//               label="Lab No"
+//               variant="outlined"
+//               size="small"
+//               fullWidth
+//               value={params.LabNo}
+//               onChange={handleInputChange}
+//               onKeyPress={handleKeyPress}
+//               InputLabelProps={{ style: { fontSize: '14px' } }}
+//             />
+//           </Grid>
+//           {/* <Grid item xs={12}>
+//             <TextField
+//               id="YrId"
+//               label="Year ID"
+//               variant="outlined"
+//               size="small"
+//               fullWidth
+//               value={params.YrId}
+//               onChange={handleInputChange}
+//               onKeyPress={handleKeyPress}
+//               InputLabelProps={{ style: { fontSize: '14px' } }}
+//             />
+//           </Grid>
+//           <Grid item xs={12}>
+//             <TextField
+//               id="CmId"
+//               label="Company ID"
+//               variant="outlined"
+//               size="small"
+//               fullWidth
+//               value={params.CmId}
+//               onChange={handleInputChange}
+//               onKeyPress={handleKeyPress}
+//               InputLabelProps={{ style: { fontSize: '14px' } }}
+//             />
+//           </Grid> */}
+//           <Grid item xs={12}>
+//             <Box sx={{ display: 'flex', alignItems: 'center' }}>
+//               <TextField
+//                 id="PatName"
+//                 label="Patient Name"
+//                 variant="outlined"
+//                 size="small"
+//                 fullWidth
+//                 value={formData.PatName}
+//                 InputLabelProps={{ style: { fontSize: '14px' } }}
+//               />
+//               <IconButton color="primary">
+//                 <MoreHorizIcon />
+//               </IconButton>
+//             </Box>
+//           </Grid>
+//           <Grid item xs={12}>
+//             <TextField
+//               id="PatPhone"
+//               label="Phone"
+//               variant="outlined"
+//               size="small"
+//               fullWidth
+//               value={formData.PatPhone}
+//               InputLabelProps={{ style: { fontSize: '14px' } }}
+//             />
+//           </Grid>
+//           <Grid item xs={12}>
+//             <TextField
+//               id="PatEmail"
+//               label="Email"
+//               variant="outlined"
+//               size="small"
+//               fullWidth
+//               value={formData.PatEmail}
+//               InputLabelProps={{ style: { fontSize: '14px' } }}
+//             />
+//           </Grid>
+//           <Grid item xs={6}>
+//             <FormControl variant="outlined" size="small" fullWidth>
+//               <InputLabel id="PatGenderLabel">Gender</InputLabel>
+//               <Select
+//                 labelId="PatGenderLabel"
+//                 id="PatGender"
+//                 label="Gender"
+//                 value={formData.PatGender}
+//               >
+//                 <MenuItem value="M">Male</MenuItem>
+//                 <MenuItem value="F">Female</MenuItem>
+//                 <MenuItem value="O">Other</MenuItem>
+//               </Select>
+//             </FormControl>
+//           </Grid>
+//           <Grid item xs={12} sm={6}>
+//             <TextField
+//               id="NetAmount"
+//               label="Net Amount"
+//               variant="outlined"
+//               size="small"
+//               fullWidth
+//               value={formData.NetAmount}
+//               InputLabelProps={{ style: { fontSize: '14px' } }}
+//             />
+//           </Grid>
+//           <Grid item xs={12} sm={6}>
+//             <FormControlLabel
+//               control={<Checkbox checked={formData.Reportreqpersonal} />}
+//               label="Report Requested Personally"
+//             />
+//           </Grid>
+//           <Grid item xs={12} sm={6}>
+//             <FormControlLabel
+//               control={<Checkbox checked={formData.ReportReqemail} />}
+//               label="Report Request by Email"
+//             />
+//           </Grid>
+//           {/* Add more fields as needed */}
+//         </Grid>
+//       </CCardBody>
+//     </CCard>
+//   );
+// };
 
-   
-     
-     
-       
-       
-    
-   
-
-   
-     
-      
-  
-   
-
-   
-         
-       
-       
-         
-
-             
-               
-                 
-          
-                 
-               
-            
-            
-               
-          
-           
-            
-            
-               
-               
-               
-               
-               
-               
-               
-               
-               
-             
-           
-         
-             
-               
-               
-               
-              
-               
-               
-               
-               
-               
-        
-          
-  
-               
-               
-               
-                 
-                 
-                 
-                 
-               
-                 
-                 
-                 
-            
-             
-           
-           
-            
-              
-             
-               
+// export default CancelInvoice;

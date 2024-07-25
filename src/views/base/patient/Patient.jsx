@@ -491,24 +491,11 @@ return (
                         // helperText={errors.Patient_Name}
                       />
                     </Grid>
-                  {/* <Grid item xs={12} sm={1}>
-                       <Typography
-                         style={{
-                           color: 'rgba(0, 0, 0, 0.6)',
-                            marginBottom: '10px',
-                          fontSize: '14px',
-                            width: '100%',
-                            marginTop: '8px'
-                          }}
-                        >
-                          Age:
-                        </Typography>
-                     </Grid>                      */}
                      <Grid item container xs={12} sm={7} spacing={2}>
                      <Grid item xs={3}>
                           <TextField
                             id="yyyy"
-                            label="Age year"
+                            label="Age YY"
                             variant="outlined"
                             size="small"
                             value={patientDetails ? patientDetails.Patient_Ageyy : ''}    
@@ -527,7 +514,7 @@ return (
                         <Grid item xs={3}>
                           <TextField
                             id="mm"
-                            label="Month"
+                            label="Age MM"
                             variant="outlined"
                             size="small"
                             fullWidth
@@ -547,7 +534,7 @@ return (
                         <Grid item xs={3}>
                          <TextField
                           id="dd"
-                            label="Day"                          
+                            label="Age DD"                          
                             variant="outlined"
                            size="small"
                           fullWidth
