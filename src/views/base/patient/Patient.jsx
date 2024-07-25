@@ -7,9 +7,6 @@
   import { CCard, CCardHeader,CCardBody,CButton, CModal, CModalHeader, CModalTitle, CModalBody } from '@coreui/react';
   import './Patient.css';
     const Patient = () => {
-      const [visibleXL, setVisibleXL] = useState(false)
-const [visibleLg, setVisibleLg] = useState(false)
-const [visibleSm, setVisibleSm] = useState(false)
       // declaring state variables needed
       const [searchCriteria, setSearchCriteria] = useState('Patient ID'); // state variable for the searchcrieteria ie, whether it is name,id,email,phone
       const [searchValue, setSearchValue] = useState('');// state variable for searchitem value depends on the search criteria
@@ -352,20 +349,19 @@ const handleSaveOrUpdate = async () => {
 
 return (
   <>
-    {/* <CButton color="primary" onClick={() => setVisibleXL(!visibleXL)}>Extra large modal</CButton> */}
-    <CButton color="primary" onClick={() => setVisibleLg(!visibleLg)}>PATIENT REGISTRATION</CButton>
+    
  
 
-    <CModal
+    {/* <CModal
       size="lg"
       visible={visibleLg}
       onClose={() => setVisibleLg(false)}
       aria-labelledby="OptionalSizesExample2"
-    >
-      <CModalHeader className="custom-modal-header">
+    > */}
+      {/* <CModalHeader className="custom-modal-header">
         <CModalTitle id="OptionalSizesExample2"  className="custom-modal-title">Patient Registration</CModalTitle>
-      </CModalHeader>
-      <CModalBody>
+      </CModalHeader> */}
+      {/* <CModalBody> */}
       {/* <CCard className="mb-4"> */}
           <CCardBody>
           {/* <Box sx={{ border: '1px solid #ccc', borderRadius: 2, backgroundColor: '#fff', width: '100%', margin: '0 auto' }}>
@@ -454,30 +450,28 @@ return (
                         onChange={(e) => setPatientDetails({ ...patientDetails, Patient_Code: e.target.value })}
                         size="small"
                         fullWidth
-                        InputLabelProps={{ style: { fontSize: '14px' } }}
+                        InputLabelProps={{ style: { fontSize: '1rem' } }}
                         // disabled={!isEditMode} 
                       />
                     </Grid>
-     <Grid item xs={12} sm={2}>                    
-                   <FormControl fullWidth variant="outlined" sx={{ width: '100%', height: '100%' }}>
-                        <InputLabel sx={{ fontSize: '0.9rem', color: 'rgba(0, 0, 0, 0.6)', marginTop: '-3px' }}>Prefix</InputLabel>
-                        <Select
-                          name="prefix"
-                          label="Prefix"
-                          value={patientDetails ? patientDetails.Patient_Title : ''}    
-                        //  value={patientDetails.Patient_Title}
-                         onChange={handleTitleChange}
-                         sx={{ width: '100%', height: '75%' }}
-                          // disabled={!isEditMode} 
-                        >
-                          <MenuItem value=""><em>None</em></MenuItem>
-                          <MenuItem value="Mr">Mr</MenuItem>
-                          <MenuItem value="Mrs">Mrs</MenuItem>
-                          <MenuItem value="Ms">Ms</MenuItem>
-                         <MenuItem value="Miss">Miss</MenuItem>
-                        </Select>
-                      </FormControl>
-                   </Grid>
+                    <Grid item xs={12} sm={2}>
+        <TextField
+          select
+          label="Prefix"
+          value={patientDetails ? patientDetails.Patient_Title : ''}
+          onChange={handleTitleChange}
+          variant="outlined"
+          size="small"
+          fullWidth
+          InputLabelProps={{ style: { fontSize: '14px' } }}
+        >
+          <MenuItem value=""><em>None</em></MenuItem>
+          <MenuItem value="Mr">Mr</MenuItem>
+          <MenuItem value="Mrs">Mrs</MenuItem>
+          <MenuItem value="Ms">Ms</MenuItem>
+          <MenuItem value="Miss">Miss</MenuItem>
+        </TextField>
+      </Grid>
                     <Grid item xs={12} sm={7}>
                      <TextField
                         id="name"
@@ -491,7 +485,7 @@ return (
                        }}
                         size="small"
                         fullWidth
-                        InputLabelProps={{ style: { fontSize: '14px' } }}
+                        InputLabelProps={{ style: { fontSize: '1rem' } }}
                         // disabled={!isEditMode} 
                         error={!!errors.Patient_Name}
                         // helperText={errors.Patient_Name}
@@ -510,7 +504,7 @@ return (
                           Age:
                         </Typography>
                      </Grid>                      */}
-                     <Grid item container xs={12} sm={7} spacing={1}>
+                     <Grid item container xs={12} sm={7} spacing={2}>
                      <Grid item xs={3}>
                           <TextField
                             id="yyyy"
@@ -543,7 +537,7 @@ return (
                              setPatientDetails({ ...patientDetails, Patient_Agemm: e.target.value });
                              setErrors((prevErrors) => ({ ...prevErrors, Patient_Age: '' }));
                            }}
-                            InputLabelProps={{ style: { fontSize: '14px' } }}
+                            InputLabelProps={{ style: { fontSize: '1rem' } }}
                             // disabled={!isEditMode} 
                             error={!!errors.Patient_Age}
                             helperText={errors.Patient_Age}
@@ -582,6 +576,7 @@ return (
                             InputProps={{
                               readOnly: true,
                             }}
+                            InputLabelProps={{ style: { fontSize: '1rem' } }}
                            //  onChange={(e) => {
                            //   setPatientDetails({ ...patientDetails, Patient_Ismale: e.target.value });
                            //   setErrors((prevErrors) => ({ ...prevErrors, Patient_Ismale: '' }));
@@ -602,10 +597,10 @@ return (
                         </FormControl>
                       </Grid>
                       </Grid>
-                       <Grid item xs={12} sm={4}>
+                       <Grid item xs={12} sm={5}>
                      <TextField
                      id="dob"
-                       label="Date of Birth"
+                      label="Date of Birth"
                       type="date"
                        variant="outlined"
                       size="small"
@@ -617,8 +612,9 @@ return (
                      setPatientDetails({ ...patientDetails, Patient_Dob: dob });
                        calculateAge(dob); // Update age fields
                        }}
-                        InputLabelProps={{ shrink: true, style: { fontSize: '14px' } }}
+                        InputLabelProps={{ shrink: true, style: { fontSize: '1rem' } }}
                       // disabled={!isEditMode} 
+                      
                      />
               </Grid>
                   <Grid item xs={12} sm={4}>
@@ -634,7 +630,7 @@ return (
                        setErrors((prevErrors) => ({ ...prevErrors, Patient_Phno: '' }));
                      }}
                       fullWidth
-                     InputLabelProps={{ style: { fontSize: '14px' } }}
+                     InputLabelProps={{ style: { fontSize: '1rem' } }}
                     //  disabled={!isEditMode} 
                       error={!!errors.Patient_Phno}
                        helperText={errors.Patient_Phno}
@@ -653,7 +649,7 @@ return (
                        setErrors((prevErrors) => ({ ...prevErrors, Patient_mobile: '' }));
                      }}
                       fullWidth
-                      InputLabelProps={{ style: { fontSize: '14px' } }}
+                      InputLabelProps={{ style: { fontSize: '1rem' } }}
                       // disabled={!isEditMode} 
                       error={!!errors.Patient_mobile}
                        helperText={errors.Patient_mobile}
@@ -672,7 +668,7 @@ return (
                        setErrors((prevErrors) => ({ ...prevErrors, Patient_Email: '' }));
                      }}
                       fullWidth
-                      InputLabelProps={{ style: { fontSize: '14px' } }}
+                      InputLabelProps={{ style: { fontSize: '1rem' } }}
                       // disabled={!isEditMode} 
                       error={!!errors.Patient_Email}
                       helperText={errors.Patient_Email}
@@ -688,7 +684,7 @@ return (
                       // value={patientDetails.Patient_Address}
                       onChange={(e)=>setPatientDetails({...patientDetails, Patient_Address: e.target.value})}
                       fullWidth
-                      InputLabelProps={{ style: { fontSize: '14px' } }}
+                      InputLabelProps={{ style: { fontSize: '1rem' } }}
                       // disabled={!isEditMode} 
                     />
                  </Grid>
@@ -721,8 +717,8 @@ return (
             {/* </div> */}
             </CCardBody>
           {/* </CCard> */}
-      </CModalBody>
-    </CModal>
+      {/* </CModalBody>
+    </CModal> */}
 
     
   </>
