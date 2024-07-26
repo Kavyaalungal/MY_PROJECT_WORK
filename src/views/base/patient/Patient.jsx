@@ -499,14 +499,12 @@ return (
                             variant="outlined"
                             size="small"
                             value={patientDetails ? patientDetails.Patient_Ageyy : ''}    
-                            // value={patientDetails.Patient_Ageyy}
                             onChange={(e) => {
                              setPatientDetails({ ...patientDetails, Patient_Ageyy: e.target.value });
                              setErrors((prevErrors) => ({ ...prevErrors, Patient_Age: '' }));
                            }}
                             fullWidth
-                            InputLabelProps={{ style: { fontSize: '1rem' } }}
-                            // disabled={!isEditMode} 
+                            InputLabelProps={{ style: { fontSize: '1rem' } }} 
                             error={!!errors.Patient_Age}
                             helperText={errors.Patient_Age}
                          />
@@ -519,13 +517,11 @@ return (
                             size="small"
                             fullWidth
                             value={patientDetails ? patientDetails.Patient_Agemm : ''}    
-                          //  value={patientDetails.Patient_Agemm}
                            onChange={(e) => {
                              setPatientDetails({ ...patientDetails, Patient_Agemm: e.target.value });
                              setErrors((prevErrors) => ({ ...prevErrors, Patient_Age: '' }));
                            }}
-                            InputLabelProps={{ style: { fontSize: '1rem' } }}
-                            // disabled={!isEditMode} 
+                            InputLabelProps={{ style: { fontSize: '1rem' } }} 
                             error={!!errors.Patient_Age}
                             helperText={errors.Patient_Age}
                           />
@@ -538,14 +534,12 @@ return (
                             variant="outlined"
                            size="small"
                           fullWidth
-                          value={patientDetails ? patientDetails.Patient_Agedd : ''}    
-                          // value={patientDetails.Patient_Agedd}                         
+                          value={patientDetails ? patientDetails.Patient_Agedd : ''}                            
                           onChange={(e) => {
                            setPatientDetails({ ...patientDetails, Patient_Agedd: e.target.value });
                            setErrors((prevErrors) => ({ ...prevErrors, Patient_Age: '' }));
                          }}
                             InputLabelProps={{ style: { fontSize: '1rem' } }}
-                            // disabled={!isEditMode} 
                             error={!!errors.Patient_Age}
                             helperText={errors.Patient_Age}
                           />
@@ -593,15 +587,12 @@ return (
                       size="small"
                        fullWidth
                        value={patientDetails ? patientDetails.Patient_Dob ? patientDetails.Patient_Dob.split('T')[0] : '' : ''}
-                      //  value={patientDetails.Patient_Dob ? patientDetails.Patient_Dob.split('T')[0] : ''}
                       onChange={(e) => {
                      const dob = e.target.value;
                      setPatientDetails({ ...patientDetails, Patient_Dob: dob });
                        calculateAge(dob); // Update age fields
                        }}
                         InputLabelProps={{ shrink: true, style: { fontSize: '1rem' } }}
-                      // disabled={!isEditMode} 
-                      
                      />
               </Grid>
                   <Grid item xs={12} sm={4}>
@@ -611,14 +602,12 @@ return (
                       variant="outlined"
                      size="small"
                      value={patientDetails ? patientDetails.Patient_Phno : ''}    
-                      // value={patientDetails.Patient_Phno}
                       onChange={(e) => {
                        setPatientDetails({ ...patientDetails, Patient_Phno: e.target.value });
                        setErrors((prevErrors) => ({ ...prevErrors, Patient_Phno: '' }));
                      }}
                       fullWidth
-                     InputLabelProps={{ style: { fontSize: '1rem' } }}
-                    //  disabled={!isEditMode} 
+                     InputLabelProps={{ style: { fontSize: '1rem' } }} 
                       error={!!errors.Patient_Phno}
                        helperText={errors.Patient_Phno}
                     />
@@ -630,14 +619,12 @@ return (
                       variant="outlined"
                       size="small"
                       value={patientDetails ? patientDetails.Patient_mobile : ''}    
-                      // value={patientDetails.Patient_mobile}
                      onChange={(e) => {
                        setPatientDetails({ ...patientDetails, Patient_mobile: e.target.value });
                        setErrors((prevErrors) => ({ ...prevErrors, Patient_mobile: '' }));
                      }}
                       fullWidth
-                      InputLabelProps={{ style: { fontSize: '1rem' } }}
-                      // disabled={!isEditMode} 
+                      InputLabelProps={{ style: { fontSize: '1rem' } }} 
                       error={!!errors.Patient_mobile}
                        helperText={errors.Patient_mobile}
                     />
@@ -649,14 +636,12 @@ return (
                       variant="outlined"
                       size="small"
                       value={patientDetails ? patientDetails.Patient_Email : ''}    
-                      // value={patientDetails.Patient_Email}
                       onChange={(e) => {
                        setPatientDetails({ ...patientDetails, Patient_Email: e.target.value });
                        setErrors((prevErrors) => ({ ...prevErrors, Patient_Email: '' }));
                      }}
                       fullWidth
                       InputLabelProps={{ style: { fontSize: '1rem' } }}
-                      // disabled={!isEditMode} 
                       error={!!errors.Patient_Email}
                       helperText={errors.Patient_Email}
                     />
@@ -668,17 +653,14 @@ return (
                       variant="outlined"
                      size="small"
                      value={patientDetails ? patientDetails.Patient_Address : ''}    
-                      // value={patientDetails.Patient_Address}
                       onChange={(e)=>setPatientDetails({...patientDetails, Patient_Address: e.target.value})}
                       fullWidth
-                      InputLabelProps={{ style: { fontSize: '1rem' } }}
-                      // disabled={!isEditMode} 
+                      InputLabelProps={{ style: { fontSize: '1rem' } }} 
                     />
                  </Grid>
               
                  </Grid>
                  </Box>
-                {/* )} */}
                 <Grid container spacing={2} justifyContent="flex-end" sx={{ marginTop: 2 }}>
               <Grid item>
                 <Button
@@ -701,455 +683,294 @@ return (
             </Grid>
   
               <ToastContainer position="top-center" autoClose={3000} hideProgressBar />
-            {/* </div> */}
+            
             </CCardBody>
-          {/* </CCard> */}
-      {/* </CModalBody>
-    </CModal> */}
-
-    
   </>
-)
-          
+)};
+export default Patient;
+
+  
+       
+       
+
       
-    };
+     
+   
 
- export default Patient;
+   
 
 
-// import React, { useState, useEffect } from 'react';
-// import {
-//   Box,
-//   Grid,
-//   Typography,
-//   TextField,
-//   FormControl,
-//   InputLabel,
-//   Select,
-//   MenuItem,
-//   Button,
-//   Autocomplete,
-//   IconButton
-// } from '@mui/material';
-// import CloseIcon from '@mui/icons-material/Close';
-// import { ToastContainer, toast } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
-// import { CCard, CCardBody } from '@coreui/react';
-// import axios from 'axios';
+     
 
-// const Patient = () => {
-//   const [patientDetails, setPatientDetails] = useState({
-//     Patient_Code: '',
-//     Patient_Title: '',
-//     Patient_Name: '',
-//     Patient_Agedd: '',
-//     Patient_Agemm: '',
-//     Patient_Ageyy: '',
-//     Patient_Ismale: '',
-//     Patient_Dob: '',
-//     Patient_Phno: '',
-//     Patient_mobile: '',
-//     Patient_Email: '',
-//     Patient_Address: ''
-//   });
-//   const [searchValue, setSearchValue] = useState('');
-//   const [searchCriteria, setSearchCriteria] = useState('Patient ID');
-//   const [suggestions, setSuggestions] = useState([]);
-//   const [isEditMode, setIsEditMode] = useState(false);
-//   const [errors, setErrors] = useState({});
+            
+         
+       
+   
 
-//   // Fetch initial data or suggestions (if needed)
-//   useEffect(() => {
-//     // Initial data fetch can be done here if needed
-//   }, []);
+  
+             
+               
+                
+                 
+                
+                 
+                  
+                
+               
+             
+                  
+                    
+                   
+                    
+                    
+                     
+                      
+                         
+                        
+                       
+                        
+                    
+                 
+                
+              
+                  
+                
+                    
+                     
+                      
+                         
+                      
+                         
+                       
+                       
+                        
+                           
+                           
+                         
+                        
+                            
+                          
+                        
+                      
+                   
+                    
+                 
+                
+               
+             
+  
+                   
 
-//   const handleSearchCriteriaChange = (event) => {
-//     setSearchCriteria(event.target.value);
-//   };
+                   
+                     
+                    
+                    
+                     
+                     
+                      
+                     
+                   
+                 
+                 
+                     
 
-//   const handleSearchValueChange = (event, newValue) => {
-//     setSearchValue(newValue);
-//     if (newValue) {
-//       // Fetch suggestions based on the search value and criteria
-//       axios.get(`/api/search?criteria=${searchCriteria}&value=${newValue}`)
-//         .then(response => setSuggestions(response.data))
-//         .catch(error => console.error('Error fetching suggestions:', error));
-//     } else {
-//       setSuggestions([]);
-//     }
-//   };
+                     
+                       
+                       
+                       
+                       
+                       
+                       
+                     
+                      
+                       
+                       
+                      
+                       
+                    
+                   
+                 
+                 
+                 
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                    
+                 
+                 
+                   
+                     
+                       
+                       
+                       
+                       
+                  
+                   
+                  
+                   
+                     
+                    
+                    
+                    
+                    
+                    
+                     
+                     
 
-//   const handleSelectPatient = (event, value) => {
-//     if (value) {
-//       setPatientDetails(value);
-//     }
-//   };
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                    
+                     
+                     
+                   
+                   
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     
 
-//   const resetForm = () => {
-//     setPatientDetails({
-//       Patient_Code: '',
-//       Patient_Title: '',
-//       Patient_Name: '',
-//       Patient_Agedd: '',
-//       Patient_Agemm: '',
-//       Patient_Ageyy: '',
-//       Patient_Ismale: '',
-//       Patient_Dob: '',
-//       Patient_Phno: '',
-//       Patient_mobile: '',
-//       Patient_Email: '',
-//       Patient_Address: ''
-//     });
-//     setIsEditMode(false);
-//     setSearchValue('');
-//     setSuggestions([]);
-//   };
-
-//   const calculateAge = (dob) => {
-//     const today = new Date();
-//     const birthDate = new Date(dob);
-//     let age = today.getFullYear() - birthDate.getFullYear();
-//     const monthDifference = today.getMonth() - birthDate.getMonth();
-//     if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
-//       age--;
-//     }
-//     setPatientDetails(prevDetails => ({
-//       ...prevDetails,
-//       Patient_Agedd: today.getDate() - birthDate.getDate(),
-//       Patient_Agemm: today.getMonth() + 1 - birthDate.getMonth(),
-//       Patient_Ageyy: age
-//     }));
-//   };
-
-//   const handleSaveOrUpdate = () => {
-//     const endpoint = patientDetails.Patient_Code ? `/api/updatePatient` : `/api/savePatient`;
-//     axios.post(endpoint, patientDetails)
-//       .then(response => {
-//         toast.success('Patient details saved successfully!');
-//         resetForm();
-//       })
-//       .catch(error => {
-//         toast.error('Error saving patient details.');
-//         console.error('Error saving patient details:', error);
-//       });
-//   };
-
-//   return (
-//     <>
-//       <CCard className="mb-4">
-//         <CCardBody>
-//           <Box sx={{ border: '1px solid #ccc', borderRadius: 2, backgroundColor: '#fff', width: '100%', margin: '0 auto' }}>
-//             <Box
-//               sx={{
-//                 backgroundColor: '#599eb4',
-//                 borderRadius: '4px 4px 0 0',
-//                 display: 'flex',
-//                 justifyContent: 'space-between',
-//                 color: '#fff',
-//                 padding: '8px 16px',
-//               }}
-//             >
-//               <Typography variant="h6" sx={{ margin: 0, fontSize: '24px', fontWeight: 'bold' }}>
-//                 PATIENT REGISTRATION
-//               </Typography>
-//               <IconButton size="small" sx={{ color: '#fff' }}>
-//                 <CloseIcon />
-//               </IconButton>
-//             </Box>
-//             <Box sx={{ padding: 2 }}>
-//               <Grid container spacing={2}>
-//                 <Grid item xs={12} sm={4}>
-//                   <FormControl fullWidth variant="outlined" sx={{ height: '40px', marginBottom: '25px' }}>
-//                     <InputLabel sx={{ fontSize: '1rem', top: '-2px' }}>Search By</InputLabel>
-//                     <Select
-//                       value={searchCriteria}
-//                       onChange={handleSearchCriteriaChange}
-//                       label="Search By"
-//                       sx={{ height: '40px' }}
-//                     >
-//                       <MenuItem value="Patient ID">Patient ID</MenuItem>
-//                       <MenuItem value="Name">Name</MenuItem>
-//                       <MenuItem value="Email">Email</MenuItem>
-//                       <MenuItem value="Phone">Phone</MenuItem>
-//                     </Select>
-//                   </FormControl>
-//                 </Grid>
-//                 <Grid item xs={12} sm={8}>
-//                   <Autocomplete
-//                     freeSolo
-//                     options={suggestions}
-//                     getOptionLabel={(option) => `${option.Patient_Name || ''}, ${option.Patient_Email || ''}, ${option.Patient_Phno || ''}, ${option.Patient_Code || ''}`}
-//                     onInputChange={handleSearchValueChange}
-//                     onChange={handleSelectPatient}
-//                     onClose={resetForm}
-//                     renderInput={(params) => (
-//                       <TextField
-//                         {...params}
-//                         label={searchCriteria}
-//                         variant="outlined"
-//                         size="small"
-//                         fullWidth
-//                         InputLabelProps={{ style: { fontSize: '14px' } }}
-//                         InputProps={{
-//                           ...params.InputProps,
-//                           style: { marginBottom: '20px' },
-//                         }}
-//                         sx={{
-//                           '& .MuiAutocomplete-inputRoot': {
-//                             paddingRight: '0px',
-//                           },
-//                         }}
-//                       />
-//                     )}
-//                     inputValue={searchValue}
-//                   />
-//                 </Grid>
-//               </Grid>
-//               <Grid container spacing={2}>
-//                 <Grid item xs={12} sm={3}>
-//                   <TextField
-//                     id="patientid"
-//                     label="Patient ID"
-//                     variant="outlined"
-//                     value={patientDetails.Patient_Code}
-//                     onChange={(e) => setPatientDetails({ ...patientDetails, Patient_Code: e.target.value })}
-//                     size="small"
-//                     fullWidth
-//                     InputLabelProps={{ style: { fontSize: '14px' } }}
-//                     disabled={!isEditMode}
-//                   />
-//                 </Grid>
-//                 <Grid item xs={12} sm={2}>
-//                   <FormControl fullWidth variant="outlined" sx={{ width: '100%', height: '100%' }}>
-//                     <InputLabel sx={{ fontSize: '0.9rem', color: 'rgba(0, 0, 0, 0.6)', marginTop: '-3px' }}>Prefix</InputLabel>
-//                     <Select
-//                       name="prefix"
-//                       label="Prefix"
-//                       value={patientDetails.Patient_Title}
-//                       onChange={(e) => setPatientDetails({ ...patientDetails, Patient_Title: e.target.value })}
-//                       sx={{ width: '100%', height: '75%' }}
-//                       disabled={!isEditMode}
-//                     >
-//                       <MenuItem value=""><em>None</em></MenuItem>
-//                       <MenuItem value="Mr">Mr</MenuItem>
-//                       <MenuItem value="Mrs">Mrs</MenuItem>
-//                       <MenuItem value="Ms">Ms</MenuItem>
-//                       <MenuItem value="Miss">Miss</MenuItem>
-//                     </Select>
-//                   </FormControl>
-//                 </Grid>
-//                 <Grid item xs={12} sm={7}>
-//                   <TextField
-//                     id="name"
-//                     label="Name"
-//                     variant="outlined"
-//                     value={patientDetails.Patient_Name || ''}
-//                     onChange={(e) => setPatientDetails({ ...patientDetails, Patient_Name: e.target.value })}
-//                     size="small"
-//                     fullWidth
-//                     InputLabelProps={{ style: { fontSize: '14px' } }}
-//                     disabled={!isEditMode}
-//                     error={!!errors.Patient_Name}
-//                     helperText={errors.Patient_Name}
-//                   />
-//                 </Grid>
-//                 <Grid item xs={12} sm={1}>
-//                   <Typography
-//                     style={{
-//                       color: 'rgba(0, 0, 0, 0.6)',
-//                       marginBottom: '10px',
-//                       fontSize: '14px',
-//                       lineHeight: '1.5'
-//                     }}
-//                   >
-//                     Age
-//                   </Typography>
-//                   <TextField
-//                     label="DD"
-//                     variant="outlined"
-//                     size="small"
-//                     fullWidth
-//                     value={patientDetails.Patient_Agedd}
-//                     onChange={(e) => setPatientDetails({ ...patientDetails, Patient_Agedd: e.target.value })}
-//                     InputLabelProps={{ style: { fontSize: '14px' } }}
-//                     disabled={!isEditMode}
-//                     error={!!errors.Patient_Agedd}
-//                     helperText={errors.Patient_Agedd}
-//                   />
-//                   <TextField
-//                     label="MM"
-//                     variant="outlined"
-//                     size="small"
-//                     fullWidth
-//                     value={patientDetails.Patient_Agemm}
-//                     onChange={(e) => setPatientDetails({ ...patientDetails, Patient_Agemm: e.target.value })}
-//                     InputLabelProps={{ style: { fontSize: '14px' } }}
-//                     disabled={!isEditMode}
-//                     error={!!errors.Patient_Agemm}
-//                     helperText={errors.Patient_Agemm}
-//                   />
-//                   <TextField
-//                     label="YY"
-//                     variant="outlined"
-//                     size="small"
-//                     fullWidth
-//                     value={patientDetails.Patient_Ageyy}
-//                     onChange={(e) => setPatientDetails({ ...patientDetails, Patient_Ageyy: e.target.value })}
-//                     InputLabelProps={{ style: { fontSize: '14px' } }}
-//                     disabled={!isEditMode}
-//                     error={!!errors.Patient_Ageyy}
-//                     helperText={errors.Patient_Ageyy}
-//                   />
-//                 </Grid>
-//                 <Grid item xs={12} sm={3}>
-//                   <FormControl variant="outlined" size="small" fullWidth>
-//                     <InputLabel id="genderLabel">Gender</InputLabel>
-//                     <Select
-//                       labelId="genderLabel"
-//                       id="gender"
-//                       label="Gender"
-//                       value={patientDetails.Patient_Ismale}
-//                       onChange={(e) => setPatientDetails({ ...patientDetails, Patient_Ismale: e.target.value })}
-//                       disabled={!isEditMode}
-//                       error={!!errors.Patient_Ismale}
-//                     >
-//                       <MenuItem value=""><em>None</em></MenuItem>
-//                       <MenuItem value="Male">Male</MenuItem>
-//                       <MenuItem value="Female">Female</MenuItem>
-//                       <MenuItem value="Other">Other</MenuItem>
-//                     </Select>
-//                     {errors.Patient_Ismale && (
-//                       <Typography variant="caption" color="error">
-//                         {errors.Patient_Ismale}
-//                       </Typography>
-//                     )}
-//                   </FormControl>
-//                 </Grid>
-//                 <Grid item xs={12} sm={4}>
-//                   <TextField
-//                     id="dob"
-//                     label="Date of Birth"
-//                     type="date"
-//                     variant="outlined"
-//                     size="small"
-//                     fullWidth
-//                     value={patientDetails.Patient_Dob ? patientDetails.Patient_Dob.split('T')[0] : ''}
-//                     onChange={(e) => {
-//                       const dob = e.target.value;
-//                       setPatientDetails({ ...patientDetails, Patient_Dob: dob });
-//                       calculateAge(dob);
-//                     }}
-//                     InputLabelProps={{ shrink: true, style: { fontSize: '14px' } }}
-//                     disabled={!isEditMode}
-//                   />
-//                 </Grid>
-//                 <Grid item xs={12} sm={4}>
-//                   <TextField
-//                     id="phone1"
-//                     label="Phone1"
-//                     variant="outlined"
-//                     size="small"
-//                     fullWidth
-//                     value={patientDetails.Patient_Phno}
-//                     onChange={(e) => setPatientDetails({ ...patientDetails, Patient_Phno: e.target.value })}
-//                     InputLabelProps={{ style: { fontSize: '14px' } }}
-//                     disabled={!isEditMode}
-//                     error={!!errors.Patient_Phno}
-//                     helperText={errors.Patient_Phno}
-//                   />
-//                 </Grid>
-//                 <Grid item xs={12} sm={4}>
-//                   <TextField
-//                     id="phone2"
-//                     label="Phone2"
-//                     variant="outlined"
-//                     size="small"
-//                     fullWidth
-//                     value={patientDetails.Patient_mobile}
-//                     onChange={(e) => setPatientDetails({ ...patientDetails, Patient_mobile: e.target.value })}
-//                     InputLabelProps={{ style: { fontSize: '14px' } }}
-//                     disabled={!isEditMode}
-//                     error={!!errors.Patient_mobile}
-//                     helperText={errors.Patient_mobile}
-//                   />
-//                 </Grid>
-//                 <Grid item xs={12} sm={4}>
-//                   <TextField
-//                     id="email"
-//                     label="Email"
-//                     variant="outlined"
-//                     size="small"
-//                     fullWidth
-//                     value={patientDetails.Patient_Email}
-//                     onChange={(e) => setPatientDetails({ ...patientDetails, Patient_Email: e.target.value })}
-//                     InputLabelProps={{ style: { fontSize: '14px' } }}
-//                     disabled={!isEditMode}
-//                     error={!!errors.Patient_Email}
-//                     helperText={errors.Patient_Email}
-//                   />
-//                 </Grid>
-//                 <Grid item xs={12}>
-//                   <TextField
-//                     id="address"
-//                     label="Address"
-//                     variant="outlined"
-//                     size="small"
-//                     fullWidth
-//                     value={patientDetails.Patient_Address}
-//                     onChange={(e) => setPatientDetails({ ...patientDetails, Patient_Address: e.target.value })}
-//                     InputLabelProps={{ style: { fontSize: '14px' } }}
-//                     disabled={!isEditMode}
-//                   />
-//                 </Grid>
-//               </Grid>
-//               <Grid container spacing={2} justifyContent="flex-end" sx={{ marginTop: 2 }}>
-//                 <Grid item>
-//                   {!isEditMode ? (
-//                     <Button
-//                       variant="contained"
-//                       color="primary"
-//                       onClick={() => setIsEditMode(true)}
-//                     >
-//                       Edit
-//                     </Button>
-//                   ) : (
-//                     <>
-//                       <Button
-//                         variant="contained"
-//                         onClick={() => setIsEditMode(false)}
-//                         sx={{ marginRight: 1 }}
-//                       >
-//                         Cancel
-//                       </Button>
-//                       <Button
-//                         variant="contained"
-//                         color="primary"
-//                         onClick={handleSaveOrUpdate}
-//                       >
-//                         Save
-//                       </Button>
-//                       <Button
-//                         variant="contained"
-//                         color="primary"
-//                         onClick={resetForm}
-//                         sx={{ marginLeft: 2 }}
-//                       >
-//                         NEW
-//                       </Button>
-//                     </>
-//                   )}
-//                 </Grid>
-//               </Grid>
-//               <ToastContainer position="top-center" autoClose={3000} hideProgressBar />
-//             </Box>
-//           </Box>
-//         </CCardBody>
-//       </CCard>
-//     </>
-//   );
-// };
-
-// export default Patient;
+                     
+                  
+                 
+                 
+                    
+                     
+                     
+                       
+                       
+                       
+                       
+                       
+                       
+                                            
+                       
+                       
+                       
+                      
+                     
+                     
+                       
+                         
+                       
+                     
+                   
+                 
+                 
+                  
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                       
+                       
+                       
+                     
+                     
+                  
+                 
+                 
+                   
+                     
+                     
+                    
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                   
+                 
+                 
+                   
+                     
+                     
+                    
+                     
+                     
+                     
+                   
+                     
+                     
+                    
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                   
+                 
+                 
+                   
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                  
+               
+                
+                 
+                   
+                     
+                       
+                      
+                       
+                     
+                       
+                     
+                   
+                         
+                         
+                         
+                      
+                      
+                       
+                         
+                         
+                         
+                      
+                         
+                       
+                       
+                         
+                         
+                         
+                         
+            
+                         
+                       
+                     
+                   
+                 
+             
 
                    
 
