@@ -26,9 +26,9 @@ const PatientBill = () => {
   const checkboxColors = ['#0073e6', '#ff9900', '#4caf50', '#f44336', '#9c27b0', '#ffc107'];
   return (
     <>
-       {/* <CCard className="mb-4"> */}
+       <CCard className="mb-4">
       <CCardBody>
-        {/* <Box sx={{ padding: 2 }}>
+        <Box sx={{ padding: 2 }}>
           <Grid container spacing={2} alignItems="center">
             <Grid item xs={12} md={8}>
               <Typography
@@ -76,7 +76,7 @@ const PatientBill = () => {
             </Grid>
           </Grid>
         </Box>
-        <hr/> */}
+        <hr/>
       
       {/* <Container maxWidth="lg"> */}
         {/* <Box sx={{ p: 2 }}> */}
@@ -198,22 +198,7 @@ const PatientBill = () => {
                    </Select>
                  </FormControl>
                </Grid>
-               <Grid item xs={12} sm={2}>
-                 <FormControl variant="outlined" size="small" fullWidth>
-                   <InputLabel id="genderLabel"></InputLabel>
-                   <Select
-                     labelId="genderLabel"
-                     id="gender"
-                     label="Gender"
-                   >
-                     <MenuItem value=""><em>None</em></MenuItem>
-                     <MenuItem value="M">Male</MenuItem>
-                     <MenuItem value="F">Female</MenuItem>
-                     <MenuItem value="O">Other</MenuItem>
-                   </Select>
-                 </FormControl>
-               </Grid>
-               <Grid item xs={12} md={4}>
+               <Grid item xs={12} md={2}>
           <TextField
                 id="from"
                 label="FromDate"
@@ -225,7 +210,7 @@ const PatientBill = () => {
               />
           </Grid>
 
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} md={2}>
           <TextField
                 id="to"
                 label="ToDate"
@@ -237,7 +222,7 @@ const PatientBill = () => {
               />
           </Grid>
           
-<Grid item xs={12} sm={4}></Grid>
+
                
                                
      <Grid item xs={12} sm={2}>
@@ -419,8 +404,8 @@ InputLabelProps={{style: {fontSize:'16px'}}}
         {/* </Box> */}
       {/* </Container> */}
       </CCardBody>
-      {/* </CCard>
-   */}
+      </CCard>
+  
     </>
   );
 };

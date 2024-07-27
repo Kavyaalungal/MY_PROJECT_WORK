@@ -2,10 +2,15 @@ import React, { useState } from 'react';
 import { CNavItem, CNavLink, CModal, CModalHeader, CModalTitle, CModalBody, CModalFooter, CButton, CBadge , CCloseButton  } from '@coreui/react';
 import Patient from '../views/base/patient/Patient';
 import CIcon from '@coreui/icons-react';
-import { cilUser, cilBackspace,cilSpeedometer,cilGroup } from '@coreui/icons';
+import { cilBackspace,cilSpeedometer,cilGroup,cilPencil,cilBank,cilBarcode,cilAddressBook,cilSpreadsheet } from '@coreui/icons';
 import Cancelinvoice from '../views/base/cancel/Cancelinvoice';
 import './NavigationWithModals.css'; // Import your custom CSS file
 import Dashboard from '../views/dashboard/Dashboard';
+import EditInvoice from '../views/theme/editinvoice/EditInvoice';
+import Account from '../views/base/account/Account';
+import Bill from '../views/base/billwise/Bill'
+import PatientBill from '../views/base/patientviews/PatientBill';
+import PendingCollection from '../views/theme/pendingcollection/PendingCollection';
 
 
 const NavigationWithModals = () => {
@@ -35,6 +40,31 @@ const NavigationWithModals = () => {
       <CNavItem className="custom-nav-item">
         <CNavLink className="custom-nav-link" onClick={() => toggleModal('Cancel Invoice', <Cancelinvoice />)}>
           <CIcon icon={cilBackspace} className="me-2" /> Cancel Invoice
+        </CNavLink>
+      </CNavItem>
+      <CNavItem className='custom-nav-item'>
+        <CNavLink className='custom-nav-link' onClick={()=> toggleModal('Edit Invoice',<EditInvoice/>)}>
+        <CIcon icon={cilPencil} className='me-2'/>Edit Invoice
+        </CNavLink>
+      </CNavItem>
+      <CNavItem className='custom-nav-item'>
+        <CNavLink className='custom-nav-link' onClick={()=> toggleModal('Account Ledger',<Account/>)}>
+        <CIcon icon={cilBank} className='me-2'/>Account Ledger
+        </CNavLink>
+      </CNavItem>
+      <CNavItem className='custom-nav-item'>
+      <CNavLink className='custom-nav-link' onClick={()=> toggleModal('Billwise Collection',<Bill/>)}>
+        <CIcon icon={cilBarcode} className='me-2'/>Billwise Collection
+      </CNavLink>
+      </CNavItem>
+      <CNavItem className='custom-nav-item'>
+        <CNavLink className='custom-nav-link' onClick={()=>toggleModal('Patient Views',<PatientBill/>)}>
+        <CIcon icon={cilAddressBook} className='me-2'/>Patient Views
+        </CNavLink>
+      </CNavItem>
+      <CNavItem className='custom-nav-item'>
+        <CNavLink className='custom-nav-link' onClick={()=>toggleModal('Pending Collection',<PendingCollection/>)}>
+        <CIcon icon={cilSpreadsheet} className='me-2'/>Pending Collection
         </CNavLink>
       </CNavItem>
 

@@ -446,12 +446,10 @@ return (
                       label="Patient ID"
                         variant="outlined"
                         value={patientDetails ? patientDetails.Patient_Code : ''}
-                      //  value={patientDetails.Patient_Code}
                         onChange={(e) => setPatientDetails({ ...patientDetails, Patient_Code: e.target.value })}
                         size="small"
                         fullWidth
-                        InputLabelProps={{ style: { fontSize: '1rem' } }}
-                        // disabled={!isEditMode} 
+                        InputLabelProps={{ style: { fontSize: '1rem' } }} 
                       />
                     </Grid>
                     <Grid item xs={12} sm={2}>
@@ -478,17 +476,14 @@ return (
                         label="Name"
                         variant="outlined"  
                         value={patientDetails ? patientDetails.Patient_Name : ''}                     
-                        // value={patientDetails.Patient_Name || ''}
                         onChange={(e) => {
                          setPatientDetails({ ...patientDetails, Patient_Name: e.target.value });
                          setErrors((prevErrors) => ({ ...prevErrors, Patient_Name: '' }));
                        }}
                         size="small"
                         fullWidth
-                        InputLabelProps={{ style: { fontSize: '1rem' } }}
-                        // disabled={!isEditMode} 
+                        InputLabelProps={{ style: { fontSize: '1rem' } }} 
                         error={!!errors.Patient_Name}
-                        // helperText={errors.Patient_Name}
                       />
                     </Grid>
                      <Grid item container xs={12} sm={7} spacing={2}>
@@ -553,7 +548,6 @@ return (
                             id="gender"
                             label="Gender"
                             value={patientDetails ? patientDetails.Patient_Ismale : ''}    
-                            // value={patientDetails.Patient_Ismale}
                             InputProps={{
                               readOnly: true,
                             }}

@@ -34,7 +34,7 @@ return (
     <CButton color="primary" onClick={() => setVisibleXL(!visibleXL)}>PENDING COLLECTION</CButton>
     <CButton color="primary" onClick={() => setVisibleLg(!visibleLg)}>Large modal</CButton>
    
-    {/* <CModal
+    <CModal
       size="xl"
       visible={visibleXL}
       onClose={() => setVisibleXL(false)}
@@ -310,17 +310,119 @@ return (
                     fullWidth
                     multiline
                     rows={2}
+                    InputLabelProps={{ style: { fontSize: '18px' } }}
+                  />
+                </Grid>
+              </Grid>
+            </Paper>
+          </Grid>
 
+          {/* Right side - Table */}
+          <Grid item xs={12} sm={6}>
+            <Paper elevation={3} style={{ padding: '16px', borderRadius: '15px', height: '100%' }}>
+              <Grid container spacing={2} alignItems="center">
+                <Grid item xs={12} sm={4}>
+                    <TextField 
+                    id='dateFrom'
+                    label='From'
+                    variant='outlined'
+                    size='small'
+                    fullWidth
+                    InputLabelProps={{style:{ fontSize: '18px'}}}
+                    />
+                </Grid>
+                <Grid item xs={12} sm={4}>
+                  <TextField
+                    id="dateTo"
+                    label="To"
+                    variant="outlined"
+                    size="small"
+                    fullWidth
+                    InputLabelProps={{ style: { fontSize: '18px' } }}
+                  />
+                </Grid>
+                <Grid item xs={12} sm={4} container alignItems="center" justifyContent="flex-start" spacing={1}>
+                 <Grid item>
+                <CButton color="primary">REFRESH</CButton>
+                </Grid>
+                <Grid item>
+                <CButton color="secondary">PRINT</CButton>
+                </Grid> 
+              </Grid>
 
-
-
-
-
-
-
-
-                    
-<CModal
+   
+            <Grid container spacing={2}>
+                <Grid item xs={12}>
+                  <FormControl component="fieldset" fullWidth>
+                    <FormGroup row>
+                      <FormControlLabel
+                        label="Corporate"
+                        labelPlacement='start'
+                        control={
+                          <Checkbox
+                            checked={isChecked}
+                            onChange={handleCheckboxChange}
+                            name="corporate"
+                          />
+                        }
+                      />
+                      {isChecked && (
+                        <Grid item>
+                          <TextField
+                            label="Input"
+                            variant="outlined"
+                            size='small'
+                            InputLabelProps={{ style: { fontSize: '18px' } }}
+                            style={{ marginTop: '8px',marginLeft:'6px' }} // Adjust this value to move the input further down or up
+                          />
+                        </Grid>
+                      )}
+                    </FormGroup>
+                  </FormControl>
+                </Grid>
+              </Grid>
+                {/* Table */}
+                <Grid item xs={12}>
+                  <TableContainer style={{ maxHeight: 'calc(100vh - 400px)', overflowY:'auto' }}>
+                    <Table stickyHeader aria-label="sticky table">
+                      <TableHead>
+                        <TableRow>
+                          <TableCell sx={{ border: '1px solid #dddddd', background: '#f2f2f2', fontSize: '12px', padding: '8px' }}>SlNo</TableCell>
+                          <TableCell sx={{ border: '1px solid #dddddd', background: '#f2f2f2', fontSize: '12px', padding: '8px' }}>Lab</TableCell>
+                          <TableCell sx={{ border: '1px solid #dddddd', background: '#f2f2f2', fontSize: '12px', padding: '8px' }}>Date</TableCell>
+                          <TableCell sx={{ border: '1px solid #dddddd', background: '#f2f2f2', fontSize: '12px', padding: '8px' }}>Name</TableCell>
+                          <TableCell sx={{ border: '1px solid #dddddd', background: '#f2f2f2', fontSize: '12px', padding: '8px' }}>Balance</TableCell>
+                          <TableCell sx={{ border: '1px solid #dddddd', background: '#f2f2f2', fontSize: '12px', padding: '8px' }}>Corporate</TableCell>
+                          <TableCell sx={{ border: '1px solid #dddddd', background: '#f2f2f2', fontSize: '12px', padding: '8px' }}>User</TableCell>
+                          <TableCell sx={{ border: '1px solid #dddddd', background: '#f2f2f2', fontSize: '12px', padding: '8px' }}>View</TableCell>
+                        </TableRow>
+                      </TableHead>
+                      <TableBody>
+                        {rows.map((row) => (
+                           <TableRow key={row.id}> 
+                            <TableCell sx={{ border: '1px solid #dddddd', fontSize: '12px', padding: '8px' }}>{row.id}</TableCell>
+                            <TableCell sx={{ border: '1px solid #dddddd', fontSize: '12px', padding: '8px' }}>{row.col1}</TableCell>
+                            <TableCell sx={{ border: '1px solid #dddddd', fontSize: '12px', padding: '8px' }}>{row.col2}</TableCell>
+                            <TableCell sx={{ border: '1px solid #dddddd', fontSize: '12px', padding: '8px' }}>{row.col3}</TableCell>
+                            <TableCell sx={{ border: '1px solid #dddddd', fontSize: '12px', padding: '8px' }}>{row.col4}</TableCell>
+                            <TableCell sx={{ border: '1px solid #dddddd', fontSize: '12px', padding: '8px' }}>{row.col5}</TableCell>
+                            <TableCell sx={{ border: '1px solid #dddddd', fontSize: '12px', padding: '8px' }}>{row.col6}</TableCell>
+                            <TableCell sx={{ border: '1px solid #dddddd', fontSize: '12px', padding: '8px' }}>{row.col7}</TableCell>
+                            </TableRow> 
+                        ))}
+                      </TableBody>
+                    </Table>
+                  </TableContainer>
+                </Grid>
+              </Grid>
+            </Paper>
+          </Grid>
+        </Grid>
+    </CCardBody>
+    </CCard>
+      </CModalBody>
+    </CModal>
+    <CModal
       size="lg"
       visible={visibleLg}
       onClose={() => setVisibleLg(false)}
