@@ -57,16 +57,16 @@ const NavigationWithModals = () => {
         <CIcon icon={cilBarcode} className='me-2'/>Billwise Collection
       </CNavLink>
       </CNavItem>
-      <CNavItem className='custom-nav-item'>
+      {/* <CNavItem className='custom-nav-item'>
         <CNavLink className='custom-nav-link' onClick={()=>toggleModal('Patient Views',<PatientBill/>)}>
         <CIcon icon={cilAddressBook} className='me-2'/>Patient Views
         </CNavLink>
-      </CNavItem>
-      <CNavItem className='custom-nav-item'>
+      </CNavItem> */}
+      {/* <CNavItem className='custom-nav-item'>
         <CNavLink className='custom-nav-link' onClick={()=>toggleModal('Pending Collection',<PendingCollection/>)}>
         <CIcon icon={cilSpreadsheet} className='me-2'/>Pending Collection
         </CNavLink>
-      </CNavItem>
+      </CNavItem> */}
 
       <CModal visible={modal} onClose={() => setModal(false)}
               size="lg"

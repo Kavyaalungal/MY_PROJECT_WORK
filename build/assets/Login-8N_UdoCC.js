@@ -1,4 +1,4 @@
-import{k as i,m as l,j as e}from"./index-C_WHkTZ7.js";import{b as o,a7 as c,a6 as s,a as d}from"./TextField-b2Ght7tv.js";const m=()=>({type:"login"}),u=()=>{const t=i(),a=l(),n=r=>{r.preventDefault(),t(m()),a("/")};return e.jsxs(e.Fragment,{children:[e.jsx("style",{children:`
+import{k as i,n as l,j as e}from"./index-B_1GizV7.js";import{b as o,ae as c,ac as s,a as d}from"./TextField-CdIpu0b3.js";const m=()=>({type:"login"}),u=()=>{const t=i(),a=l(),n=r=>{r.preventDefault(),t(m()),a("/")};return e.jsxs(e.Fragment,{children:[e.jsx("style",{children:`
         .content-wrapper {
           border: 2px solid #523885; 
           border-radius: 8px; /* Optional: for rounded corners */

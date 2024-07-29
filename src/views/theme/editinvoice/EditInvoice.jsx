@@ -694,31 +694,7 @@ return (
     <>
     
       <CCardBody>
-        {/* <Grid container spacing={2}>
-          <Grid item xs={12} sm={6}>
-            <TextField
-              id="labno"
-              label="Lab No"
-              variant="outlined"
-              size="small"
-              fullWidth
-              value={labNo}
-              onChange={(e) => setLabNo(e.target.value)}
-              InputLabelProps={{ style: { fontSize: '1rem' } }}
-              style={{ marginBottom: '10px' }}
-            />
-          </Grid>
-      <Grid item xs={12} sm={6}>
-            <CButton color="primary" onClick={fetchData}
-              style={{
-                marginBottom: '5px'
-
-              }}
-            >SEARCH</CButton>
-          </Grid>
-        </Grid> */}
         {error && <Typography variant="body2" color="error">{error}</Typography>}
-        {/* {invoiceData && ( */}
           <>
             <Box sx={{ border: '1px solid #ddd', padding: '16px', borderRadius: '8px', marginBottom: '10px' }}>
               <Grid container spacing={2}>
@@ -788,20 +764,20 @@ return (
                 <Grid item container xs={12} sm={7} spacing={1}>
                   <Grid item xs={3}>
                     <TextField
-                      id="dd"
-                      label="Day"
+                      id="yyyy"
+                      label="Age YY"
                       variant="outlined"
                       size="small"
                       fullWidth
-                      value={day}
-                      onChange={(e) => setDay(e.target.value)}
+                      value={year}
+                      onChange={(e) => setYear(e.target.value)}
                       InputLabelProps={{ style: { fontSize: '1rem' } }}
                     />
                   </Grid>
                   <Grid item xs={3}>
                     <TextField
                       id="mm"
-                      label="Month"
+                      label="Age MM"
                       variant="outlined"
                       size="small"
                       fullWidth
@@ -812,13 +788,13 @@ return (
                   </Grid>
                   <Grid item xs={3}>
                     <TextField
-                      id="yyyy"
-                      label="Year"
+                      id="dd"
+                      label="Age DD"
                       variant="outlined"
                       size="small"
                       fullWidth
-                      value={year}
-                      onChange={(e) => setYear(e.target.value)}
+                      value={day}
+                      onChange={(e) => setDay(e.target.value)}
                       InputLabelProps={{ style: { fontSize: '1rem' } }}
                     />
                   </Grid>
@@ -933,7 +909,7 @@ return (
                     fullWidth
                     value={address}
                     onChange={(e) => setAddress(e.target.value)}
-                    InputLabelProps={{ style: { fontSize: '16px' } }}
+                    InputLabelProps={{ style: { fontSize: '1rem' } }}
                   />
                 </Grid>
               </Grid>
@@ -1178,7 +1154,6 @@ return (
               </Grid>
             </Box>
           </>
-        {/* )} */}
         <Grid container spacing={2} justifyContent="flex-end" sx={{ marginTop: 2 }}>
           <Grid item>
             <Button
