@@ -269,84 +269,6 @@
 //           InputLabelProps={{style:{fontSize:'16px'}}} 
 //           />
 //         </Grid>
-//         <Grid item xs={12} sm={6}>
-//           <FormControlLabel control={<Checkbox />} label="Email Report" />
-//           <FormControlLabel control={<Checkbox />} label="Is Active" />
-//         </Grid>
-//         <Grid item xs={12} sm={6}>
-//           <TextField 
-//           id='discount'
-//           label="Discount%"
-//           fullWidth 
-//           variant="outlined"
-//           size='small'
-//           InputLabelProps={{style:{fontSize:'16px'}}}
-//            />
-//         </Grid>
-//         <Grid item xs={12} sm={6}>
-//          <TextField
-//          id='test'
-//          label="TestDiscount%"
-//          fullWidth
-//          variant='outlined'
-//          size='small'
-//          InputLabelProps={{style: { fontSize:'16PX'}}}
-//          />
-//         </Grid>
-//         <Grid item xs={12} sm={12}>
-//             <FormControl variant='outlined' size='small' fullWidth>
-//                 <InputLabel id="payment">Pay Mode</InputLabel>
-//                 <Select
-//                 labelId='payment'
-//                 id='payment'
-//                 label="Pay Mode" 
-//                 >
-//                     <MenuItem value='cash'>Cash</MenuItem>
-//                     <MenuItem value='UPI'>UPI</MenuItem>
-//                     <MenuItem value='Netbanking'>Net Banking</MenuItem>
-//                 </Select>
-
-//             </FormControl>
-
-//         </Grid>
-//         <Grid item xs={12}>
-//           <TextField
-//           id='description' 
-//           label="Description" 
-//           fullWidth 
-//           multiline 
-//           rows={5} 
-//           variant="outlined"
-//           size='small'
-//           InputLabelProps={{style: {fontSize:'16px'}}}
-//            />
-//         </Grid>
-//         <Grid item xs={12} sm={6}>
-//                  <FormControl variant="outlined" size="small" fullWidth>
-//                    <InputLabel id="genderLabel"></InputLabel>
-//                    <Select
-//                      labelId="genderLabel"
-//                      id="gender"
-//                      label="Gender"
-//                    >
-//                      {/* <MenuItem value=""><em>JEEVA</em></MenuItem> */}
-//                      <MenuItem value="M">Male</MenuItem>
-//                      <MenuItem value="F">Female</MenuItem>
-//                      <MenuItem value="O">Other</MenuItem>
-//                    </Select>
-//                  </FormControl>
-//                </Grid>
-       
-//       </Grid>
-
-//     {/* </Paper> */}
-//     </>
-//   );
-// };
-
-// export default Account;
-
-
 import React from 'react';
 import {
   Box,
@@ -370,7 +292,7 @@ const Account = () => {
   return (
     // <CCard className="mb-4">
       <CCardBody>
-        <Grid container spacing={3}>
+        <Grid container spacing={2}>
           <Grid item xs={12}>
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
               <TextField
