@@ -232,43 +232,35 @@
 //                      label="Gender"
 //                    >
 //                      {/* <MenuItem value=""><em>JEEVA</em></MenuItem> */}
-//                      <MenuItem value="M">Male</MenuItem>
-//                      <MenuItem value="F">Female</MenuItem>
-//                      <MenuItem value="O">Other</MenuItem>
+                      
+                      
+                      
 //                    </Select>
-//                  </FormControl>
-//                </Grid>
-       
-//         <Grid item xs={6}>
-//           <TextField 
-//           id='phone'
-//           label="phone"
-//           fullWidth
-//           variant="outlined"
-//           size='small'
-//           InputLabelProps={{style: {fontSize:'16px'}}}
-//           />
-//         </Grid>
-//         <Grid item xs={12} sm={6}>
-//           <TextField
-//           id='mobile' 
-//           label="Mobile"
-//           fullWidth 
-//           variant="outlined"
-//           size='small'
-//           InputLabelProps={{style:{fontSize:'16px'}}}
-//            />
-//         </Grid>
-//         <Grid item xs={12} sm={6}>
-//           <TextField
-//           id='email'
-//           label="Email"
-//           fullWidth
-//           size='small'
-//           variant="outlined"
-//           InputLabelProps={{style:{fontSize:'16px'}}} 
-//           />
-//         </Grid>
+  //                </FormControl>
+    //            </Grid>
+
+           
+        
+         
+           
+            
+          
+           
+           
+           
+          
+           
+        
+         
+           
+           
+           
+           
+          
+           
+          
+          
+        
 import React from 'react';
 import {
   Box,
