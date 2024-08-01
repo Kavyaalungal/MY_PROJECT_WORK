@@ -18,27 +18,35 @@ import {
 } from '@mui/material';
 import { CCardBody } from '@coreui/react';
 
-const ReportDispatching = () => {
-//   const [reportingMode, setReportingMode] = useState('Personally');
-//   const [selectedModes, setSelectedModes] = useState([]);
-//   const dispatchModes = [
-//     { id: 1, mode: 'Phone', userInfo: 'user1' },
-//     { id: 2, mode: 'ByHand', userInfo: 'user2' },
-//     { id: 3, mode: 'Email', userInfo: 'user3' },
-//     { id: 4, mode: 'Courier', userInfo: 'user4' },
-//     { id: 5, mode: 'Through Branch', userInfo: 'user5' },
-//   ];
+const ReportDispatch = () => {
+  // const [selectedModes, setSelectedModes] = useState([]);
+  const [selectedRows, setSelectedRows] = useState([]);
+  const dispatchModes = [
+    { id: 1, mode: 'Phone', userInfo: 'user1' },
+    { id: 2, mode: 'ByHand', userInfo: 'user2' },
+    { id: 3, mode: 'Email', userInfo: 'user3' },
+    { id: 4, mode: 'Courier', userInfo: 'user4' },
+    { id: 5, mode: 'Through Branch', userInfo: 'user5' },
+  ];
 
-//   const handleDispatchModeDoubleClick = (mode) => {
-//     setSelectedModes((prevSelectedModes) => {
-//       // If the mode is already selected, remove it; otherwise, add it
-//       if (prevSelectedModes.includes(mode)) {
-//         return prevSelectedModes.filter((m) => m !== mode);
-//       } else {
-//         return [...prevSelectedModes, mode];
-//       }
-//     });
-//   };
+
+  const handleDispatchModeDoubleClick = (mode) => {
+    setSelectedRows((prevSelectedRows) => [
+      ...prevSelectedRows,
+      { ...mode, id: prevSelectedRows.length + 1,  } // Add a new instance with a new ID or unique identifier
+    ]);
+  };
+
+
+  // const handleDispatchModeDoubleClick = (mode) => {
+  //   setSelectedModes((prevSelectedModes) => {
+  //     if (prevSelectedModes.includes(mode.mode)) {
+  //       return prevSelectedModes;
+  //     } else {
+  //       return [...prevSelectedModes, mode.mode];
+  //     }
+  //   });
+  // };
 
   return (
     <>
@@ -168,7 +176,7 @@ const ReportDispatching = () => {
         </Grid>
         </Grid>
         </Box>
-       <Box sx={{border:'1px solid #ddd', padding:'16px', borderRadius:'8px', marginBottom:'10px',marginBottom:'10px', marginTop:'10px'}}>
+       <Box sx={{border:'1px solid #ddd', padding:'16px', borderRadius:'8px',marginBottom:'10px', marginTop:'10px'}}>
         <Grid container spacing={2}>
             <Grid item xs={12} md={6}>
                 <TextField
@@ -192,19 +200,6 @@ const ReportDispatching = () => {
                 InputLabelProps={{shrink:true,style:{fontSize:'1rem'}}}
                 />
             </Grid>
-            
-        </Grid>
-        
-
-        </Box> 
-    
-    
-        
-        
-        
-        
-        {/* <Box sx={{ border: '1px solid #ddd', padding: '16px', borderRadius: '8px', marginBottom: '10px', marginTop: '10px' }}> */}
-            {/* 
             <Grid item xs={12}>
               <FormControl component="fieldset">
                 <Typography variant="body1" gutterBottom>Report Requested Through</Typography>
@@ -232,71 +227,132 @@ const ReportDispatching = () => {
                 </FormGroup>
               </FormControl>
             </Grid>
-            </Grid> */}
-            {/* </Box> */}
-        {/* <Grid item xs={12} container spacing={2}>
-          <Grid item xs={3}>
-            <TableContainer sx={{ border: '1px solid black', borderRadius: '4px' }}>
-              <Table>
-                <TableHead>
-                  <TableRow>
-                    <TableCell sx={{ borderRight: '1px solid black', borderBottom: '1px solid black' }}>SlNo</TableCell>
-                    <TableCell sx={{ borderBottom: '1px solid black' }}>Dispatch Mode</TableCell>
+        
+</Grid>
+</Box>
+ <Box
+      sx={{
+      border:'1px solid #ddd',
+      padding:'16px',
+      borderRadius:'8px',
+      marginTop:'10px',
+      marginBottom:'10px',
+      overflowX:'auto'
+      }}
+    >
+      <Grid container spacing={2}>
+        <Grid item xs={12} md={4}>
+          <TableContainer
+            sx={{
+              // border: '1px solid #ddd',
+              // borderRadius: '8px',
+              // overflow: 'hidden',
+              // boxShadow: 1,
+            }}
+          >
+            <Table sx={{border: '1px solid #ddd'}}>
+              <TableHead>
+                <TableRow sx={{ backgroundColor: ' #3095E5' }}>
+                  <TableCell sx={{ borderRight: '1px solid #ddd', fontWeight: 'bold' }}>SlNo</TableCell>
+                  <TableCell sx={{ fontWeight: 'bold' }}>Dispatch Mode</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {dispatchModes.map((mode) => (
+                  <TableRow
+                    key={mode.id}
+                    onDoubleClick={() => handleDispatchModeDoubleClick(mode)}
+                    sx={{
+                      cursor: 'pointer',
+                      '&:hover': { backgroundColor: '#99c5de' },
+                    }}
+                  >
+                    <TableCell sx={{ borderRight: '1px solid #ddd' }}>{mode.id}</TableCell>
+                    <TableCell>{mode.mode}</TableCell>
                   </TableRow>
-                </TableHead>
-                <TableBody>
-                  {dispatchModes.map((mode) => (
-                    <TableRow
-                      key={mode.id}
-                      onDoubleClick={() => handleDispatchModeDoubleClick(mode.mode)}
-                      style={{ cursor: 'pointer' }}
-                    >
-                      <TableCell sx={{ borderRight: '1px solid black' }}>{mode.id}</TableCell>
-                      <TableCell>{mode.mode}</TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </TableContainer>
-          </Grid>
-          <Grid item xs={9}>
-            <TableContainer sx={{ border: '1px solid black', borderRadius: '4px' }}>
-              <Table>
-                <TableHead>
-                  <TableRow>
-                    <TableCell sx={{ borderRight: '1px solid black', borderBottom: '1px solid black' }}>SlNo</TableCell>
-                    <TableCell sx={{ borderRight: '1px solid black', borderBottom: '1px solid black' }}>Select</TableCell>
-                    <TableCell sx={{ borderRight: '1px solid black', borderBottom: '1px solid black' }}>Person</TableCell>
-                    <TableCell sx={{ borderRight: '1px solid black', borderBottom: '1px solid black' }}>DispatchMode</TableCell>
-                    <TableCell sx={{ borderBottom: '1px solid black' }}>UserInfo</TableCell>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </Grid>
+        <Grid item xs={12} md={8}>
+          <TableContainer
+            sx={{
+              // border: '1px solid #ddd',
+              // borderRadius: '8px',
+              // overflow: 'hidden',
+              // boxShadow: 1,
+            }}
+          >
+            <Table sx={{border: '1px solid #ddd'}}>
+              <TableHead>
+                <TableRow sx={{ backgroundColor: '#3095E5',borderRight: '1px solid #ddd' }}>
+                  <TableCell sx={{ borderRight: '1px solid #ddd', fontWeight: 'bold' }}>SlNo</TableCell>
+                  <TableCell sx={{ borderRight: '1px solid #ddd', fontWeight: 'bold' }}>Select</TableCell>
+                  <TableCell sx={{ borderRight: '1px solid #ddd', fontWeight: 'bold' }}>Person</TableCell>
+                  <TableCell sx={{ borderRight: '1px solid #ddd', fontWeight: 'bold' }}>Dispatch Mode</TableCell>
+                  <TableCell sx={{ fontWeight: 'bold' }}>User Info</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {selectedRows.map((row, index) => (
+                  <TableRow key={index} sx={{'&:hover': { backgroundColor: ' #99c5de '},cursor:'pointer'}}>
+                    <TableCell sx={{ borderRight: '1px solid #ddd' ,}}>{row.id}</TableCell>
+                    <TableCell sx={{ borderRight: '1px solid #ddd' }}>
+                      <Checkbox />
+                    </TableCell>
+                    <TableCell sx={{ borderRight: '1px solid #ddd' }}>{row.person || '-'}</TableCell>
+                    <TableCell sx={{ borderRight: '1px solid #ddd' }}>{row.mode}</TableCell>
+                    <TableCell>{row.userInfo}</TableCell>
                   </TableRow>
-                </TableHead>
-                <TableBody>
-                  {dispatchModes
-                    .filter((mode) => selectedModes.includes(mode.mode))
-                    .map((mode) => (
-                      <TableRow key={mode.id}>
-                        <TableCell sx={{ borderRight: '1px solid black' }}>{mode.id}</TableCell>
-                        <TableCell sx={{ borderRight: '1px solid black' }}>
-                          <Checkbox />
-                        </TableCell>
-                        <TableCell sx={{ borderRight: '1px solid black' }}>{mode.person || '-'}</TableCell>
-                        <TableCell sx={{ borderRight: '1px solid black' }}>{mode.mode}</TableCell>
-                        <TableCell>{mode.userInfo}</TableCell>
-                      </TableRow>
-                    ))}
-                </TableBody>
-              </Table>
-            </TableContainer>
-          </Grid>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
         </Grid>
-        <Grid item xs={12}>
-          <TextField label="Registration Note" variant="outlined" fullWidth size="small" multiline rows={2} />
-        </Grid>
-        <Grid item xs={12}>
-          <TextField label="Note" variant="outlined" fullWidth size="small" multiline rows={2} />
-        </Grid>
-        <Grid item xs={12} container justifyContent="flex-end" spacing={2}>
+      </Grid>
+      <div
+        style={{
+          display: 'flex',
+          width: '100%',
+          justifyContent: 'flex-end',
+          marginTop: '16px',
+        }}
+      >
+        <Button variant="contained" color="primary">
+          Remove
+        </Button>
+      </div>
+    </Box>
+  <Box sx={{ border: '1px solid #ddd', padding: '16px', borderRadius: '8px', marginBottom: '10px', marginTop: '10px' }}>
+            <Grid container spacing={2}>
+              <Grid item xs={12} sm={6}>
+             <TextField
+             id='register'
+             label='Registration Note'
+             variant='outlined'
+             size='small'
+             fullWidth
+             InputLabelProps={{style: {fontSize:'1rem'}}}
+             multiline
+             rows={3}
+             />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+             <TextField
+             id='note'
+             label='Note'
+             variant='outlined'
+             size='small'
+             fullWidth
+             InputLabelProps={{style: {fontSize:'1rem'}}}
+             multiline
+             rows={3}
+             />
+              </Grid>
+            </Grid>
+            </Box>
+            <Grid item xs={12} container justifyContent="flex-end" spacing={2}>
           <Grid item>
             <Button variant="contained" color="primary">New</Button>
           </Grid>
@@ -309,7 +365,17 @@ const ReportDispatching = () => {
           <Grid item>
             <Button variant="contained" color="primary">Exit</Button>
           </Grid>
-        </Grid> */}
+        </Grid>
+    
+    
+        
+        
+        
+        
+       
+      
+      
+    
       {/* </Grid> */}
     {/* </Paper> */}
     </CCardBody>
@@ -317,7 +383,7 @@ const ReportDispatching = () => {
   );
 };
 
-export default ReportDispatching;
+export default ReportDispatch;
 
 
  
@@ -328,35 +394,10 @@ export default ReportDispatching;
 
 
 
- //    <Container>
-//       <Box sx={{ padding: 2 }}>
-//         <Grid container spacing={2}>
-//           <Grid item xs={12} md={6}>
-//             <TableContainer component={Paper}>
-//               <Table>
-//                 <TableHead>
-//                   <TableRow>
-//                     <TableCell>Sl No</TableCell>
-//                     <TableCell>Dispatch Mode</TableCell>
-//                   </TableRow>
-//                 </TableHead>
-//                 <TableBody>
-//                   {dispatchModes.map((mode, index) => (
-//                     <TableRow key={index} onDoubleClick={() => handleDoubleClick(mode)} style={{ cursor: 'pointer' }}>
-//                       <TableCell>{index + 1}</TableCell>
-//                       <TableCell>{mode}</TableCell>
-//                     </TableRow>
-//                   ))}
-//                 </TableBody>
-//               </Table>
-//             </TableContainer>
-//           </Grid>
-//           <Grid item xs={12} md={6}>
-//             <TableContainer component={Paper}>
-//               <Table>
-//                 <TableHead>
-//                   <TableRow>
-                 //                         <TableCell>Dispatch Mode</TableCell>
-               //      <TableCell>User Info</TableC
+     
+      
+        
+                      
+                              
 
                  

@@ -49,7 +49,7 @@
       const fetchSuggestions = async (value) => { // search value is passed as parameter 
         console.log('Fetching suggestions with value:', value);
         try {
-          const response = await axios.post('http://172.16.16.10:8082/api/PatientMstr/PatientSearchMaster', { // request is send to backend 
+          const response = await axios.post('http://117.221.70.97:8060/api/PatientMstr/PatientSearchMaster', { // request is send to backend 
             YearId: 2425,   // with parameters yearid, branchid, searchitem, and the value
             BranchId: 2,
             SrchItem: searchCriteria,
@@ -87,7 +87,7 @@
 
     try {
       console.log('Selected Patient:', newValue); // Log selected patient for debugging
-      const response = await axios.post('http://172.16.16.10:8082/api/PatientMstr/PatientDetailsMaster', { //request sends to backend for taking the patient details
+      const response = await axios.post('http://117.221.70.97:8060/api/PatientMstr/PatientDetailsMaster', { //request sends to backend for taking the patient details
         YearId: 2425,// parameters are sent along with the request that is yearid,branchid and patientcode of the enetrerd patient 
         BranchId: 2,
         PatCode: newValue.Patient_Code,
@@ -280,7 +280,7 @@ const handleSaveOrUpdate = async () => {
 
   try {
     const editFlag = isEditMode ? 1 : 0;
-    const response = await axios.post('http://172.16.16.10:8082/api/PatientSaveUpdate', {
+    const response = await axios.post('http://117.221.70.97:8060/api/PatientSaveUpdate', {
       ...trimmedDetails,
       Patient_CpyId: 2,
       Patient_YrId: 2425,

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { CNavItem, CNavLink, CModal, CModalHeader, CModalTitle, CModalBody, CModalFooter, CButton, CBadge , CCloseButton  } from '@coreui/react';
 import Patient from '../views/base/patient/Patient';
 import CIcon from '@coreui/icons-react';
-import { cilBackspace,cilSpeedometer,cilGroup,cilPencil,cilBank,cilBarcode,cilNotes, cilCash,cilCopy } from '@coreui/icons';
+import { cilBackspace,cilSpeedometer,cilGroup,cilPencil,cilBank,cilBarcode,cilNotes, cilCash,cilCopy,cilAddressBook,cilSpreadsheet } from '@coreui/icons';
 import Cancelinvoice from '../views/base/cancel/Cancelinvoice';
 import './NavigationWithModals.css'; // Import your custom CSS file
 import Dashboard from '../views/dashboard/Dashboard';
@@ -14,6 +14,7 @@ import PendingCollection from '../views/theme/pendingcollection/PendingCollectio
 import Cashpayment from '../views/base/cashpayment/Cashpayment';
 import CashReceipt from '../views/base/receipt/CashReceipt';
 import ReportDispatch from '../views/base/reportdispatch/ReportDispatch';
+import BillWisePending from '../views/base/billwisepending/BillWisePending';
 
 
 const NavigationWithModals = () => {
@@ -29,6 +30,7 @@ const NavigationWithModals = () => {
 
   return (
     <>
+    <div className=' custom-nav-container'>
     <CNavItem className="custom-nav-item">
         <CNavLink className="custom-nav-link">
           <CIcon icon={cilSpeedometer} className="me-2" /> Dashboard
@@ -60,16 +62,16 @@ const NavigationWithModals = () => {
         <CIcon icon={cilBarcode} className='me-2'/>Billwise Collection
       </CNavLink>
       </CNavItem>
-      {/* <CNavItem className='custom-nav-item'>
+      <CNavItem className='custom-nav-item'>
         <CNavLink className='custom-nav-link' onClick={()=>toggleModal('Patient Views',<PatientBill/>)}>
         <CIcon icon={cilAddressBook} className='me-2'/>Patient Views
         </CNavLink>
-      </CNavItem> */}
-      {/* <CNavItem className='custom-nav-item'>
+      </CNavItem>
+      <CNavItem className='custom-nav-item'>
         <CNavLink className='custom-nav-link' onClick={()=>toggleModal('Pending Collection',<PendingCollection/>)}>
         <CIcon icon={cilSpreadsheet} className='me-2'/>Pending Collection
         </CNavLink>
-      </CNavItem> */}
+      </CNavItem>
   <CNavItem className='custom-nav-item'>
     <CNavLink className='custom-nav-link' onClick={()=> toggleModal('Cash Payment',<Cashpayment/>)}>
     <CIcon icon={cilCash} className='me-2'/>Cash Payment
@@ -85,6 +87,13 @@ const NavigationWithModals = () => {
     <CIcon icon={cilCopy} className='me-2'/>Report Dispatch
     </CNavLink>
   </CNavItem>
+  {/* <CNavItem className='custom-nav-item'>
+    <CNavLink className='custom-nav-link' onClick={()=>toggleModal('Billwise Pending Collection',<BillWisePending/>)}>
+    <CIcon icon={cilBarcode} className='me-2'/>Bill Wise Pending Collection 
+    </CNavLink>
+  </CNavItem> */}
+  
+  
       <CModal visible={modal} onClose={() => setModal(false)}
               size="lg"
               // visible={visibleLg}
@@ -101,6 +110,7 @@ const NavigationWithModals = () => {
           <CButton color="secondary" onClick={() => setModal(false)}>Close</CButton>
         </CModalFooter> */}
       </CModal>
+      </div>
     </>
   );
 };

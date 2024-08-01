@@ -190,7 +190,7 @@ const EditInvoice = () => {
   // for fetching data
   const fetchData = async () => {
     try {
-      const response = await axios.get(`http://172.16.16.10:8082/api/EditInvoice`, {
+      const response = await axios.get(`http://117.221.70.97:8060/api/EditInvoice`, {
         params: {
           LabNo: labNo,
           YearId: 2425,
@@ -456,7 +456,7 @@ const EditInvoice = () => {
     };
     console.log('Payload to be sent to API:', payload);
 
-    axios.post('http://172.16.16.10:8082/api/EditInvSave', payload)
+    axios.post('http://117.221.70.97:8060/api/EditInvSave', payload)
       .then(response => {
         console.log('Data saved successfully: ', response.data);
         toast.success('Data updated successfully!');
@@ -500,7 +500,7 @@ const EditInvoice = () => {
   // Function to fetch search results from the API
   const fetchSearchResults = async (searchType, value) => {
     try {
-      const response = await axios.get(`http://172.16.16.10:8082/api/SearchMaster`, {
+      const response = await axios.get(`http://117.221.70.97:8060/api/SearchMaster`, {
         params: {
           SrchItem: searchType,
           SrchVal: value

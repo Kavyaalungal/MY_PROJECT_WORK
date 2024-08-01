@@ -1,6 +1,35 @@
+body {
+  background-color: var(--cui-tertiary-bg);
+  color-scheme: light;
+}
+
+
 .custom-nav-item {
     list-style-type: none; /* Removes marker/bullet */
   }
+  .custom-nav-container {
+    max-height: 600px; /* Adjust the maximum height as needed */
+    overflow-y: auto; /* Enable vertical scrolling */
+  }
+  
+  .custom-nav-container::-webkit-scrollbar {
+    width: 12px; 
+  }
+  
+  .custom-nav-container::-webkit-scrollbar-track {
+    /* background: #f1f1f1;  */
+  }
+  
+  .custom-nav-container::-webkit-scrollbar-thumb {
+    /* background-color: #888;  */
+    /* border-radius: 6px;  */
+    /* border: 3px solid #f1f1f1;  */
+  }
+  
+  /* .custom-nav-container::-webkit-scrollbar-thumb:hover {
+    background-color: #555; 
+  } */
+  
   
   .custom-nav-link {
     display: flex;
