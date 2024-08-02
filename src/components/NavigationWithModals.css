@@ -1,20 +1,20 @@
-body {
+/* body {
   background-color: var(--cui-tertiary-bg);
   color-scheme: light;
 }
 
 
 .custom-nav-item {
-    list-style-type: none; /* Removes marker/bullet */
+    list-style-type: none; 
   }
   .custom-nav-container {
-    max-height: 600px; /* Adjust the maximum height as needed */
-    overflow-y: auto; /* Enable vertical scrolling */
+    max-height: 600px; 
+    overflow-y: auto; 
   }
   
   .custom-nav-container::-webkit-scrollbar {
     width: 12px; 
-  }
+  } */
   
   .custom-nav-container::-webkit-scrollbar-track {
     /* background: #f1f1f1;  */
@@ -31,44 +31,44 @@ body {
   } */
   
   
-  .custom-nav-link {
+  /* .custom-nav-link {
     display: flex;
     align-items: center;
-    padding: 0.75rem 1.5rem; /* Increase padding for better spacing */
+    padding: 0.75rem 1.5rem; 
     text-decoration: none;
-    color: #ffffff; /* Text color */
-    font-family: Arial, Helvetica, sans-serif; /* Change font family */
-    font-weight: 500; /* Add some font weight */
-    border-radius: 4px; /* Rounded corners */
-    transition: background-color 0.3s, color 0.3s; /* Smooth transition effect */
+    color: #ffffff; 
+    font-family: Arial, Helvetica, sans-serif; 
+    font-weight: 500; 
+    border-radius: 4px; 
+    transition: background-color 0.3s, color 0.3s; 
   }
   
   .custom-nav-link:hover {
-    background-color: #2e2e2e; /* Slightly darker background on hover */
-    color: #ffffff; /* Maintain text color on hover */
+    background-color: #2e2e2e; 
+    color: #ffffff; 
     cursor: pointer;
   }
   
   .custom-nav-link .badge {
-    margin-left: auto; /* Push badge to the right */
-    background-color: #17a2b8; /* Badge color */
-    color: #ffffff; /* Badge text color */
-    font-size: 0.75rem; /* Smaller font size for badge */
-    padding: 0.25rem 0.5rem; /* Padding for badge */
-    border-radius: 12px; /* Rounded badge */
+    margin-left: auto; 
+    background-color: #17a2b8; 
+    color: #ffffff; 
+    font-size: 0.75rem; 
+    padding: 0.25rem 0.5rem; 
+    border-radius: 12px; 
   }
   
   .custom-nav-link .icon {
-    margin-right: 0.75rem; /* Space between icon and text */
+    margin-right: 0.75rem;
   }
   
   .custom-nav-link.active {
-    background-color: #0056b3; /* Active link color */
-    color: #ffffff; /* Active link text color */
+    background-color: #0056b3; 
+    color: #ffffff; 
   }
   
   .custom-nav-link.active .badge {
-    background-color: #007bff; /* Active badge color */
+    background-color: #007bff; 
   }
   .custom-modal-header {
     padding: 0.5rem 1rem; 
@@ -79,4 +79,96 @@ body {
   
   .custom-modal-title {
     margin: 0; 
+  } */
+
+
+
+  body {
+    background-color: var(--cui-tertiary-bg);
+    color-scheme: light;
   }
+  
+  .custom-nav-item {
+    list-style-type: none;
+  }
+  
+  .custom-nav-container {
+    max-height: 600px;
+    overflow-y: auto;
+  }
+  
+  .custom-nav-container::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  .custom-nav-container::-webkit-scrollbar-track {
+    /* background: #f1f1f1; */
+  }
+  
+  .custom-nav-container::-webkit-scrollbar-thumb {
+    /* background-color: #888; */
+    /* border-radius: 6px; */
+    /* border: 3px solid #f1f1f1; */
+  }
+  
+  .custom-nav-link {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .custom-nav-link:hover {
+    background-color: #2e2e2e;
+    color: #ffffff;
+    cursor: pointer;
+  }
+  
+  .custom-nav-link .badge {
+    margin-left: auto;
+    background-color: #17a2b8;
+    color: #ffffff;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+  }
+  
+  .custom-nav-link .icon {
+    margin-right: 0.75rem;
+  }
+  
+  .custom-nav-link.active {
+    background-color: #0056b3;
+    color: #ffffff;
+  }
+  
+  .custom-nav-link.active .badge {
+    background-color: #007bff;
+  }
+  
+  .custom-modal-header {
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid #ddd;
+    background-color: #3095E5;
+    color: #fff;
+  }
+  
+  .custom-modal-title {
+    margin: 0;
+  }
+  
+  /* Ensure the modal body and content are visible */
+  .c-modal-body {
+    background-color: #fff; /* Ensure the background color is not transparent */
+    color: #000; /* Ensure text is visible */
+  }
+  
+  .c-modal {
+    background-color: rgba(0, 0, 0, 0.5); /* Ensure modal backdrop is not too transparent */
+  }
+  

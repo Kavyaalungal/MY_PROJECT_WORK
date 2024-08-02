@@ -87,11 +87,11 @@ const NavigationWithModals = () => {
     <CIcon icon={cilCopy} className='me-2'/>Report Dispatch
     </CNavLink>
   </CNavItem>
-  {/* <CNavItem className='custom-nav-item'>
+  <CNavItem className='custom-nav-item'>
     <CNavLink className='custom-nav-link' onClick={()=>toggleModal('Billwise Pending Collection',<BillWisePending/>)}>
     <CIcon icon={cilBarcode} className='me-2'/>Bill Wise Pending Collection 
     </CNavLink>
-  </CNavItem> */}
+  </CNavItem>
   
   
       <CModal visible={modal} onClose={() => setModal(false)}
@@ -103,7 +103,7 @@ const NavigationWithModals = () => {
           <CModalTitle className='custom-modal-title '>{modalTitle}</CModalTitle>
           {/* <CCloseButton onClick={() => setVisibleXL(false)} /> */}
         </CModalHeader>
-        <CModalBody>
+        <CModalBody className='c-modal-body'>
           {modalContent}
         </CModalBody>
         {/* <CModalFooter>

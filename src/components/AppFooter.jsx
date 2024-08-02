@@ -13,7 +13,7 @@ const AppFooter = () => {
       <div className="ms-auto">
         <span className="me-1">Powered by</span>
         <a href="https://iconinfoware.com/" target="_blank" rel="noopener noreferrer">
-          Icon Infoware Admin &amp; Dashboard Template
+          Icon Infoware Admin &amp; Dashboard 
         </a>
       </div>
     </CFooter>
