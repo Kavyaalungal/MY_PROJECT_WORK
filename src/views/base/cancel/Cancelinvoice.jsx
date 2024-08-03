@@ -83,7 +83,7 @@ const Cancelinvoice = () => {
 
   const fetchData = () => {
     const { LabNo, YrId, CmId } = params;
-    axios.get(`http://117.221.70.97:8060/api/Cancelinvget`, {
+    axios.get(`http://172.16.16.10:8060/api/Cancelinvget`, {
       params: {
         LabNo,
         YrId,
@@ -168,7 +168,7 @@ const Cancelinvoice = () => {
       Reason: Reason || null
     };
     console.log('Data being sent to the backend:', dataToSave);
-    axios.post('http://117.221.70.97:8060/api/cancelpatdetails/dltscancel', dataToSave)
+    axios.post('http://172.16.16.10:8060/api/cancelpatdetails/dltscancel', dataToSave)
       .then(response => {
         console.log('Data saved successfully', response.data);
         toast.success('Data saved successfully!');

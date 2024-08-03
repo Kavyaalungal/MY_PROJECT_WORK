@@ -55,13 +55,18 @@
             SrchItem: searchCriteria,
             srchVal:value
             // SrchVal: value.toLowerCase(),
+           
           });
+          
 
           if (response.data && response.data.patientList) { // if response.data exist and the patientlist is not null then the suggestions is set with the patient details
             setSuggestions(response.data.patientList);
-          } else {
+           
+          }
+           else {
             setSuggestions([]); // if no response the suggetions is set to empty
           }
+          
         } catch (error) {
           toast.error('Error fetching suggestions');  // any error in fetching data is displayed using toast
         }
