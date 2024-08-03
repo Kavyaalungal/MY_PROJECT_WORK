@@ -299,8 +299,44 @@ const PendingCollection = () => {
                     </FormGroup>
                   </FormControl>
                 </Grid>
+                
               </Grid>
               {/* Table */}
+              <Grid item xs={12}>
+             
+             <TableContainer component={Paper}>
+               <Table size="small" stickyHeader aria-label="sticky table">
+                 <TableHead>
+                   <TableRow>
+                     <TableCell >SlNo</TableCell>
+                     <TableCell>Lab</TableCell>
+                     <TableCell>Date</TableCell>
+                     <TableCell>Name</TableCell>
+                     <TableCell>Balance</TableCell>
+                     <TableCell>Coroperate</TableCell>
+                     <TableCell>User</TableCell>
+                     <TableCell>View</TableCell>
+                   </TableRow>
+                 </TableHead>
+                 <TableBody>
+                   {rows.map((row) => (
+                     <TableRow key={row.id}>
+                       <TableCell>{row.id}</TableCell>
+                       <TableCell>{row.col1}</TableCell>
+                       <TableCell>{row.col2}</TableCell>
+                       <TableCell>{row.col3}</TableCell>
+                       <TableCell>{row.col4}</TableCell>
+                       <TableCell>{row.col5}</TableCell>
+                       <TableCell>{row.col6}</TableCell>
+                     <TableCell>{row.col7}</TableCell>
+                     <TableCell>{row.col8}</TableCell>
+                     
+                     </TableRow>
+                   ))}
+                 </TableBody>
+               </Table>
+            </TableContainer>
+          </Grid>
               <Grid item xs={12}>
              
                            <TableContainer component={Paper}>
