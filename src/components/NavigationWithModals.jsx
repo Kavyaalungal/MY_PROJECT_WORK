@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { CNavItem, CNavLink, CModal, CModalHeader, CModalTitle, CModalBody, CModalFooter, CButton, CBadge , CCloseButton  } from '@coreui/react';
 import Patient from '../views/base/patient/Patient';
 import CIcon from '@coreui/icons-react';
-import { cilBackspace,cilSpeedometer,cilGroup,cilPencil,cilBank,cilBarcode,cilNotes, cilCash,cilCopy,cilAddressBook,cilSpreadsheet } from '@coreui/icons';
+import { cilBackspace,cilSpeedometer,cilGroup,cilPencil,cilBank,cilBarcode,cilNotes, cilCash,cilCopy,cilAddressBook,cilSpreadsheet,cilMoney } from '@coreui/icons';
 import Cancelinvoice from '../views/base/cancel/Cancelinvoice';
 import './NavigationWithModals.css'; // Import your custom CSS file
 import Dashboard from '../views/dashboard/Dashboard';
@@ -16,6 +16,7 @@ import CashReceipt from '../views/base/receipt/CashReceipt';
 import ReportDispatch from '../views/base/reportdispatch/ReportDispatch';
 import BillWisePending from '../views/base/billwisepending/BillWisePending';
 import CashClosing from '../views/base/cashclosing/CashClosing';
+import BillwiseArea from '../views/base/billwise/BillwiseArea';
 
 
 const NavigationWithModals = () => {
@@ -96,8 +97,13 @@ const NavigationWithModals = () => {
     </CNavLink>
   </CNavItem>
   <CNavItem className='custom-nav-item'>
-    <CNavLink className='custom-nav-link' onClick={()=>toggleModal('Cash Closing',<CashClosing/>)}>
-    <CIcon icon={cilBarcode} className='me-2'/>Cash Closing 
+    <CNavLink className='custom-nav-link' onClick={()=>toggleModal('Cash Closing',<CashClosing/>,'lg')}>
+    <CIcon icon={cilMoney} className='me-2'/>Cash Closing 
+    </CNavLink>
+  </CNavItem>
+  <CNavItem className='custom-nav-item'>
+    <CNavLink className='custom-nav-link' onClick={()=>toggleModal('Bill Wise Collection - Area',<BillwiseArea/>)}>
+    <CIcon icon={cilBarcode} className='me-2'/>Bill Wise Collection - Area
     </CNavLink>
   </CNavItem>
   

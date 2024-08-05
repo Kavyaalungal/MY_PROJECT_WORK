@@ -407,6 +407,376 @@
 // export default CashClosingForm;
 
 
+// import React, { useState } from 'react';
+// import {
+//   Grid, TextField, Typography, Button, Checkbox, FormControlLabel, Box, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Radio, RadioGroup, FormControl, FormLabel,
+// } from '@mui/material';
+// import { styled } from '@mui/system';
+
+// const StyledTypography = styled(Typography)({
+//   color: 'green',
+//   fontWeight: 'bold',
+//   marginBottom: '10px',
+// });
+
+// function createData(sno, transNo, name, amount) {
+//   return { sno, transNo, name, amount };
+// }
+
+// const rows = [
+//   createData(1, '001', 'John Doe', 150),
+//   createData(2, '002', 'Jane Doe', 200),
+//   createData(3, '003', 'Alice', 300),
+// ];
+
+// function CashClosingForm() {
+//   const [radioValue, setRadioValue] = useState('allUser');
+
+//   const handleRadioChange = (event) => {
+//     setRadioValue(event.target.value);
+//   };
+
+//   return (
+//     <>
+//       {/* <Typography variant="h5" align="center" gutterBottom>Cash Closing</Typography> */}
+//       <Grid container spacing={2}>
+//         <Grid item xs={12}>
+//         <StyledTypography variant="h6">Transaction Details</StyledTypography>
+//         </Grid>
+//         {/* Left Side */}
+//         <Grid item xs={12} md={6}>
+//           {/* Transaction Details */}
+         
+//           <Grid container spacing={2}>
+//             <Grid item xs={4}>
+//               <TextField 
+//               id='collection1'
+//               label="Collection1"
+//                fullWidth 
+//                size="small"
+//                variant='outlined'
+//                InputLabelProps={{style:{fontSize:'1rem'}}} />
+//             </Grid>
+//             <Grid item xs={4}>
+//                 <Button variant='contained' color='primary'>Set Value</Button>
+//               {/* <TextField label="Collection2" fullWidth size="small" /> */}
+//             </Grid>
+//             <Grid item xs={4}>
+//               <TextField
+//               id='datetime'
+//               label="DateTime"
+//               fullWidth 
+//               type='datetime-local'
+//               variant='outlined'
+//               size="small"
+//               InputLabelProps={{shrink:true,style:{fontSize:'1rem'}}}
+//                />
+          
+//             {/* <Grid item xs={6}>
+//               <TextField
+//               id='collection2'
+//                label="Collection2"
+//                variant='outlined' 
+//                fullWidth
+//                 size="small"
+//                 InputLabelProps={{style:{fontSize:'1rem'}}} 
+                
+//                 />
+//             </Grid> */}
+           
+//             </Grid>
+//             <Grid item xs={4}>
+//               <TextField
+//               id='collection2'
+//                label="Collection2"
+//                 fullWidth
+//                 variant='outlined' 
+//                 size="small" 
+//                 InputLabelProps={{style:{fontSize:'1rem'}}}
+//                 />
+//             </Grid>
+//             <Grid item xs={8}>
+//               <TextField
+//               id='userinfo'
+//                label="User Info"
+//                 fullWidth
+//                 variant='outlined'
+//                  size="small"
+//                  InputLabelProps={{style:{fontSize:'1rem'}}}
+//                  />
+//             </Grid>
+//             <Grid item xs={6}>
+//               <TextField 
+//               id="payments"
+//               label='Payments'
+//                 fullWidth 
+//                 size="small"
+//                 variant='outlined'
+//                  InputLabelProps={{ style:{fontSize:'1rem'} }} />
+//             </Grid>
+//             <Grid item xs={6}>
+//               <TextField 
+//               id="receipts"
+//               label='Receipts'
+//                 fullWidth 
+//                 size="small"
+//                 variant='outlined'
+//                  InputLabelProps={{ style:{fontSize:'1rem'} }} />
+//             </Grid>
+//             <Grid item xs={6}>
+//               <TextField
+//               id='officeamount'
+//                label="Office Amount"
+//                 fullWidth
+//                  size="small"
+//                  variant='outlined'
+//                  InputLabelProps={{style:{fontSize:'1rem'}}} />
+//             </Grid>
+//             <Grid item xs={6}>
+//               <TextField
+//               id='total'
+//                label="Total"
+//                 fullWidth
+//                  size="small"
+//                  variant='outlined'
+//                  InputLabelProps={{style:{fontSize:'1rem'}}} />
+//             </Grid>
+//             <Grid item xs={6}>
+//               <FormControlLabel control={<Checkbox />} label="Print all Closing" />
+//             </Grid>
+//           </Grid>
+
+//           {/* Denomination Details */}
+//           <StyledTypography variant="h6">Denomination Details</StyledTypography>
+//           <Grid container spacing={2} direction={'column'}>
+//             {[2000, 1000, 500, 200, 100, 50, 20, 10, 5, "Coins"].map((denomination) => (
+//               <Grid item xs={4} key={denomination}>
+//                 <TextField label={denomination + " X"} fullWidth size="small" />
+//               </Grid>
+//             ))}
+//             <Grid item xs={4}>
+//               <TextField label="Total" fullWidth size="small" />
+//             </Grid>
+//           </Grid>
+
+//           {/* Office Details */}
+//           <StyledTypography variant="h6">Office Details</StyledTypography>
+//           <Grid container spacing={2}>
+//             <Grid item xs={6}>
+//               <TextField label="To Office" fullWidth size="small" />
+//             </Grid>
+//             <Grid item xs={6}>
+//               <TextField label="Balance" fullWidth size="small" />
+//             </Grid>
+//             <Grid item xs={6}>
+//               <TextField label="Excess Amount" fullWidth size="small" />
+//             </Grid>
+//             <Grid item xs={6}>
+//               <TextField label="Short Amount" fullWidth size="small" />
+//             </Grid>
+//             <Grid item xs={12}>
+//               <TextField label="Note" fullWidth multiline rows={4} size="small" />
+//             </Grid>
+//           </Grid>
+//         </Grid>
+
+//         {/* Right Side */}
+//         <Grid item xs={12} md={6}>
+//           <Grid container spacing={2}>
+//             <Grid item xs={6}>
+//               <FormControlLabel control={<Checkbox />} label="User wise" />
+//               </Grid>
+//               <Grid item xs={6}>
+//               <FormControl component="fieldset">
+//                 <RadioGroup row value={radioValue} onChange={handleRadioChange}>
+//                 <FormControlLabel
+//                       value="cheque"
+//                       control={<Radio size="small" />}
+//                       label={<Typography variant="body2">All user</Typography>}
+//                       sx={{ '& .MuiSvgIcon-root': { fontSize: 12 } }}
+//                     />
+//                    <FormControlLabel
+//                       value="cheque"
+//                       control={<Radio size="small" />}
+//                       label={<Typography variant="body2">Logged User</Typography>}
+//                       sx={{ '& .MuiSvgIcon-root': { fontSize: 12 } }}
+//                     />
+//                 </RadioGroup>
+//               </FormControl>
+              
+//             </Grid>
+//             <Grid item xs={8}>
+//               <TextField label="TextField" fullWidth size="small" />
+             
+//               </Grid>
+//               <Grid item xs={4}>
+//              <Button variant='contained' color='primary'>Fetch</Button>
+             
+//               </Grid>
+              
+
+//             {/* Invoice Details */}
+//             <Grid item xs={12}>
+//               <StyledTypography variant="h6">Invoice Details</StyledTypography>
+//               <TableContainer component={Paper}>
+//                 <Table size="small">
+//                   <TableHead>
+//                     <TableRow>
+//                       <TableCell>S.No</TableCell>
+//                       <TableCell>Trans.No</TableCell>
+//                       <TableCell>Name</TableCell>
+//                       <TableCell>Coll.Amt</TableCell>
+//                     </TableRow>
+//                   </TableHead>
+//                   <TableBody>
+//                     {rows.map((row) => (
+//                       <TableRow key={row.sno}>
+//                         <TableCell>{row.sno}</TableCell>
+//                         <TableCell>{row.transNo}</TableCell>
+//                         <TableCell>{row.name}</TableCell>
+//                         <TableCell>{row.amount}</TableCell>
+//                       </TableRow>
+//                     ))}
+//                   </TableBody>
+//                 </Table>
+//               </TableContainer>
+//             </Grid>
+
+//             {/* Pending Collection */}
+//             <Grid item xs={12}>
+//               <StyledTypography variant="h6">Pending Collection</StyledTypography>
+//               <TableContainer component={Paper}>
+//                 <Table size="small">
+//                   <TableHead>
+//                     <TableRow>
+//                       <TableCell>S.No</TableCell>
+//                       <TableCell>Trans.No</TableCell>
+//                       <TableCell>Name</TableCell>
+//                       <TableCell>Pend.Coll</TableCell>
+//                     </TableRow>
+//                   </TableHead>
+//                   <TableBody>
+//                     {rows.map((row) => (
+//                       <TableRow key={row.sno}>
+//                         <TableCell>{row.sno}</TableCell>
+//                         <TableCell>{row.transNo}</TableCell>
+//                         <TableCell>{row.name}</TableCell>
+//                         <TableCell>{row.amount}</TableCell>
+//                       </TableRow>
+//                     ))}
+//                   </TableBody>
+//                 </Table>
+//               </TableContainer>
+//             </Grid>
+
+//             {/* Payment Details */}
+//             <Grid item xs={12}>
+//               <StyledTypography variant="h6">Payment Details</StyledTypography>
+//               <TableContainer component={Paper}>
+//                 <Table size="small">
+//                   <TableHead>
+//                     <TableRow>
+//                       <TableCell>S.No</TableCell>
+//                       <TableCell>Trans.No</TableCell>
+//                       <TableCell>Name</TableCell>
+//                       <TableCell>Paid</TableCell>
+//                     </TableRow>
+//                   </TableHead>
+//                   <TableBody>
+//                     {rows.map((row) => (
+//                       <TableRow key={row.sno}>
+//                         <TableCell>{row.sno}</TableCell>
+//                         <TableCell>{row.transNo}</TableCell>
+//                         <TableCell>{row.name}</TableCell>
+//                         <TableCell>{row.amount}</TableCell>
+//                       </TableRow>
+//                     ))}
+//                   </TableBody>
+//                 </Table>
+//               </TableContainer>
+//             </Grid>
+
+//             {/* Receipt Details */}
+//             <Grid item xs={12}>
+//               <StyledTypography variant="h6">Receipt Details</StyledTypography>
+//               <TableContainer component={Paper}>
+//                 <Table size="small">
+//                   <TableHead>
+//                     <TableRow>
+//                       <TableCell>S.No</TableCell>
+//                       <TableCell>Trans.No</TableCell>
+//                       <TableCell>Name</TableCell>
+//                       <TableCell>Receipt</TableCell>
+//                     </TableRow>
+//                   </TableHead>
+//                   <TableBody>
+//                     {rows.map((row) => (
+//                       <TableRow key={row.sno}>
+//                         <TableCell>{row.sno}</TableCell>
+//                         <TableCell>{row.transNo}</TableCell>
+//                         <TableCell>{row.name}</TableCell>
+//                         <TableCell>{row.amount}</TableCell>
+//                       </TableRow>
+//                     ))}
+//                   </TableBody>
+//                 </Table>
+//               </TableContainer>
+//             </Grid>
+//           </Grid>
+//         </Grid>
+
+//         {/* Buttons */}
+//         {/* <Grid item xs={12} display="flex" justifyContent="space-between">
+//           <Button variant="contained" color="primary">New</Button>
+//           <Button variant="contained" color="primary">Previous</Button>
+//           <Button variant="contained" color="primary">Next</Button>
+//           <Button variant="contained" color="primary">Print</Button>
+//           <Button variant="contained" color="primary">Exit</Button>
+//         </Grid> */}
+//           <Grid container spacing={2} justifyContent="flex-end" sx={{ marginTop: 2 }}>
+//               <Grid item>
+//                 <Button
+//                   variant="contained"
+//                   color="primary"
+//                   // onClick={handleSaveOrUpdate}
+//                   sx={{ marginTop: 2, marginLeft: 2 }}
+//                 >
+//                   Fetch
+//                 </Button>
+//                 <Button
+//                   variant="contained"
+//                   color="primary"
+//                   // onClick={resetForm}
+//                   sx={{ marginTop: 2, marginLeft: 2 }}
+//                 >
+//                   Print
+//                 </Button>
+//                 <Button
+//                 variant='contained'
+//                 color='primary'
+//                 sx={{marginTop:2, marginLeft:2}}
+//                 >New</Button>
+//                 <Button
+//                 variant='contained'
+//                 color='primary'
+//                 sx={{marginTop:2,marginLeft:2}}
+//                 >Save</Button>
+//                 <Button
+//                 variant='contained'
+//                 color='primary'
+//                 sx={{marginTop:2,marginLeft:2}}
+//                 >Exit</Button>
+//               </Grid>
+//             </Grid>
+//       </Grid>
+//     </>
+//   );
+// }
+
+// export default CashClosingForm;
+
+
+
 import React, { useState } from 'react';
 import {
   Grid, TextField, Typography, Button, Checkbox, FormControlLabel, Box, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Radio, RadioGroup, FormControl, FormLabel,
@@ -431,118 +801,110 @@ const rows = [
 
 function CashClosingForm() {
   const [radioValue, setRadioValue] = useState('allUser');
+  const [isChecked, setIsChecked] = useState(false);
 
   const handleRadioChange = (event) => {
     setRadioValue(event.target.value);
   };
 
+  const handleCheckboxChange = (event) => {
+    setIsChecked(event.target.checked);
+  };
+
   return (
     <>
-      {/* <Typography variant="h5" align="center" gutterBottom>Cash Closing</Typography> */}
       <Grid container spacing={2}>
         <Grid item xs={12}>
-        <StyledTypography variant="h6">Transaction Details</StyledTypography>
+          <StyledTypography variant="h6">Transaction Details</StyledTypography>
         </Grid>
         {/* Left Side */}
         <Grid item xs={12} md={6}>
-          {/* Transaction Details */}
-         
           <Grid container spacing={2}>
             <Grid item xs={4}>
               <TextField 
-              id='collection1'
-              label="Collection1"
-               fullWidth 
-               size="small"
-               variant='outlined'
-               InputLabelProps={{style:{fontSize:'1rem'}}} />
-            </Grid>
-            <Grid item xs={4}>
-                <Button variant='contained' color='primary'>Set Value</Button>
-              {/* <TextField label="Collection2" fullWidth size="small" /> */}
-            </Grid>
-            <Grid item xs={4}>
-              <TextField
-              id='datetime'
-              label="DateTime"
-              fullWidth 
-              type='datetime-local'
-              variant='outlined'
-              size="small"
-              InputLabelProps={{shrink:true,style:{fontSize:'1rem'}}}
-               />
-          
-            {/* <Grid item xs={6}>
-              <TextField
-              id='collection2'
-               label="Collection2"
-               variant='outlined' 
-               fullWidth
+                id='collection1'
+                label="Collection1"
+                fullWidth 
                 size="small"
+                variant='outlined'
                 InputLabelProps={{style:{fontSize:'1rem'}}} 
-                
-                />
-            </Grid> */}
-           
+              />
+            </Grid>
+            <Grid item xs={4}>
+              {!isChecked && (
+                <Button variant='contained' color='primary'>Set Value</Button>
+              )}
             </Grid>
             <Grid item xs={4}>
               <TextField
-              id='collection2'
-               label="Collection2"
+                id='datetime'
+                label="DateTime"
+                fullWidth 
+                type='datetime-local'
+                variant='outlined'
+                size="small"
+                InputLabelProps={{shrink:true,style:{fontSize:'1rem'}}}
+              />
+            </Grid>
+            <Grid item xs={4}>
+              <TextField
+                id='collection2'
+                label="Collection2"
                 fullWidth
                 variant='outlined' 
                 size="small" 
                 InputLabelProps={{style:{fontSize:'1rem'}}}
-                />
+              />
             </Grid>
             <Grid item xs={8}>
               <TextField
-              id='userinfo'
-               label="User Info"
+                id='userinfo'
+                label="User Info"
                 fullWidth
                 variant='outlined'
-                 size="small"
-                 InputLabelProps={{style:{fontSize:'1rem'}}}
-                 />
+                size="small"
+                InputLabelProps={{style:{fontSize:'1rem'}}}
+              />
             </Grid>
             <Grid item xs={6}>
               <TextField 
-              id="payments"
-              label='Payments'
+                id="payments"
+                label='Payments'
                 fullWidth 
                 size="small"
                 variant='outlined'
-                 InputLabelProps={{ style:{fontSize:'1rem'} }} />
+                InputLabelProps={{ style:{fontSize:'1rem'} }} 
+              />
             </Grid>
             <Grid item xs={6}>
               <TextField 
-              id="receipts"
-              label='Receipts'
+                id="receipts"
+                label='Receipts'
                 fullWidth 
                 size="small"
                 variant='outlined'
-                 InputLabelProps={{ style:{fontSize:'1rem'} }} />
+                InputLabelProps={{ style:{fontSize:'1rem'} }} 
+              />
             </Grid>
             <Grid item xs={6}>
               <TextField
-              id='officeamount'
-               label="Office Amount"
+                id='officeamount'
+                label="Office Amount"
                 fullWidth
-                 size="small"
-                 variant='outlined'
-                 InputLabelProps={{style:{fontSize:'1rem'}}} />
+                size="small"
+                variant='outlined'
+                InputLabelProps={{style:{fontSize:'1rem'}}} 
+              />
             </Grid>
             <Grid item xs={6}>
               <TextField
-              id='total'
-               label="Total"
+                id='total'
+                label="Total"
                 fullWidth
-                 size="small"
-                 variant='outlined'
-                 InputLabelProps={{style:{fontSize:'1rem'}}} />
-            </Grid>
-            <Grid item xs={6}>
-              <FormControlLabel control={<Checkbox />} label="Print all Closing" />
+                size="small"
+                variant='outlined'
+                InputLabelProps={{style:{fontSize:'1rem'}}} 
+              />
             </Grid>
           </Grid>
 
@@ -584,193 +946,150 @@ function CashClosingForm() {
         <Grid item xs={12} md={6}>
           <Grid container spacing={2}>
             <Grid item xs={6}>
-              <FormControlLabel control={<Checkbox />} label="User wise" />
-              </Grid>
-              <Grid item xs={6}>
-              <FormControl component="fieldset">
-                <RadioGroup row value={radioValue} onChange={handleRadioChange}>
-                <FormControlLabel
-                      value="cheque"
-                      control={<Radio size="small" />}
-                      label={<Typography variant="body2">All user</Typography>}
-                      sx={{ '& .MuiSvgIcon-root': { fontSize: 12 } }}
-                    />
-                   <FormControlLabel
-                      value="cheque"
-                      control={<Radio size="small" />}
-                      label={<Typography variant="body2">Logged User</Typography>}
-                      sx={{ '& .MuiSvgIcon-root': { fontSize: 12 } }}
-                    />
-                </RadioGroup>
-              </FormControl>
-              
+              <FormControlLabel control={<Checkbox checked={isChecked} onChange={handleCheckboxChange} />} label="User wise" />
             </Grid>
-            <Grid item xs={8}>
-              <TextField label="TextField" fullWidth size="small" />
-             
-              </Grid>
-              <Grid item xs={4}>
-             <Button variant='contained' color='primary'>Fetch</Button>
-             
-              </Grid>
-              
+            {isChecked && (
+              <>
+                <Grid item xs={6}>
+                  <FormControl component="fieldset">
+                    <RadioGroup row value={radioValue} onChange={handleRadioChange}>
+                      <FormControlLabel
+                        value="allUser"
+                        control={<Radio size="small" />}
+                        label={<Typography variant="body2">All user</Typography>}
+                        sx={{ '& .MuiSvgIcon-root': { fontSize: 12 } }}
+                      />
+                      <FormControlLabel
+                        value="loggedUser"
+                        control={<Radio size="small" />}
+                        label={<Typography variant="body2">Logged User</Typography>}
+                        sx={{ '& .MuiSvgIcon-root': { fontSize: 12 } }}
+                      />
+                    </RadioGroup>
+                  </FormControl>
+                </Grid>
+                <Grid item xs={8}>
+                  <TextField label="TextField" fullWidth size="small" />
+                </Grid>
+                <Grid item xs={4}>
+                  <Button variant='contained' color='primary'>Fetch</Button>
+                </Grid>
 
-            {/* Invoice Details */}
-            <Grid item xs={12}>
-              <StyledTypography variant="h6">Invoice Details</StyledTypography>
-              <TableContainer component={Paper}>
-                <Table size="small">
-                  <TableHead>
-                    <TableRow>
-                      <TableCell>S.No</TableCell>
-                      <TableCell>Trans.No</TableCell>
-                      <TableCell>Name</TableCell>
-                      <TableCell>Coll.Amt</TableCell>
-                    </TableRow>
-                  </TableHead>
-                  <TableBody>
-                    {rows.map((row) => (
-                      <TableRow key={row.sno}>
-                        <TableCell>{row.sno}</TableCell>
-                        <TableCell>{row.transNo}</TableCell>
-                        <TableCell>{row.name}</TableCell>
-                        <TableCell>{row.amount}</TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-              </TableContainer>
-            </Grid>
+                {/* Invoice Details */}
+                <Grid item xs={12}>
+                  <StyledTypography variant="h6">Invoice Details</StyledTypography>
+                  <TableContainer component={Paper}>
+                    <Table size="small">
+                      <TableHead>
+                        <TableRow>
+                          <TableCell>S.No</TableCell>
+                          <TableCell>Trans.No</TableCell>
+                          <TableCell>Name</TableCell>
+                          <TableCell>Coll.Amt</TableCell>
+                        </TableRow>
+                      </TableHead>
+                      <TableBody>
+                        {rows.map((row) => (
+                          <TableRow key={row.sno}>
+                            <TableCell>{row.sno}</TableCell>
+                            <TableCell>{row.transNo}</TableCell>
+                            <TableCell>{row.name}</TableCell>
+                            <TableCell>{row.amount}</TableCell>
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                  </TableContainer>
+                </Grid>
 
-            {/* Pending Collection */}
-            <Grid item xs={12}>
-              <StyledTypography variant="h6">Pending Collection</StyledTypography>
-              <TableContainer component={Paper}>
-                <Table size="small">
-                  <TableHead>
-                    <TableRow>
-                      <TableCell>S.No</TableCell>
-                      <TableCell>Trans.No</TableCell>
-                      <TableCell>Name</TableCell>
-                      <TableCell>Pend.Coll</TableCell>
-                    </TableRow>
-                  </TableHead>
-                  <TableBody>
-                    {rows.map((row) => (
-                      <TableRow key={row.sno}>
-                        <TableCell>{row.sno}</TableCell>
-                        <TableCell>{row.transNo}</TableCell>
-                        <TableCell>{row.name}</TableCell>
-                        <TableCell>{row.amount}</TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-              </TableContainer>
-            </Grid>
+                {/* Pending Collection */}
+                <Grid item xs={12}>
+                  <StyledTypography variant="h6">Pending Collection</StyledTypography>
+                  <TableContainer component={Paper}>
+                    <Table size="small">
+                      <TableHead>
+                        <TableRow>
+                          <TableCell>S.No</TableCell>
+                          <TableCell>Trans.No</TableCell>
+                          <TableCell>Name</TableCell>
+                          <TableCell>Pend.Coll</TableCell>
+                        </TableRow>
+                      </TableHead>
+                      <TableBody>
+                        {rows.map((row) => (
+                          <TableRow key={row.sno}>
+                            <TableCell>{row.sno}</TableCell>
+                            <TableCell>{row.transNo}</TableCell>
+                            <TableCell>{row.name}</TableCell>
+                            <TableCell>{row.amount}</TableCell>
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                  </TableContainer>
+                </Grid>
 
-            {/* Payment Details */}
-            <Grid item xs={12}>
-              <StyledTypography variant="h6">Payment Details</StyledTypography>
-              <TableContainer component={Paper}>
-                <Table size="small">
-                  <TableHead>
-                    <TableRow>
-                      <TableCell>S.No</TableCell>
-                      <TableCell>Trans.No</TableCell>
-                      <TableCell>Name</TableCell>
-                      <TableCell>Paid</TableCell>
-                    </TableRow>
-                  </TableHead>
-                  <TableBody>
-                    {rows.map((row) => (
-                      <TableRow key={row.sno}>
-                        <TableCell>{row.sno}</TableCell>
-                        <TableCell>{row.transNo}</TableCell>
-                        <TableCell>{row.name}</TableCell>
-                        <TableCell>{row.amount}</TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-              </TableContainer>
-            </Grid>
+                {/* Payment Details */}
+                <Grid item xs={12}>
+                  <StyledTypography variant="h6">Payment Details</StyledTypography>
+                  <TableContainer component={Paper}>
+                    <Table size="small">
+                      <TableHead>
+                        <TableRow>
+                          <TableCell>S.No</TableCell>
+                          <TableCell>Trans.No</TableCell>
+                          <TableCell>Name</TableCell>
+                          <TableCell>Paid.Amt</TableCell>
+                        </TableRow>
+                      </TableHead>
+                      <TableBody>
+                        {rows.map((row) => (
+                          <TableRow key={row.sno}>
+                            <TableCell>{row.sno}</TableCell>
+                            <TableCell>{row.transNo}</TableCell>
+                            <TableCell>{row.name}</TableCell>
+                            <TableCell>{row.amount}</TableCell>
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                  </TableContainer>
+                </Grid>
 
-            {/* Receipt Details */}
-            <Grid item xs={12}>
-              <StyledTypography variant="h6">Receipt Details</StyledTypography>
-              <TableContainer component={Paper}>
-                <Table size="small">
-                  <TableHead>
-                    <TableRow>
-                      <TableCell>S.No</TableCell>
-                      <TableCell>Trans.No</TableCell>
-                      <TableCell>Name</TableCell>
-                      <TableCell>Receipt</TableCell>
-                    </TableRow>
-                  </TableHead>
-                  <TableBody>
-                    {rows.map((row) => (
-                      <TableRow key={row.sno}>
-                        <TableCell>{row.sno}</TableCell>
-                        <TableCell>{row.transNo}</TableCell>
-                        <TableCell>{row.name}</TableCell>
-                        <TableCell>{row.amount}</TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-              </TableContainer>
-            </Grid>
+                {/* Pending Payments */}
+                <Grid item xs={12}>
+                  <StyledTypography variant="h6">Pending Payments</StyledTypography>
+                  <TableContainer component={Paper}>
+                    <Table size="small">
+                      <TableHead>
+                        <TableRow>
+                          <TableCell>S.No</TableCell>
+                          <TableCell>Trans.No</TableCell>
+                          <TableCell>Name</TableCell>
+                          <TableCell>Pend.Paid</TableCell>
+                        </TableRow>
+                      </TableHead>
+                      <TableBody>
+                        {rows.map((row) => (
+                          <TableRow key={row.sno}>
+                            <TableCell>{row.sno}</TableCell>
+                            <TableCell>{row.transNo}</TableCell>
+                            <TableCell>{row.name}</TableCell>
+                            <TableCell>{row.amount}</TableCell>
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                  </TableContainer>
+                </Grid>
+              </>
+            )}
           </Grid>
         </Grid>
-
-        {/* Buttons */}
-        {/* <Grid item xs={12} display="flex" justifyContent="space-between">
-          <Button variant="contained" color="primary">New</Button>
-          <Button variant="contained" color="primary">Previous</Button>
-          <Button variant="contained" color="primary">Next</Button>
-          <Button variant="contained" color="primary">Print</Button>
-          <Button variant="contained" color="primary">Exit</Button>
-        </Grid> */}
-          <Grid container spacing={2} justifyContent="flex-end" sx={{ marginTop: 2 }}>
-              <Grid item>
-                <Button
-                  variant="contained"
-                  color="primary"
-                  // onClick={handleSaveOrUpdate}
-                  sx={{ marginTop: 2, marginLeft: 2 }}
-                >
-                  Fetch
-                </Button>
-                <Button
-                  variant="contained"
-                  color="primary"
-                  // onClick={resetForm}
-                  sx={{ marginTop: 2, marginLeft: 2 }}
-                >
-                  Print
-                </Button>
-                <Button
-                variant='contained'
-                color='primary'
-                sx={{marginTop:2, marginLeft:2}}
-                >New</Button>
-                <Button
-                variant='contained'
-                color='primary'
-                sx={{marginTop:2,marginLeft:2}}
-                >Save</Button>
-                <Button
-                variant='contained'
-                color='primary'
-                sx={{marginTop:2,marginLeft:2}}
-                >Exit</Button>
-              </Grid>
-            </Grid>
       </Grid>
     </>
   );
 }
 
 export default CashClosingForm;
+
