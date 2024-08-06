@@ -5,6 +5,15 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 
 function BillWiseArea() {
     const [labno, setLabno] = useState('Lab Collection')
+    const [method, setMethod] = useState('cash')
+    const[showCheque,setShowCheque] = useState(false)
+
+    const handleRadioChange = (e) => {
+      const selectedMethod = e.target.value;
+      setMethod(selectedMethod);
+      setShowCheque(selectedMethod === 'cheque');
+  };
+
   return (
     <CCardBody>
         <Grid container spacing={2}>
@@ -157,17 +166,18 @@ function BillWiseArea() {
                        
             <Grid item xs={12} sm={6} md={6}>
                 <FormControl component="fieldset">
-                  <RadioGroup row value={labno} onChange={(e) => setLabno(e.target.value)}>
+                  <RadioGroup row value={method}   onChange={handleRadioChange}>
                     <FormControlLabel
-                      value="Lab Collection"
+                      value="cash"
                       control={<Radio size="small" />}
-                      label={<Typography variant="body2">Lab Collection</Typography>}
+                      label={<Typography variant="body2">Cash</Typography>}
                       sx={{ '& .MuiSvgIcon-root': { fontSize: 12 } }}
                     />
                       <FormControlLabel
-                      value="Lab Collection"
+                      value="cheque"
                       control={<Radio size="small" />}
-                      label={<Typography variant="body2">Lab Collection</Typography>}
+                    
+                      label={<Typography variant="body2">Cheque</Typography>}
                       sx={{ '& .MuiSvgIcon-root': { fontSize: 12 } }}
                     />
                     
@@ -177,6 +187,7 @@ function BillWiseArea() {
               </Grid> 
                     </Grid>
                 </Box>
+                { showCheque &&(
             <Box sx={{ border: '1px solid #ddd', padding: '10px',marginBottom:'10px' }}>
             <Grid container spacing={2}>
           <Grid item xs={12}>
@@ -224,6 +235,7 @@ function BillWiseArea() {
           
             </Grid>
             </Box>
+                )}
             </Grid>
    {/* <Grid item xs={6}>
    <Box sx={{ display: 'flex', alignItems: 'center' }}>
@@ -334,3 +346,227 @@ function BillWiseArea() {
 }
 
 export default BillWiseArea;
+
+
+// import { CCardBody } from '@coreui/react';
+// import { Box, Button, Checkbox, FormControl, FormControlLabel, FormGroup, Grid, IconButton, MenuItem, Radio, RadioGroup, TextField, Typography } from '@mui/material';
+// import React, { useState } from 'react';
+// import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+
+// function BillWiseArea() {
+//     const [labno, setLabno] = useState('Lab Collection');
+//     const [method, setMethod] = useState('cash');
+//     const [showCheque, setShowCheque] = useState(false);
+
+//     const handleRadioChange = (e) => {
+//         const selectedMethod = e.target.value;
+//         setMethod(selectedMethod);
+//         setShowCheque(selectedMethod === 'cheque');
+//     };
+
+//     return (
+//         <CCardBody>
+//             <Grid container spacing={2}>
+//                 <Grid item xs={12} md={6}>
+//                     <Box sx={{ border: '1px solid #ddd', padding: '10px', marginBottom: '10px' }}>
+//                         <Grid container spacing={2}>
+//                             <Grid item xs={12} sm={6} md={6}>
+//                                 <FormControl component="fieldset">
+//                                     <RadioGroup row value={labno} onChange={(e) => setLabno(e.target.value)}>
+//                                         <FormControlLabel
+//                                             value="Lab Collection"
+//                                             control={<Radio size="small" />}
+//                                             label={<Typography variant="body2">Lab Collection</Typography>}
+//                                             sx={{ '& .MuiSvgIcon-root': { fontSize: 12 } }}
+//                                         />
+//                                     </RadioGroup>
+//                                 </FormControl>
+//                             </Grid>
+//                             <Grid item xs={12} sm={6}>
+//                                 <TextField
+//                                     id='date'
+//                                     label='Date'
+//                                     variant='outlined'
+//                                     type='date'
+//                                     size='small'
+//                                     InputLabelProps={{ shrink: true, style: { fontSize: '1rem' } }}
+//                                 />
+//                             </Grid>
+//                         </Grid>
+//                     </Box>
+//                     <Box sx={{ border: '1px solid #ddd', padding: '10px', marginBottom: '10px' }}>
+//                         <Grid container spacing={2}>
+//                             <Grid item xs={3}>
+//                                 <FormControlLabel control={<Checkbox />} label="Up To" sx={{ fontSize: '1rem' }} />
+//                             </Grid>
+//                             <Grid item xs={12} sm={6}>
+//                                 <TextField
+//                                     id='date'
+//                                     variant='outlined'
+//                                     type='date'
+//                                     size='small'
+//                                     InputLabelProps={{ shrink: true, style: { fontSize: '1rem' } }}
+//                                 />
+//                             </Grid>
+//                             <Grid item xs={8}>
+//                                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
+//                                     <TextField
+//                                         id="area"
+//                                         label="Area"
+//                                         variant="outlined"
+//                                         size="small"
+//                                         fullWidth
+//                                         InputLabelProps={{ style: { fontSize: '1rem' } }}
+//                                     />
+//                                     <IconButton color="primary">
+//                                         <MoreHorizIcon />
+//                                     </IconButton>
+//                                 </Box>
+//                             </Grid>
+//                             <Grid item xs={4}>
+//                                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
+//                                     <TextField
+//                                         select
+//                                         label="Mode"
+//                                         variant="outlined"
+//                                         size="small"
+//                                         fullWidth
+//                                         InputLabelProps={{ style: { fontSize: '1rem' } }}
+//                                     >
+//                                         <MenuItem value=""><em>None</em></MenuItem>
+//                                         <MenuItem value="UPI">Daily</MenuItem>
+//                                     </TextField>
+//                                 </Box>
+//                             </Grid>
+//                             <Grid item xs={12}>
+//                                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
+//                                     <TextField
+//                                         id="area"
+//                                         label="Corporate"
+//                                         variant="outlined"
+//                                         size="small"
+//                                         fullWidth
+//                                         InputLabelProps={{ style: { fontSize: '1rem' } }}
+//                                     />
+//                                     <IconButton color="primary">
+//                                         <MoreHorizIcon />
+//                                     </IconButton>
+//                                 </Box>
+//                             </Grid>
+//                             <Grid item xs={12} sm={4}>
+//                                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
+//                                     <TextField
+//                                         id="amount"
+//                                         label="Amount"
+//                                         variant="outlined"
+//                                         size="small"
+//                                         fullWidth
+//                                         InputLabelProps={{ style: { fontSize: '1rem' } }}
+//                                     />
+//                                 </Box>
+//                             </Grid>
+//                             <Grid item xs={12} sm={5}>
+//                                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
+//                                     <Button
+//                                         variant="contained"
+//                                         color="primary"
+//                                     >
+//                                         AutoAllocate
+//                                     </Button>
+//                                 </Box>
+//                             </Grid>
+//                             <Grid item xs={12} sm={3}>
+//                                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
+//                                     <FormControl component="fieldset" fullWidth>
+//                                         <FormGroup row>
+//                                             <FormControlLabel
+//                                                 label="Select All"
+//                                                 labelPlacement='end'
+//                                                 control={<Checkbox name="selectall" />}
+//                                                 sx={{ fontSize: '1rem' }}
+//                                             />
+//                                         </FormGroup>
+//                                     </FormControl>
+//                                 </Box>
+//                             </Grid>
+//                         </Grid>
+//                     </Box>
+//                 </Grid>
+//                 <Grid item xs={12} md={6}>
+//                     <Box sx={{ border: '1px solid #ddd', padding: '10px', marginBottom: '10px' }}>
+//                         <Grid>
+//                             <Grid item xs={12} sm={6} md={6}>
+//                                 <FormControl component="fieldset">
+//                                     <RadioGroup row value={method} onChange={handleRadioChange}>
+//                                         <FormControlLabel
+//                                             value="cash"
+//                                             control={<Radio size="small" />}
+//                                             label={<Typography variant="body2">Cash</Typography>}
+//                                             sx={{ '& .MuiSvgIcon-root': { fontSize: 12 } }}
+//                                         />
+//                                         <FormControlLabel
+//                                             value="cheque"
+//                                             control={<Radio size="small" />}
+//                                             label={<Typography variant="body2">Cheque</Typography>}
+//                                             sx={{ '& .MuiSvgIcon-root': { fontSize: 12 } }}
+//                                         />
+//                                     </RadioGroup>
+//                                 </FormControl>
+//                             </Grid>
+//                         </Grid>
+//                     </Box>
+//                     {showCheque && (
+//                         <Box sx={{ border: '1px solid #ddd', padding: '10px', marginBottom: '10px' }}>
+//                             <Grid container spacing={2}>
+//                                 <Grid item xs={12}>
+//                                     <TextField
+//                                         id='bank'
+//                                         label="Bank"
+//                                         variant="outlined"
+//                                         size="small"
+//                                         fullWidth
+//                                         InputLabelProps={{ style: { fontSize: '1rem' } }}
+//                                     />
+//                                 </Grid>
+//                                 <Grid item xs={6}>
+//                                     <Box sx={{ display: 'flex', alignItems: 'center' }}>
+//                                         <TextField
+//                                             id="cheqno"
+//                                             label="Cheq.No"
+//                                             variant="outlined"
+//                                             size="small"
+//                                             fullWidth
+//                                             InputLabelProps={{ style: { fontSize: '1rem' } }}
+//                                         />
+//                                     </Box>
+//                                 </Grid>
+//                                 <Grid item xs={6}>
+//                                     <TextField
+//                                         id="cheqdate"
+//                                         label="Cheq.Date"
+//                                         variant="outlined"
+//                                         size="small"
+//                                         type='date'
+//                                         fullWidth
+//                                         InputLabelProps={{ shrink: true, style: { fontSize: '1rem' } }}
+//                                     />
+//                                 </Grid>
+//                                 <Grid item xs={12}>
+//                                     <TextField
+//                                         id='narration'
+//                                         label='Narration'
+//                                         variant='outlined'
+//                                         size='small'
+//                                         InputLabelProps={{ style: { fontSize: '1rem' } }}
+//                                     />
+//                                 </Grid>
+//                             </Grid>
+//                         </Box>
+//                     )}
+//                 </Grid>
+//             </Grid>
+//         </CCardBody>
+//     );
+// }
+
+// export default BillWiseArea;
