@@ -407,6 +407,8 @@
 // export default CashClosingForm;
 
 
+
+
 // import React, { useState } from 'react';
 // import {
 //   Grid, TextField, Typography, Button, Checkbox, FormControlLabel, Box, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Radio, RadioGroup, FormControl, FormLabel,
@@ -471,20 +473,7 @@
 //               size="small"
 //               InputLabelProps={{shrink:true,style:{fontSize:'1rem'}}}
 //                />
-          
-//             {/* <Grid item xs={6}>
-//               <TextField
-//               id='collection2'
-//                label="Collection2"
-//                variant='outlined' 
-//                fullWidth
-//                 size="small"
-//                 InputLabelProps={{style:{fontSize:'1rem'}}} 
-                
-//                 />
-//             </Grid> */}
-           
-//             </Grid>
+//              </Grid>
 //             <Grid item xs={4}>
 //               <TextField
 //               id='collection2'
@@ -726,13 +715,7 @@
 //         </Grid>
 
 //         {/* Buttons */}
-//         {/* <Grid item xs={12} display="flex" justifyContent="space-between">
-//           <Button variant="contained" color="primary">New</Button>
-//           <Button variant="contained" color="primary">Previous</Button>
-//           <Button variant="contained" color="primary">Next</Button>
-//           <Button variant="contained" color="primary">Print</Button>
-//           <Button variant="contained" color="primary">Exit</Button>
-//         </Grid> */}
+      
 //           <Grid container spacing={2} justifyContent="flex-end" sx={{ marginTop: 2 }}>
 //               <Grid item>
 //                 <Button
@@ -907,9 +890,53 @@ function CashClosingForm() {
               />
             </Grid>
           </Grid>
+          <Grid container spacing={2} direction={'row'}>
+  {/* Common Heading */}
+  <Grid item xs={12}>
+    <StyledTypography variant="h6" style={{marginTop:'20px'}}> Denomination Details</StyledTypography>
+  </Grid>
+
+  {/* Denomination Details */}
+  <Grid item xs={6} container direction="column" spacing={2}>
+    {/* <Grid item>
+      <StyledTypography variant="h6">Denomination Details</StyledTypography>
+    </Grid> */}
+    {[2000, 1000, 500, 200, 100, 50, 20, 10, 5, "Coins"].map((denomination) => (
+      <Grid item key={denomination}>
+        <TextField label={denomination + " X"} fullWidth size="small" />
+      </Grid>
+    ))}
+    <Grid item>
+      <TextField label="Total" fullWidth size="small" />
+    </Grid>
+  </Grid>
+
+  {/* Office Details */}
+  <Grid item xs={6} container direction="column" spacing={2}>
+    {/* <Grid item>
+      <StyledTypography variant="h6">Office Details</StyledTypography>
+    </Grid> */}
+    <Grid item>
+      <TextField label="To Office" fullWidth size="small" />
+    </Grid>
+    <Grid item>
+      <TextField label="Balance" fullWidth size="small" />
+    </Grid>
+    <Grid item>
+      <TextField label="Excess Amount" fullWidth size="small" />
+    </Grid>
+    <Grid item>
+      <TextField label="Short Amount" fullWidth size="small" />
+    </Grid>
+    <Grid item>
+      <TextField label="Note" fullWidth multiline rows={4} size="small" />
+    </Grid>
+  </Grid>
+</Grid>
+
 
           {/* Denomination Details */}
-          <StyledTypography variant="h6">Denomination Details</StyledTypography>
+          {/* <StyledTypography variant="h6">Denomination Details</StyledTypography>
           <Grid container spacing={2} direction={'column'}>
             {[2000, 1000, 500, 200, 100, 50, 20, 10, 5, "Coins"].map((denomination) => (
               <Grid item xs={4} key={denomination}>
@@ -919,10 +946,10 @@ function CashClosingForm() {
             <Grid item xs={4}>
               <TextField label="Total" fullWidth size="small" />
             </Grid>
-          </Grid>
+          </Grid> */}
 
           {/* Office Details */}
-          <StyledTypography variant="h6">Office Details</StyledTypography>
+          {/* <StyledTypography variant="h6">Office Details</StyledTypography>
           <Grid container spacing={2}>
             <Grid item xs={6}>
               <TextField label="To Office" fullWidth size="small" />
@@ -939,10 +966,11 @@ function CashClosingForm() {
             <Grid item xs={12}>
               <TextField label="Note" fullWidth multiline rows={4} size="small" />
             </Grid>
-          </Grid>
+          </Grid> */}
         </Grid>
 
         {/* Right Side */}
+        
         <Grid item xs={12} md={6}>
           <Grid container spacing={2}>
             <Grid item xs={6}>
@@ -957,13 +985,13 @@ function CashClosingForm() {
                         value="allUser"
                         control={<Radio size="small" />}
                         label={<Typography variant="body2">All user</Typography>}
-                        sx={{ '& .MuiSvgIcon-root': { fontSize: 12 } }}
+                        sx={{ '& .MuiSvgIcon-root': { fontSize: 16 } }}
                       />
                       <FormControlLabel
                         value="loggedUser"
                         control={<Radio size="small" />}
                         label={<Typography variant="body2">Logged User</Typography>}
-                        sx={{ '& .MuiSvgIcon-root': { fontSize: 12 } }}
+                        sx={{ '& .MuiSvgIcon-root': { fontSize: 16 } }}
                       />
                     </RadioGroup>
                   </FormControl>
@@ -978,7 +1006,40 @@ function CashClosingForm() {
                 {/* Invoice Details */}
                 <Grid item xs={12}>
                   <StyledTypography variant="h6">Invoice Details</StyledTypography>
-                  <TableContainer component={Paper}>
+                  <TableContainer style={{ maxHeight: 'calc(100vh - 400px)', overflowY: 'auto' }}>
+                  <Table stickyHeader aria-label="sticky table">
+                    <TableHead>
+                      <TableRow>
+                        <TableCell  sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px', textAlign: 'center' }}>SlNo</TableCell>
+                        <TableCell   sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px', textAlign: 'center' }}>Trans.No</TableCell>
+                        <TableCell  sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px', textAlign: 'center' }}>Name</TableCell>
+                        <TableCell   sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px', textAlign: 'center' }}>Coll.Amt</TableCell>
+                
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        <TableRow>
+                         
+                        </TableRow>
+                      
+                      {/* {rows.map((row) => (
+                        <TableRow key={row.id}>
+                          <TableCell sx={{ border: '1px solid #dddddd', fontSize: '1rem', padding: '8px' }}>{row.id}</TableCell>
+                          <TableCell sx={{ border: '1px solid #dddddd', fontSize: '1rem', padding: '8px' }}>{row.col1}</TableCell>
+                          <TableCell sx={{ border: '1px solid #dddddd', fontSize: '1rem', padding: '8px' }}>{row.col2}</TableCell>
+                          <TableCell sx={{ border: '1px solid #dddddd', fontSize: '1rem', padding: '8px' }}>{row.col3}</TableCell>
+                          <TableCell sx={{ border: '1px solid #dddddd', fontSize: '1rem', padding: '8px' }}>{row.col4}</TableCell>
+                          <TableCell sx={{ border: '1px solid #dddddd', fontSize: '1rem', padding: '8px' }}>{row.col5}</TableCell>
+                          <TableCell sx={{ border: '1px solid #dddddd', fontSize: '1rem', padding: '8px' }}>{row.col6}</TableCell>
+                          <TableCell sx={{ border: '1px solid #dddddd', fontSize: '1rem', padding: '8px' }}>{row.col7}</TableCell>
+                          <TableCell sx={{ border: '1px solid #dddddd', fontSize: '1rem', padding: '8px' }}>{row.col7}</TableCell>
+                        </TableRow>
+                      ))} */}
+                    </TableBody>
+                  </Table>
+                </TableContainer>
+                <Box mt={15} />
+                  {/* <TableContainer component={Paper}>
                     <Table size="small">
                       <TableHead>
                         <TableRow>
@@ -999,13 +1060,46 @@ function CashClosingForm() {
                         ))}
                       </TableBody>
                     </Table>
-                  </TableContainer>
+                  </TableContainer> */}
                 </Grid>
 
                 {/* Pending Collection */}
                 <Grid item xs={12}>
                   <StyledTypography variant="h6">Pending Collection</StyledTypography>
-                  <TableContainer component={Paper}>
+                  <TableContainer style={{ maxHeight: 'calc(100vh - 400px)', overflowY: 'auto' }}>
+                  <Table stickyHeader aria-label="sticky table">
+                    <TableHead>
+                      <TableRow>
+                        <TableCell  sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px', textAlign: 'center' }}>SlNo</TableCell>
+                        <TableCell   sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px', textAlign: 'center' }}>Trans.No</TableCell>
+                        <TableCell  sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px', textAlign: 'center' }}>Name</TableCell>
+                        <TableCell   sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px', textAlign: 'center' }}>Pend.Coll</TableCell>
+                
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        <TableRow>
+                         
+                        </TableRow>
+                      
+                      {/* {rows.map((row) => (
+                        <TableRow key={row.id}>
+                          <TableCell sx={{ border: '1px solid #dddddd', fontSize: '1rem', padding: '8px' }}>{row.id}</TableCell>
+                          <TableCell sx={{ border: '1px solid #dddddd', fontSize: '1rem', padding: '8px' }}>{row.col1}</TableCell>
+                          <TableCell sx={{ border: '1px solid #dddddd', fontSize: '1rem', padding: '8px' }}>{row.col2}</TableCell>
+                          <TableCell sx={{ border: '1px solid #dddddd', fontSize: '1rem', padding: '8px' }}>{row.col3}</TableCell>
+                          <TableCell sx={{ border: '1px solid #dddddd', fontSize: '1rem', padding: '8px' }}>{row.col4}</TableCell>
+                          <TableCell sx={{ border: '1px solid #dddddd', fontSize: '1rem', padding: '8px' }}>{row.col5}</TableCell>
+                          <TableCell sx={{ border: '1px solid #dddddd', fontSize: '1rem', padding: '8px' }}>{row.col6}</TableCell>
+                          <TableCell sx={{ border: '1px solid #dddddd', fontSize: '1rem', padding: '8px' }}>{row.col7}</TableCell>
+                          <TableCell sx={{ border: '1px solid #dddddd', fontSize: '1rem', padding: '8px' }}>{row.col7}</TableCell>
+                        </TableRow>
+                      ))} */}
+                    </TableBody>
+                  </Table>
+                </TableContainer>
+                <Box mt={15} />
+                  {/* <TableContainer component={Paper}>
                     <Table size="small">
                       <TableHead>
                         <TableRow>
@@ -1026,13 +1120,46 @@ function CashClosingForm() {
                         ))}
                       </TableBody>
                     </Table>
-                  </TableContainer>
+                  </TableContainer> */}
                 </Grid>
 
                 {/* Payment Details */}
                 <Grid item xs={12}>
                   <StyledTypography variant="h6">Payment Details</StyledTypography>
-                  <TableContainer component={Paper}>
+                  <TableContainer style={{ maxHeight: 'calc(100vh - 400px)', overflowY: 'auto' }}>
+                  <Table stickyHeader aria-label="sticky table">
+                    <TableHead>
+                      <TableRow>
+                        <TableCell  sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px', textAlign: 'center' }}>SlNo</TableCell>
+                        <TableCell   sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px', textAlign: 'center' }}>Trans.No</TableCell>
+                        <TableCell  sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px', textAlign: 'center' }}>Name</TableCell>
+                        <TableCell   sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px', textAlign: 'center' }}>Paid</TableCell>
+                
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        <TableRow>
+                         
+                        </TableRow>
+                      
+                      {/* {rows.map((row) => (
+                        <TableRow key={row.id}>
+                          <TableCell sx={{ border: '1px solid #dddddd', fontSize: '1rem', padding: '8px' }}>{row.id}</TableCell>
+                          <TableCell sx={{ border: '1px solid #dddddd', fontSize: '1rem', padding: '8px' }}>{row.col1}</TableCell>
+                          <TableCell sx={{ border: '1px solid #dddddd', fontSize: '1rem', padding: '8px' }}>{row.col2}</TableCell>
+                          <TableCell sx={{ border: '1px solid #dddddd', fontSize: '1rem', padding: '8px' }}>{row.col3}</TableCell>
+                          <TableCell sx={{ border: '1px solid #dddddd', fontSize: '1rem', padding: '8px' }}>{row.col4}</TableCell>
+                          <TableCell sx={{ border: '1px solid #dddddd', fontSize: '1rem', padding: '8px' }}>{row.col5}</TableCell>
+                          <TableCell sx={{ border: '1px solid #dddddd', fontSize: '1rem', padding: '8px' }}>{row.col6}</TableCell>
+                          <TableCell sx={{ border: '1px solid #dddddd', fontSize: '1rem', padding: '8px' }}>{row.col7}</TableCell>
+                          <TableCell sx={{ border: '1px solid #dddddd', fontSize: '1rem', padding: '8px' }}>{row.col7}</TableCell>
+                        </TableRow>
+                      ))} */}
+                    </TableBody>
+                  </Table>
+                </TableContainer>
+                <Box mt={15} />
+                  {/* <TableContainer component={Paper}>
                     <Table size="small">
                       <TableHead>
                         <TableRow>
@@ -1053,13 +1180,46 @@ function CashClosingForm() {
                         ))}
                       </TableBody>
                     </Table>
-                  </TableContainer>
+                  </TableContainer> */}
                 </Grid>
 
                 {/* Pending Payments */}
                 <Grid item xs={12}>
-                  <StyledTypography variant="h6">Pending Payments</StyledTypography>
-                  <TableContainer component={Paper}>
+                  <StyledTypography variant="h6">Receipt Details</StyledTypography>
+                  <TableContainer style={{ maxHeight: 'calc(100vh - 400px)', overflowY: 'auto' }}>
+                  <Table stickyHeader aria-label="sticky table">
+                    <TableHead>
+                      <TableRow>
+                        <TableCell  sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px', textAlign: 'center' }}>SlNo</TableCell>
+                        <TableCell   sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px', textAlign: 'center' }}>Trans.No</TableCell>
+                        <TableCell  sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px', textAlign: 'center' }}>Name</TableCell>
+                        <TableCell   sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px', textAlign: 'center' }}>Receipt</TableCell>
+                
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        <TableRow>
+                         
+                        </TableRow>
+                      
+                      {/* {rows.map((row) => (
+                        <TableRow key={row.id}>
+                          <TableCell sx={{ border: '1px solid #dddddd', fontSize: '1rem', padding: '8px' }}>{row.id}</TableCell>
+                          <TableCell sx={{ border: '1px solid #dddddd', fontSize: '1rem', padding: '8px' }}>{row.col1}</TableCell>
+                          <TableCell sx={{ border: '1px solid #dddddd', fontSize: '1rem', padding: '8px' }}>{row.col2}</TableCell>
+                          <TableCell sx={{ border: '1px solid #dddddd', fontSize: '1rem', padding: '8px' }}>{row.col3}</TableCell>
+                          <TableCell sx={{ border: '1px solid #dddddd', fontSize: '1rem', padding: '8px' }}>{row.col4}</TableCell>
+                          <TableCell sx={{ border: '1px solid #dddddd', fontSize: '1rem', padding: '8px' }}>{row.col5}</TableCell>
+                          <TableCell sx={{ border: '1px solid #dddddd', fontSize: '1rem', padding: '8px' }}>{row.col6}</TableCell>
+                          <TableCell sx={{ border: '1px solid #dddddd', fontSize: '1rem', padding: '8px' }}>{row.col7}</TableCell>
+                          <TableCell sx={{ border: '1px solid #dddddd', fontSize: '1rem', padding: '8px' }}>{row.col7}</TableCell>
+                        </TableRow>
+                      ))} */}
+                    </TableBody>
+                  </Table>
+                </TableContainer>
+                <Box mt={15} />
+                  {/* <TableContainer component={Paper}>
                     <Table size="small">
                       <TableHead>
                         <TableRow>
@@ -1080,7 +1240,7 @@ function CashClosingForm() {
                         ))}
                       </TableBody>
                     </Table>
-                  </TableContainer>
+                  </TableContainer> */}
                 </Grid>
               </>
             )}
@@ -1092,4 +1252,3 @@ function CashClosingForm() {
 }
 
 export default CashClosingForm;
-

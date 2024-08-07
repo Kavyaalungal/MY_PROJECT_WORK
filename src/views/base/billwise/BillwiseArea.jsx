@@ -237,36 +237,24 @@ function BillWiseArea() {
             </Box>
                 )}
             </Grid>
-   {/* <Grid item xs={6}>
-   <Box sx={{ display: 'flex', alignItems: 'center' }}>
-   <TextField
-                id="amount"
-                label="Amount"
-                variant="outlined"
-                size="small"
-                fullWidth
-                InputLabelProps={{  style: { fontSize: '1rem' } }}
-              />
-              </Box>
-   </Grid> */}
-            {/* <Grid item xs={12}> */}
-                {/* <TableContainer style={{ maxHeight: 'calc(100vh - 400px)', overflowY: 'auto' }}> */}
-                  {/* <Table stickyHeader aria-label="sticky table"> */}
-                    {/* <TableHead> */}
-                      {/* <TableRow> */}
-                        {/* <TableCell sx={{ border: '1px solid #dddddd', background: '#3095E5 ', fontSize: '1rem', padding: '8px' }}>SlNo</TableCell> */}
-                        {/* <TableCell sx={{ border: '1px solid #dddddd', background: '#3095E5 ', fontSize: '1rem', padding: '8px' }}>Lab</TableCell> */}
-                        {/* <TableCell sx={{ border: '1px solid #dddddd', background: '#3095E5 ', fontSize: '1rem', padding: '8px' }}>Date</TableCell> */}
-                        {/* <TableCell sx={{ border: '1px solid #dddddd', background: '#3095E5 ', fontSize: '1rem', padding: '8px' }}>Select</TableCell> */}
-                        {/* <TableCell sx={{ border: '1px solid #dddddd', background: '#3095E5 ', fontSize: '1rem', padding: '8px' }}>Patient</TableCell> */}
-                        {/* <TableCell sx={{ border: '1px solid #dddddd', background: '#3095E5 ', fontSize: '1rem', padding: '8px' }}>Amount</TableCell> */}
-                        {/* <TableCell sx={{ border: '1px solid #dddddd', background: '#3095E5 ', fontSize: '1rem', padding: '8px' }}>Balance</TableCell> */}
-                        {/* <TableCell sx={{ border: '1px solid #dddddd', background: '#3095E5 ', fontSize: '1rem', padding: '8px' }}>Allocated.Amt</TableCell> */}
-                        {/* <TableCell sx={{ border: '1px solid #dddddd', background: '#3095E5 ', fontSize: '1rem', padding:'8px' }}>Current.Bal</TableCell> */}
-                      {/* </TableRow> */}
-                    {/* </TableHead> */}
-                    {/* <TableBody> */}
-                        {/* <TableRow> */}
+            <Grid item xs={12}>
+                <TableContainer style={{ maxHeight: 'calc(100vh - 400px)', overflowY: 'auto' }}>
+                  <Table stickyHeader aria-label="sticky table">
+                    <TableHead>
+                      <TableRow>
+                        <TableCell  sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px', textAlign: 'center' }}>SlNo</TableCell>
+                        <TableCell   sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px', textAlign: 'center' }}>Lab</TableCell>
+                        <TableCell  sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px', textAlign: 'center' }}>Date</TableCell>
+                        <TableCell   sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px', textAlign: 'center' }}>Select</TableCell>
+                        <TableCell   sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px', textAlign: 'center' }}>Patient</TableCell>
+                        <TableCell   sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px', textAlign: 'center' }}>Amount</TableCell>
+                        <TableCell   sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px', textAlign: 'center' }}>Balance</TableCell>
+                        <TableCell   sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px', textAlign: 'center' }}>Allocated.Amt</TableCell>
+                        <TableCell   sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px', textAlign: 'center' }}>Current.Bal</TableCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        <TableRow>
                           {/* <TableCell sx={{ border: '1px solid #dddddd', fontSize: '1rem', padding: '8px' }}></TableCell>
                           <TableCell sx={{ border: '1px solid #dddddd', fontSize: '1rem', padding: '8px' }}></TableCell>
                           <TableCell sx={{ border: '1px solid #dddddd', fontSize: '1rem', padding: '8px' }}></TableCell>
@@ -276,7 +264,7 @@ function BillWiseArea() {
                           <TableCell sx={{ border: '1px solid #dddddd', fontSize: '1rem', padding: '8px' }}></TableCell>
                           <TableCell sx={{ border: '1px solid #dddddd', fontSize: '1rem', padding: '8px' }}></TableCell>
                           <TableCell sx={{ border: '1px solid #dddddd', fontSize: '1rem', padding: '8px' }}></TableCell> */}
-                        {/* </TableRow> */}
+                        </TableRow>
                       
                       {/* {rows.map((row) => (
                         <TableRow key={row.id}>
@@ -291,10 +279,11 @@ function BillWiseArea() {
                           <TableCell sx={{ border: '1px solid #dddddd', fontSize: '1rem', padding: '8px' }}>{row.col7}</TableCell>
                         </TableRow>
                       ))} */}
-                    {/* </TableBody> */}
-                  {/* </Table> */}
-                {/* </TableContainer> */}
-                {/* <Box display="flex" justifyContent="flex-end" mt={2}>
+                    </TableBody>
+                  </Table>
+                </TableContainer>
+                <Box mt={50} />
+                <Box display="flex" justifyContent="flex-end" mt={2}>
         <Grid container spacing={2} style={{ maxWidth: '600px' }}>
           <Grid item xs={3}>
             <TextField
@@ -337,9 +326,11 @@ function BillWiseArea() {
             />
           </Grid>
         </Grid>
-      </Box> */}
-              {/* </Grid> */}
-            
+      </Box>
+              </Grid>
+    
+
+    
         </Grid>
     </CCardBody>
   )

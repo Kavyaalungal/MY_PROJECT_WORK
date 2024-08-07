@@ -161,20 +161,20 @@ function BillWisePending() {
               />
               </Box>
    </Grid>
-            <Grid item xs={12}>
+    <Grid item xs={12}>
                 <TableContainer style={{ maxHeight: 'calc(100vh - 400px)', overflowY: 'auto' }}>
                   <Table stickyHeader aria-label="sticky table">
                     <TableHead>
                       <TableRow>
-                        <TableCell sx={{ border: '1px solid #dddddd', background: '#3095E5 ', fontSize: '1rem', padding: '8px' }}>SlNo</TableCell>
-                        <TableCell sx={{ border: '1px solid #dddddd', background: '#3095E5 ', fontSize: '1rem', padding: '8px' }}>Lab</TableCell>
-                        <TableCell sx={{ border: '1px solid #dddddd', background: '#3095E5 ', fontSize: '1rem', padding: '8px' }}>Date</TableCell>
-                        <TableCell sx={{ border: '1px solid #dddddd', background: '#3095E5 ', fontSize: '1rem', padding: '8px' }}>Select</TableCell>
-                        <TableCell sx={{ border: '1px solid #dddddd', background: '#3095E5 ', fontSize: '1rem', padding: '8px' }}>Patient</TableCell>
-                        <TableCell sx={{ border: '1px solid #dddddd', background: '#3095E5 ', fontSize: '1rem', padding: '8px' }}>Amount</TableCell>
-                        <TableCell sx={{ border: '1px solid #dddddd', background: '#3095E5 ', fontSize: '1rem', padding: '8px' }}>Balance</TableCell>
-                        <TableCell sx={{ border: '1px solid #dddddd', background: '#3095E5 ', fontSize: '1rem', padding: '8px' }}>Allocated.Amt</TableCell>
-                        <TableCell sx={{ border: '1px solid #dddddd', background: '#3095E5 ', fontSize: '1rem', padding:'8px' }}>Current.Bal</TableCell>
+                        <TableCell  sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px', textAlign: 'center' }}>SlNo</TableCell>
+                        <TableCell   sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px', textAlign: 'center' }}>Lab</TableCell>
+                        <TableCell  sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px', textAlign: 'center' }}>Date</TableCell>
+                        <TableCell   sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px', textAlign: 'center' }}>Select</TableCell>
+                        <TableCell   sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px', textAlign: 'center' }}>Patient</TableCell>
+                        <TableCell   sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px', textAlign: 'center' }}>Amount</TableCell>
+                        <TableCell   sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px', textAlign: 'center' }}>Balance</TableCell>
+                        <TableCell   sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px', textAlign: 'center' }}>Allocated.Amt</TableCell>
+                        <TableCell   sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px', textAlign: 'center' }}>Current.Bal</TableCell>
                       </TableRow>
                     </TableHead>
                     <TableBody>
@@ -206,6 +206,7 @@ function BillWisePending() {
                     </TableBody>
                   </Table>
                 </TableContainer>
+                <Box mt={50} />
                 <Box display="flex" justifyContent="flex-end" mt={2}>
         <Grid container spacing={2} style={{ maxWidth: '600px' }}>
           <Grid item xs={3}>

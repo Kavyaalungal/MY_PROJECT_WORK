@@ -97,7 +97,7 @@ const NavigationWithModals = () => {
     </CNavLink>
   </CNavItem>
   <CNavItem className='custom-nav-item'>
-    <CNavLink className='custom-nav-link' onClick={()=>toggleModal('Cash Closing',<CashClosing/>,'lg')}>
+    <CNavLink className='custom-nav-link' onClick={()=>toggleModal('Cash Closing',<CashClosing/>,)}>
     <CIcon icon={cilMoney} className='me-2'/>Cash Closing 
     </CNavLink>
   </CNavItem>
@@ -112,12 +112,14 @@ const NavigationWithModals = () => {
               size={modalSize}
               // visible={visibleLg}
               // onClose={() => setVisibleLg(false)}
+              backdrop='static'
+              scrollable
               aria-labelledby="OptionalSizesExample2">
         <CModalHeader className='custom-modal-header'>
           <CModalTitle className='custom-modal-title '>{modalTitle}</CModalTitle>
           {/* <CCloseButton onClick={() => setVisibleXL(false)} /> */}
         </CModalHeader>
-        <CModalBody className='c-modal-body'>
+        <CModalBody className='c-modal-body no-scroll' >
           {modalContent}
         </CModalBody>
         {/* <CModalFooter>
