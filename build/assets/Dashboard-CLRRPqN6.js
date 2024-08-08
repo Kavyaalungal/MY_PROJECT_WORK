@@ -1,1 +1,0 @@
-import{j as s}from"./index-B2gvevUZ.js";import{W as r,C as o}from"./DefaultLayout-DYiTqEEO.js";import"./TextField--0RZlZjV.js";const e=()=>s.jsxs(s.Fragment,{children:[s.jsx(r,{className:"mb-4"}),s.jsx(o,{})]});export{e as default};

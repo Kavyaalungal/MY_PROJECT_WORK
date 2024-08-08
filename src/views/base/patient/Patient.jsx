@@ -443,7 +443,7 @@ return (
                 </Grid>
                 {/* </Box> */}
                 {/* {patientDetails && ( */}
-                <Box sx={{ border: '1px solid #ddd', padding: '16px', borderRadius: '8px',marginBottom:'10px' }}>
+                <Box sx={{ border: '1px solid #ddd', padding: '16px',marginBottom:'10px' }}>
                   <Grid container spacing={2}>
          <Grid item xs={12} sm={3}>
                       <TextField

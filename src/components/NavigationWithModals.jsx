@@ -17,6 +17,7 @@ import ReportDispatch from '../views/base/reportdispatch/ReportDispatch';
 import BillWisePending from '../views/base/billwisepending/BillWisePending';
 import CashClosing from '../views/base/cashclosing/CashClosing';
 import BillwiseArea from '../views/base/billwise/BillwiseArea';
+import Home from '../views/base/homecollection/Home'
 
 
 const NavigationWithModals = () => {
@@ -106,6 +107,12 @@ const NavigationWithModals = () => {
     <CIcon icon={cilBarcode} className='me-2'/>Bill Wise Collection - Area
     </CNavLink>
   </CNavItem>
+  {/* <CNavItem className='custom-nav-item'>
+    <CNavLink className='custom-nav-link' onClick={()=>toggleModal('Bill Wise Collection - Area',<Home/>)}>
+    <CIcon icon={cilBarcode} className='me-2'/>Home Collection
+    </CNavLink>
+  </CNavItem> */}
+  
   
   
       <CModal visible={modal} onClose={() => setModal(false)}
