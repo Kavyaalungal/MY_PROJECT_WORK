@@ -66,14 +66,29 @@ const Cancelinvoice = () => {
     console.log('FormData after change:', { ...formData, [id]: value });
   };
 
-
   const handleKeyPress = (e) => {
-    if (e.key === 'Enter') {
-      fetchData();
+    const enterKeyCodes = ['Enter', 'NumpadEnter'];
+
+    // Handle both standard 'Enter' keys and variations in mobile
+    if (
+        enterKeyCodes.includes(e.code) ||     // Standard 'Enter' and 'NumpadEnter'
+        e.key === 'Enter' ||                  // Mobile 'Enter'
+        e.key === 'Go' ||                     // Some mobile keyboards show 'Go'
+        e.key === 'Done' ||                   // Some mobile keyboards show 'Done'
+        e.key === 'Search' ||                 // Some mobile keyboards show 'Search'
+        e.key === 'Next'                      // Some mobile keyboards show 'Next'
+    ) {
+        fetchData();
     }
-    // console.log('key is prssed');
+};
+
+  // const handleKeyPress = (e) => {
+  //   if (e.key === 'Enter') {
+  //     fetchData();
+  //   }
+  //   // console.log('key is prssed');
     
-  };
+  // };
   const getPatTitleValue = (title) => {
     const titles = {
       'Mr.': 'Mr',

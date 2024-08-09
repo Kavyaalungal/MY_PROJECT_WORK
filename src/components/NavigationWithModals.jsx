@@ -107,11 +107,11 @@ const NavigationWithModals = () => {
     <CIcon icon={cilBarcode} className='me-2'/>Bill Wise Collection - Area
     </CNavLink>
   </CNavItem>
-  {/* <CNavItem className='custom-nav-item'>
-    <CNavLink className='custom-nav-link' onClick={()=>toggleModal('Bill Wise Collection - Area',<Home/>)}>
-    <CIcon icon={cilBarcode} className='me-2'/>Home Collection
+  <CNavItem className='custom-nav-item'>
+    <CNavLink className='custom-nav-link' onClick={()=>toggleModal('Home Collection Booking',<Home/>,)}>
+    <CIcon icon={cilBarcode} className='me-2'/>Home Collection Booking
     </CNavLink>
-  </CNavItem> */}
+  </CNavItem>
   
   
   

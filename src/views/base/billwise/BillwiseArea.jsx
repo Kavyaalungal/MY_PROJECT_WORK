@@ -27,8 +27,8 @@ function BillWiseArea() {
                     <FormControlLabel
                       value="Lab Collection"
                       control={<Radio size="small" />}
-                      label={<Typography variant="body2">Lab Collection</Typography>}
-                      sx={{ '& .MuiSvgIcon-root': { fontSize: 12 } }}
+                      label={<Typography variant="body2" style={{fontSize:'1rem'}}>Lab Collection</Typography>}
+                      sx={{ '& .MuiSvgIcon-root': { fontSize: 16 } }}
                     />
                     
                   </RadioGroup>
@@ -170,15 +170,15 @@ function BillWiseArea() {
                     <FormControlLabel
                       value="cash"
                       control={<Radio size="small" />}
-                      label={<Typography variant="body2">Cash</Typography>}
-                      sx={{ '& .MuiSvgIcon-root': { fontSize: 12 } }}
+                      label={<Typography variant="body2" style={{fontSize:'1rem'}}>Cash</Typography>}
+                      sx={{ '& .MuiSvgIcon-root': { fontSize: 16 } }}
                     />
                       <FormControlLabel
                       value="cheque"
                       control={<Radio size="small" />}
                     
-                      label={<Typography variant="body2">Cheque</Typography>}
-                      sx={{ '& .MuiSvgIcon-root': { fontSize: 12 } }}
+                      label={<Typography variant="body2" style={{fontSize:'1rem'}}>Cheque</Typography>}
+                      sx={{ '& .MuiSvgIcon-root': { fontSize: 16 } }}
                     />
                     
                   </RadioGroup>
@@ -282,7 +282,7 @@ function BillWiseArea() {
                     </TableBody>
                   </Table>
                 </TableContainer>
-                <Box mt={50} />
+                <Box mt={25} />
                 <Box display="flex" justifyContent="flex-end" mt={2}>
         <Grid container spacing={2} style={{ maxWidth: '600px' }}>
           <Grid item xs={3}>

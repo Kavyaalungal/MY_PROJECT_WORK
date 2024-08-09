@@ -19,6 +19,9 @@ const Cashpayment = () => {
     acname: '',
     Acid: '',
   };
+// Add these state variables
+const [username, setUsername] = useState('');
+const [workstation, setWorkstation] = useState('');
 
   const initialParams = {
     LabNo: '',
@@ -51,6 +54,42 @@ const Cashpayment = () => {
 //     return `${parsed.username} ${parsed.dateTime} Work Station:${parsed.workStation}`; // assembling all the parsed and updated value to a string format
 //   };
 
+useEffect(() => {
+  if (formData.timestamp) {
+    const { username, dateTime, workstation } = parseUserInfo(formData.timestamp);
+    setUsername(username);
+    // We won't store dateTime as it'll be updated upon saving
+    setWorkstation(workstation);
+  }
+}, [formData.timestamp]);
+
+
+// Function to parse the "User Info" string
+const parseUserInfo = (userInfoString) => {
+  const regex = /^(.*?)\s(\d{2}-\d{2}-\d{4}\s\d{2}:\d{2})\sWork\sStation:(.*)$/;
+  const match = userInfoString.match(regex);
+  
+  if (match) {
+    return {
+      username: match[1],
+      dateTime: match[2],
+      workstation: match[3],
+    };
+  } else {
+    // If the string doesn't match the expected format, return defaults
+    return {
+      username: '',
+      dateTime: '',
+      workstation: '',
+    };
+  }
+};
+
+// Function to reconstruct the "User Info" string
+const constructUserInfo = (username, dateTime, workstation) => {
+  return `${username} ${dateTime} Work Station:${workstation}`;
+};
+
   const handleInputChange = (e) => {
     const { id, value } = e.target;
     setParams(prevState => ({
@@ -67,9 +106,14 @@ const Cashpayment = () => {
     //   // newValue = updateTimestamp(value, currentDateTime); // here calling the updatetimestamp function to update the current datetime value of the string
     //   newValue = updateTimestamp(`${formData.username} ${formData.dateTime} Work Station:${formData.workStation}`, currentDateTime);
     // }
+   // Extract components from the current value
+   const [username, date, time, , workstation] = newValue.split(/(\d{2}-\d{2}-\d{4}) (\d{2}:\d{2}) Work Station:/);
 
+   // Reconstruct the timestamp string
+   const updatedTimestamp = `${username}${date} ${time} Work Station:${workstation}`
     setFormData({ // updates the form
-      ...formData, // spreads the existing data
+      ...formData,
+      timestamp: updatedTimestamp, // spreads the existing data
       [id]: newValue, // updates the value of the corresponding id selected
     });
   };
@@ -178,6 +222,10 @@ const processImage = (base64Image) => {
   
   
   const handleSave = () => {
+    const currentDateTime = new Date().toLocaleString('en-GB', { hour12: false });
+    const formattedDateTime = currentDateTime.replace(',', '');
+  
+    const updatedTimestamp = constructUserInfo(username, formattedDateTime, workstation);
     const dataToSend = {
       VchrDate: formData.date,
       VchrBookId: 678.90,
@@ -187,7 +235,8 @@ const processImage = (base64Image) => {
       VchrNarration: formData.narration,
       VchrPayment: formData.amount,
       VchrReceipt: 0.00,
-      VchrTimeStamp: formData.timestamp,
+      VchrTimeStamp: updatedTimestamp,
+      // VchrTimeStamp: formData.timestamp,
       VchrUsrId: 6,
       VchrYrId: 2223,
       VchrCpyId: 2,

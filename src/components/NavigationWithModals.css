@@ -90,10 +90,12 @@
   
   .custom-nav-item {
     list-style-type: none;
+    margin-top: 25px;
+    margin-left: 6px;
   }
   
   .custom-nav-container {
-    max-height: 600px;
+    max-height: 800px;
     overflow-y: auto;
   }
   
@@ -152,11 +154,14 @@
   }
   
   .custom-modal-header {
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 1rem !important;
     border-bottom: 1px solid #ddd;
     background-color: #3095E5;
     color: #fff;
   }
+
+  
+  
   
   .custom-modal-title {
     margin: 0;

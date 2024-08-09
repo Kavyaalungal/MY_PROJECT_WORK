@@ -291,14 +291,14 @@ function Driver() {
                                 <FormControlLabel
                                     value="cash"
                                     control={<Radio size="small" />}
-                                    label={<Typography variant="body2">Entry Date</Typography>}
-                                    sx={{ '& .MuiSvgIcon-root': { fontSize: 12 } }}
+                                    label={<Typography variant="body2" style={{fontSize:'1rem'}}>Entry Date</Typography>}
+                                    sx={{ '& .MuiSvgIcon-root': { fontSize: 16 } }}
                                 />
                                 <FormControlLabel
                                     value="cheque"
                                     control={<Radio size="small" />}
-                                    label={<Typography variant="body2">Exit Date</Typography>}
-                                    sx={{ '& .MuiSvgIcon-root': { fontSize: 12 } }}
+                                    label={<Typography variant="body2" style={{fontSize:'1rem'}}>Exit Date</Typography>}
+                                    sx={{ '& .MuiSvgIcon-root': { fontSize: 16 } }}
                                 />
                             </RadioGroup>
                         </FormControl>
@@ -330,7 +330,7 @@ function Driver() {
                             />
                         </Grid>
                         <Grid item xs={12} md={4}>
-                            <Button variant='contained' color='primary' sx={{ height: '100%' }}>View</Button>
+                            <Button variant='contained' sx={{ height: '100%',backgroundColor:'#3095E5' }}>View</Button>
                         </Grid>
                     </Grid>
                 </Grid>
