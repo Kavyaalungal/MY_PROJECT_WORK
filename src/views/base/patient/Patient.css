@@ -10,7 +10,7 @@
   }
    */
 
-   .custom-modal-header {
+   /* .custom-modal-header {
     padding: 0.5rem 1rem; 
     border-bottom: 1px solid #ddd; 
     background-color: #3095E5 ;
@@ -19,5 +19,17 @@
   
   .custom-modal-title {
     margin: 0; 
+  } */
+
+  .border-paper{
+    padding: 10px; /* Default padding, adjust as needed */
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background-color: #fff;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  margin-top: 10px;
+  height: 500px;
+  margin-left: 20px;
+
   }
   

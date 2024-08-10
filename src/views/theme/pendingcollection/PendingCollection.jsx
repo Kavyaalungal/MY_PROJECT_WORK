@@ -262,12 +262,12 @@ const PendingCollection = () => {
                 <Grid item>
                   <Button
                     variant='contained'
-                    color="primary">REFRESH</Button>
+                    sx={{backgroundColor:'#3095E5'}}>REFRESH</Button>
                 </Grid>
                 <Grid item>
                   <Button
                     variant='contained'
-                    color="primary">PRINT</Button>
+                    sx={{backgroundColor:'#3095E5'}}>PRINT</Button>
                 </Grid>
               </Grid>
               <Grid container spacing={2}>
@@ -378,17 +378,17 @@ const PendingCollection = () => {
             <Button
               variant="contained"
               color="primary"
-              sx={{ marginTop: 2, marginRight: 1 }}
+              sx={{ marginTop: 2, marginRight: 1,backgroundColor:'#3095E5' }}
             >Save</Button>
             <Button
               variant="contained"
               color="primary"
-              sx={{ marginTop: 2, marginLeft: 2 }}
+              sx={{ marginTop: 2, marginLeft: 2,backgroundColor:'#3095E5' }}
             >New</Button>
             <Button
               variant='contained'
               color='primary'
-              sx={{ marginTop: 2, marginLeft: 2 }}
+              sx={{ marginTop: 2, marginLeft: 2,backgroundColor:'#3095E5' }}
             >Exit</Button>
           </Grid>
         </Grid>

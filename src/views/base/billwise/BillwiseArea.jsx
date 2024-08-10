@@ -127,7 +127,7 @@ function BillWiseArea() {
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
             <Button
                   variant="contained"
-                  color="primary"
+                  sx={{backgroundColor:'#3095E5'}}
                   // onClick={resetForm}
                   // sx={{ marginTop: 2, marginLeft: 2 }}
                 >

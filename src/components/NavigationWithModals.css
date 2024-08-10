@@ -169,7 +169,7 @@
   
   /* Ensure the modal body and content are visible */
   .c-modal-body {
-    background-color: #fff; /* Ensure the background color is not transparent */
+    background-color: #f5f1ef ; /* Ensure the background color is not transparent */
     color: #000; /* Ensure text is visible */
   }
   

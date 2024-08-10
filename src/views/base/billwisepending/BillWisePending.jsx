@@ -67,9 +67,9 @@ function BillWisePending() {
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
             <Button
                   variant="contained"
-                  color="primary"
-                  // onClick={resetForm}
-                  // sx={{ marginTop: 2, marginLeft: 2 }}
+                 
+              
+                   sx={{backgroundColor:'#3095E5' }}
                 >
                   AutoAllocate
                 </Button>

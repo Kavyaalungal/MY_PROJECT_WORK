@@ -201,9 +201,9 @@ const Bill = () => {
               <Grid item xs={12} md={3}>
               <Button
                   variant="contained"
-                  color="primary"
+           
                   // onClick={resetForm}
-                  // sx={{ marginTop: 2, marginLeft: 2 }}
+                   sx={{backgroundColor:'#3095E5' }}
                 >
                   Allocate
                 </Button>
@@ -288,7 +288,7 @@ const Bill = () => {
                   variant="contained"
                   color="primary"
                   // onClick={handleSaveOrUpdate}
-                  sx={{ marginTop: 2, marginLeft: 2 }}
+                  sx={{ marginTop: 2, marginLeft: 2 ,backgroundColor:'#3095E5'}}
                 >
                   Fetch
                 </Button>
@@ -296,24 +296,24 @@ const Bill = () => {
                   variant="contained"
                   color="primary"
                   // onClick={resetForm}
-                  sx={{ marginTop: 2, marginLeft: 2 }}
+                  sx={{ marginTop: 2, marginLeft: 2 ,backgroundColor:'#3095E5'}}
                 >
                   Print
                 </Button>
                 <Button
                 variant='contained'
                 color='primary'
-                sx={{marginTop:2, marginLeft:2}}
+                sx={{marginTop:2, marginLeft:2,backgroundColor:'#3095E5'}}
                 >New</Button>
                 <Button
                 variant='contained'
                 color='primary'
-                sx={{marginTop:2,marginLeft:2}}
+                sx={{marginTop:2,marginLeft:2,backgroundColor:'#3095E5'}}
                 >Save</Button>
                 <Button
                 variant='contained'
                 color='primary'
-                sx={{marginTop:2,marginLeft:2}}
+                sx={{marginTop:2,marginLeft:2,backgroundColor:'#3095E5'}}
                 >Exit</Button>
               </Grid>
             </Grid>

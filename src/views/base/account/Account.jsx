@@ -534,7 +534,7 @@ const Account = () => {
                   variant="contained"
                   color="primary"
                   // onClick={handleSaveOrUpdate}
-                  sx={{ marginTop: 2, marginLeft: 2 }}
+                  sx={{ marginTop: 2, marginLeft: 2,backgroundColor:'#3095E5' }}
                 >
                   Save
                 </Button>
@@ -542,14 +542,14 @@ const Account = () => {
                   variant="contained"
                   color="primary"
                   // onClick={resetForm}
-                  sx={{ marginTop: 2, marginLeft: 2 }}
+                  sx={{ marginTop: 2, marginLeft: 2,backgroundColor:'#3095E5' }}
                 >
                   New
                 </Button>
                 <Button
                 variant='contained'
                 color='primary'
-                sx={{marginTop:2, marginLeft:2}}
+                sx={{marginTop:2, marginLeft:2,backgroundColor:'#3095E5'}}
                 >Exit</Button>
               </Grid>
             </Grid>

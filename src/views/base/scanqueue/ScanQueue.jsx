@@ -1,3 +1,231 @@
+// import React, { useEffect, useState } from 'react';
+// import {
+//   Grid,
+//   TextField,
+//   FormControl,
+//   FormControlLabel,
+//   RadioGroup,
+//   Radio,
+//   Typography,
+//   Paper,
+//   Box,
+//   Container,
+//   TableContainer,
+//   Table,
+//   TableHead,
+//   TableRow,
+//   TableCell,
+//   TableBody,
+//   Stack,
+//   IconButton,
+//   Button
+// } from '@mui/material';
+// import { CButton, CCard, CCardBody } from '@coreui/react';
+// import { CDatePicker } from '@coreui/react-pro';
+// import '@coreui/coreui/dist/css/coreui.min.css'
+// import '@coreui/coreui-pro/dist/css/coreui.min.css'
+// import '../homecollection/Home.css';
+
+// const ScanQueue = () => {
+ 
+
+
+//   return (
+//     <CCardBody>
+//             <Grid container spacing={2}>
+//             <Box sx={{ border: '1px solid #ddd', padding: '10px',marginBottom:'10px',marginTop:'10px',marginLeft:'10px' }}>
+//             <Grid container spacing={2}>
+//               <Grid item xs={12} md={4}>
+//                 <TextField
+//                   id="doctpr"
+//                   label="Doctor"
+//                   variant="outlined"
+//                   size="small"
+//                   fullWidth
+//                   InputLabelProps={{  style: { fontSize: '1rem' } }}
+//                 />
+//               </Grid>
+//             <Grid item xs={12} md={3}>
+//               <CDatePicker placeholder={'Date'} locale="en-US" />
+
+//             </Grid>
+//             <Grid item xs={12} md={3}>
+//               <CDatePicker placeholder={'Date'} locale="en-US" />
+
+//             </Grid>
+//             <Grid item xs={12} md={2}>
+//             <Button variant='contained' sx={{backgroundColor:'#3095E5'}}>View</Button>
+
+//             </Grid>
+//             </Grid>
+//             </Box>
+
+//             <Box sx={{ border: '1px solid #ddd', marginBottom:'10px',marginTop:'10px',marginLeft:'10px',width:'100%' }}>
+//             <Grid container spacing={2}>
+//             <Grid item xs={12}>
+//                 <TableContainer style={{ maxHeight: 'calc(100vh - 400px)', overflowY: 'auto' }}>
+//                   <Table stickyHeader aria-label="sticky table">
+//                     <TableHead>
+//                       <TableRow>
+//                         <TableCell  sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px',  }}>SlNo</TableCell>
+//                         <TableCell   sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px', }}>ConsultDate</TableCell>
+//                         <TableCell  sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px', }}>SlotTime</TableCell>
+//                         <TableCell   sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px',  }}>BookNo</TableCell>
+//                         <TableCell   sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px',  }}>Token</TableCell>
+//                         <TableCell   sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px',  }}>Patient Name</TableCell>
+//                         <TableCell   sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px',  }}>Doctor</TableCell>
+//                         <TableCell   sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px',  }}>Age/gender</TableCell>
+                      
+//                       </TableRow>
+//                     </TableHead>
+//                     <TableBody>
+//                         <TableRow>
+                         
+//                         </TableRow>
+                      
+                    
+//                     </TableBody>
+//                   </Table>
+//                 </TableContainer>
+//                 <Box mt={25} />
+              
+//               </Grid>
+//               </Grid>
+//               </Box>
+//               <Box sx={{ border: '1px solid #ddd',padding:'10px', marginBottom:'10px',marginTop:'10px',marginLeft:'10px',width:'100%' }}>
+//               <Grid container spacing={2}>
+//               <Grid item xs={12} sm={4}>
+//         <Grid container spacing={2}>
+//           <Grid item xs={12}>
+//             <TextField
+//               id=""
+//               label="Field 1"
+//               variant="outlined"
+//               size="small"
+//               fullWidth
+//             />
+//           </Grid>
+//           <Grid item xs={12}>
+//             <TextField
+//               id="field2"
+//               label="Field 2"
+//               variant="outlined"
+//               size="small"
+//               fullWidth
+//             />
+//           </Grid>
+//           <Grid item xs={12}>
+//             <TextField
+//               id="field3"
+//               label="Field 3"
+//               variant="outlined"
+//               size="small"
+//               fullWidth
+//             />
+//           </Grid>
+//           <Grid item xs={12}>
+//             <TextField
+//               id="field4"
+//               label="Field 4"
+//               variant="outlined"
+//               size="small"
+//               fullWidth
+//             />
+//           </Grid>
+//           <Grid item xs={12}>
+//             <TextField
+//               id="field5"
+//               label="Field 5"
+//               variant="outlined"
+//               size="small"
+//               fullWidth
+//             />
+//           </Grid>
+//         </Grid>
+//       </Grid>
+
+//       {/* Right Side Fields Parallel to the Left Side */}
+//       <Grid item xs={12} sm={8}>
+//         <Grid container spacing={2} direction="column">
+//         <Box sx={{ border: '1px solid #ddd', marginBottom:'10px',marginTop:'15px',marginLeft:'10px', }}>
+//         <Grid container spacing={2}>
+//         <Grid item xs={12}>
+//                 <TableContainer style={{ maxHeight: 'calc(100vh - 400px)', overflowY: 'auto' }}>
+//                   <Table stickyHeader aria-label="sticky table">
+//                     <TableHead>
+//                       <TableRow>
+                      
+//                         <TableCell   sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px',  }}>SlNO</TableCell>
+//                         <TableCell   sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px',  }}>TestName</TableCell>
+//                         <TableCell   sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px',  }}>Rate</TableCell>
+                      
+//                       </TableRow>
+//                     </TableHead>
+//                     <TableBody>
+//                         <TableRow>
+                         
+//                         </TableRow>
+                      
+                    
+//                     </TableBody>
+//                   </Table>
+//                 </TableContainer>
+//                 <Box mt={28} />
+              
+//               </Grid>
+//               </Grid>
+//               </Box>
+//         </Grid>
+//       </Grid>
+//       </Grid>
+//       </Box>
+//             </Grid>
+//             {/* <Grid container spacing={2} justifyContent="flex-end" sx={{ marginTop: 2 }}>
+//               <Grid item>
+//                 <Button
+//                   variant="contained"
+//                   color="primary"
+//                   // onClick={handleSaveOrUpdate}
+//                   sx={{ marginTop: 2, marginLeft: 2 ,backgroundColor:'#3095E5'}}
+//                 >
+//                   Fetch
+//                 </Button>
+//                 <Button
+//                   variant="contained"
+//                   color="primary"
+//                   // onClick={resetForm}
+//                   sx={{ marginTop: 2, marginLeft: 2 ,backgroundColor:'#3095E5'}}
+//                 >
+//                   Print
+//                 </Button>
+//                 <Button
+//                 variant='contained'
+//                 color='primary'
+//                 sx={{marginTop:2, marginLeft:2,backgroundColor:'#3095E5'}}
+//                 >New</Button>
+//                 <Button
+//                 variant='contained'
+//                 color='primary'
+//                 sx={{marginTop:2,marginLeft:2,backgroundColor:'#3095E5'}}
+//                 >Save</Button>
+//                 <Button
+//                 variant='contained'
+//                 color='primary'
+//                 sx={{marginTop:2,marginLeft:2,backgroundColor:'#3095E5'}}
+//                 >Exit</Button>
+//               </Grid>
+//             </Grid> */}
+//           {/* </Paper> */}
+//         {/* </Container> */}
+//       {/* </Box> */}
+//       </CCardBody>
+//     //  </CCard>
+//   );
+// };
+
+// export default ScanQueue;
+
+
 // import React from 'react';
 // import { Grid, TextField, Typography, Button, Checkbox, FormControlLabel, Box,TextareaAutosize } from '@mui/material';
 
@@ -1085,307 +1313,133 @@ import {
   Grid, TextField, Typography, Button, Checkbox, FormControlLabel, Box, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Radio, RadioGroup, FormControl, FormLabel,
 } from '@mui/material';
 import { styled } from '@mui/system';
+import './Scan.css'
 
-const StyledTypography = styled(Typography)({
-  color: 'green',
-  fontWeight: 'bold',
-  marginBottom: '10px',
-});
+// const StyledTypography = styled(Typography)({
+//   color: 'green',
+//   fontWeight: 'bold',
+//   marginBottom: '10px',
+// });
 
-const BorderPaper = styled(Paper)(({ theme }) => ({
-  padding: theme.spacing(2),
-  border: '1px solid #ccc',
-}));
+// const BorderPaper = styled(Paper)(({ theme }) => ({
+//   padding: theme.spacing(2),
+//   border: '1px solid #ccc',
+//   height:'500px'
+// }));
 
-function createData(sno, transNo, name, amount) {
-  return { sno, transNo, name, amount };
-}
 
-const rows = [
-  createData(1, '001', 'John Doe', 150),
-  createData(2, '002', 'Jane Doe', 200),
-  createData(3, '003', 'Alice', 300),
-];
 
-function CashClosingForm() {
-  const [radioValue, setRadioValue] = useState('allUser');
-  const [isChecked, setIsChecked] = useState(false);
 
-  const handleRadioChange = (event) => {
-    setRadioValue(event.target.value);
-  };
 
-  const handleCheckboxChange = (event) => {
-    setIsChecked(event.target.checked);
-  };
+function ScanQueue() {
+ 
 
   return (
     <>
       <Grid container spacing={2}>
        
         {/* Left Side */}
-        <Grid item xs={12} md={6}>
-        <Grid item xs={12}>
-          <StyledTypography variant="h6">Transaction Details</StyledTypography>
-        </Grid>
-          <BorderPaper>
+        <Grid item xs={12} md={3}>
+       
+          {/* <BorderPaper> */}
             <Grid container spacing={2}>
-              <Grid item xs={4}>
-                <TextField 
-                  id='collection1'
-                  label="Collection1"
-                  fullWidth 
-                  size="small"
-                  variant='outlined'
-                  InputLabelProps={{style:{fontSize:'1rem'}}} 
-                />
-              </Grid>
-              <Grid item xs={4}>
-                {!isChecked && (
-                  <Button variant='contained' sx={{backgroundColor:'#3095E5'}}>Set Value</Button>
-                )}
-              </Grid>
-              <Grid item xs={4}>
-                <TextField
-                  id='datetime'
-                  label="DateTime"
-                  fullWidth 
-                  type='datetime-local'
-                  variant='outlined'
-                  size="small"
-                  InputLabelProps={{shrink:true,style:{fontSize:'1rem'}}}
-                />
-              </Grid>
-              <Grid item xs={4}>
-                <TextField
-                  id='collection2'
-                  label="Collection2"
-                  fullWidth
-                  variant='outlined' 
-                  size="small" 
-                  InputLabelProps={{style:{fontSize:'1rem'}}}
-                />
-              </Grid>
-              <Grid item xs={8}>
-                <TextField
-                  id='userinfo'
-                  label="User Info"
-                  fullWidth
-                  variant='outlined'
-                  size="small"
-                  InputLabelProps={{style:{fontSize:'1rem'}}}
-                />
-              </Grid>
-              <Grid item xs={6}>
-                <TextField 
-                  id="payments"
-                  label='Payments'
-                  fullWidth 
-                  size="small"
-                  variant='outlined'
-                  InputLabelProps={{ style:{fontSize:'1rem'} }} 
-                />
-              </Grid>
-              <Grid item xs={6}>
-                <TextField 
-                  id="receipts"
-                  label='Receipts'
-                  fullWidth 
-                  size="small"
-                  variant='outlined'
-                  InputLabelProps={{ style:{fontSize:'1rem'} }} 
-                />
-              </Grid>
-              <Grid item xs={6}>
-                <TextField
-                  id='officeamount'
-                  label="Office Amount"
-                  fullWidth
-                  size="small"
-                  variant='outlined'
-                  InputLabelProps={{style:{fontSize:'1rem'}}} 
-                />
-              </Grid>
-              <Grid item xs={6}>
-                <TextField
-                  id='total'
-                  label="Total"
-                  fullWidth
-                  size="small"
-                  variant='outlined'
-                  InputLabelProps={{style:{fontSize:'1rem'}}} 
-                />
-              </Grid>
+             <div style={{marginLeft:'10px'}} className='border-paper'>
+             {/* <TextField id="standard-basic" label="Standard" variant="standard" /> */}
+             
+              CoreUI 
+             React DatePicker
+              component includes a
+               feature that allows you t
+               o disable certain dates, such as w
+               eekends or holidays. This can be 
+               accomplished by
+                passing an array to disabledDate 
+                prop to the component, which determines
+                 which dates should be disabled based
+                  on custom logic.
+                  CoreUI 
+             React DatePicker
+              component includes a
+               feature that allows you t
+               o disable certain dates, such as w
+               eekends or holidays. This can be 
+               accomplished by
+                passing an array to disabledDate 
+                prop to the component, which determines
+                 which dates should be disabled based
+                  on custom logic. 
+                  
+             </div>
+             
+            
+             
+             
+           
             </Grid>
-            <Grid container spacing={2} direction={'row'}>
-              {/* Common Heading */}
-              <Grid item xs={12}>
-                <StyledTypography variant="h6" style={{marginTop:'20px'}}> Denomination Details</StyledTypography>
-              </Grid>
-
-              {/* Denomination Details */}
-              <Grid item xs={6} container direction="column" spacing={2}>
-                {[2000, 1000, 500, 200, 100, 50, 20, 10, 5, "Coins"].map((denomination) => (
-                  <Grid item key={denomination}>
-                    <TextField label={denomination + " X"} fullWidth size="small" />
-                  </Grid>
-                ))}
-                <Grid item>
-                  <TextField label="Total" fullWidth size="small" />
-                </Grid>
-              </Grid>
-
-              {/* Office Details */}
-              <Grid item xs={6} container direction="column" spacing={2}>
-                <Grid item>
-                  <TextField label="To Office" fullWidth size="small" />
-                </Grid>
-                <Grid item>
-                  <TextField label="Balance" fullWidth size="small" />
-                </Grid>
-                <Grid item>
-                  <TextField label="Excess Amount" fullWidth size="small" />
-                </Grid>
-                <Grid item>
-                  <TextField label="Short Amount" fullWidth size="small" />
-                </Grid>
-                <Grid item>
-                  <TextField label="Note" fullWidth multiline rows={4} size="small" />
-                </Grid>
-              </Grid>
-            </Grid>
-          </BorderPaper>
+          
+          {/* </BorderPaper> */}
         </Grid>
         {/* Right Side */}
-        <Grid item xs={12} md={6}>
-          <BorderPaper>
+        <Grid item xs={12} md={9}>
+          {/* <BorderPaper> */}
             <Grid container spacing={2}>
-              <Grid item xs={6}>
-                <FormControlLabel control={<Checkbox checked={isChecked} onChange={handleCheckboxChange} />} label="User wise" />
-              </Grid>
-              {isChecked && (
-                <>
-                  <Grid item xs={6}>
-                    <FormControl component="fieldset">
-                      <RadioGroup row value={radioValue} onChange={handleRadioChange}>
-                        <FormControlLabel
-                          value="allUser"
-                          control={<Radio size="small" />}
-                          label={<Typography variant="body2">All user</Typography>}
-                          sx={{ '& .MuiSvgIcon-root': { fontSize: 16 } }}
-                        />
-                        <FormControlLabel
-                          value="loggedUser"
-                          control={<Radio size="small" />}
-                          label={<Typography variant="body2">Logged User</Typography>}
-                          sx={{ '& .MuiSvgIcon-root': { fontSize: 16 } }}
-                        />
-                      </RadioGroup>
-                    </FormControl>
-                  </Grid>
-                  <Grid item xs={8}>
-                    <TextField label="TextField" fullWidth size="small" />
-                  </Grid>
-                  <Grid item xs={4}>
-                    <Button variant='contained' sx={{backgroundColor:'#3095E5'}}>Fetch</Button>
-                  </Grid>
-
-                  {/* Invoice Details */}
-                  <Grid item xs={12}>
-                    <StyledTypography variant="h6">Invoice Details</StyledTypography>
-                    <TableContainer style={{ maxHeight: 'calc(100vh - 400px)', overflowY: 'auto' }}>
-                      <Table stickyHeader aria-label="sticky table">
-                        <TableHead>
-                          <TableRow>
-                            <TableCell sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px', textAlign: 'center' }}>SlNo</TableCell>
-                            <TableCell sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px', textAlign: 'center' }}>Trans.No</TableCell>
-                            <TableCell sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px', textAlign: 'center' }}>Name</TableCell>
-                            <TableCell sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px', textAlign: 'center' }}>Coll.Amt</TableCell>
-                          </TableRow>
-                        </TableHead>
-                        <TableBody>
-                        </TableBody>
-                      </Table>
-                    </TableContainer>
-                    <Box mt={15} />
-                  </Grid>
-
-                  {/* Pending Collection */}
-                  <Grid item xs={12}>
-                    <StyledTypography variant="h6">Pending Collection</StyledTypography>
-                    <TableContainer style={{ maxHeight: 'calc(100vh - 400px)', overflowY: 'auto' }}>
-                      <Table stickyHeader aria-label="sticky table">
-                        <TableHead>
-                          <TableRow>
-                            <TableCell sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px', textAlign: 'center' }}>SlNo</TableCell>
-                            <TableCell sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px', textAlign: 'center' }}>Trans.No</TableCell>
-                            <TableCell sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px', textAlign: 'center' }}>Name</TableCell>
-                            <TableCell sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px', textAlign: 'center' }}>Coll.Amt</TableCell>
-                          </TableRow>
-                        </TableHead>
-                        <TableBody>
-                        </TableBody>
-                      </Table>
-                    </TableContainer>
-                    <Box mt={15} />
-                  </Grid>
-                  {/* Payment Details */}
-                 <Grid item xs={12}>
-                     <StyledTypography variant="h6">Payment Details</StyledTypography>
-                   <TableContainer style={{ maxHeight: 'calc(100vh - 400px)', overflowY: 'auto' }}>
-                   <Table stickyHeader aria-label="sticky table">
-                     <TableHead>
-                       <TableRow>
-                         <TableCell  sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px', textAlign: 'center' }}>SlNo</TableCell>
-                         <TableCell   sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px', textAlign: 'center' }}>Trans.No</TableCell>
-                         <TableCell  sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px', textAlign: 'center' }}>Name</TableCell>
-                         <TableCell   sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px', textAlign: 'center' }}>Paid</TableCell>
-                
-                       </TableRow>
-                     </TableHead>
-                     <TableBody>
-                        
-                      
-                     
-                     </TableBody>
-                   </Table>
-                 </TableContainer>
-                 <Box mt={15} />
-
-                 </Grid>
-
-                 {/* Pending Payments */}
-                 <Grid item xs={12}>
-                   <StyledTypography variant="h6">Receipt Details</StyledTypography>
-                   <TableContainer style={{ maxHeight: 'calc(100vh - 400px)', overflowY: 'auto' }}>
-                   <Table stickyHeader aria-label="sticky table">
-                     <TableHead>
-                       <TableRow>
-                         <TableCell  sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px', textAlign: 'center' }}>SlNo</TableCell>
-                         <TableCell   sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px', textAlign: 'center' }}>Trans.No</TableCell>
-                         <TableCell  sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px', textAlign: 'center' }}>Name</TableCell>
-                         <TableCell   sx={{ border: '1px solid #dddddd', background: '#3095E5', color: '#ffffff', fontSize: '1rem', padding: '8px', textAlign: 'center' }}>Receipt</TableCell>
-                
-                       </TableRow>
-                    </TableHead>
-                     <TableBody>
-                        
-                      
-                     
-                     </TableBody>
-                   </Table>
-                 </TableContainer>
-                <Box mt={15} />
-                 
-                </Grid>
-                </>
-              )}
+            <div style={{marginLeft:'10px'}} className='border-paper'>
+             CoreUI 
+             React DatePicker
+              component includes a
+               feature that allows you t
+               o disable certain dates, such as w
+               eekends or holidays. This can be 
+               accomplished by
+                passing an array to disabledDate 
+                prop to the component, which determines
+                 which dates should be disabled based
+                  on custom logic.
+                  CoreUI 
+             React DatePicker
+              component includes a
+               feature that allows you t
+               o disable certain dates, such as w
+               eekends or holidays. This can be 
+               accomplished by
+                passing an array to disabledDate 
+                prop to the component, which determines
+                 which dates should be disabled based
+                  on custom logic.
+                  CoreUI 
+             React DatePicker
+              component includes a
+               feature that allows you t
+               o disable certain dates, such as w
+               eekends or holidays. This can be 
+               accomplished by
+                passing an array to disabledDate 
+                prop to the component, which determines
+                 which dates should be disabled based
+                  on custom logic.
+                  CoreUI 
+             React DatePicker
+              component includes a
+               feature that allows you t
+               o disable certain dates, such as w
+               eekends or holidays. This can be 
+               accomplished by
+                passing an array to disabledDate 
+                prop to the component, which determines
+                 which dates should be disabled based
+                  on custom logic.
+                  
+             </div>
+             
+            
+             
             </Grid>
-          </BorderPaper>
+          {/* </BorderPaper> */}
         </Grid>
       </Grid>
     </>
   );
 }
 
-export default CashClosingForm;
+export default ScanQueue;
+

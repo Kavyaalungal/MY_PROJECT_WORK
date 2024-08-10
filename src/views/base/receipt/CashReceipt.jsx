@@ -37,7 +37,7 @@ function CashReceipt() {
             variant='outlined'
             InputLabelProps={{  style:  {fontSize:'1rem'}  }} 
             />
-            <Button variant='contained' component='label' sx={{ml : 1}} >
+            <Button variant='contained' component='label' sx={{ml : 1,backgroundColor:'#3095E5'}} >
             <AddIcon/>
             <input type="file" hidden />
             </Button>
@@ -74,9 +74,9 @@ function CashReceipt() {
               <Grid item xs={12} md={3}>
               <Button
                   variant="contained"
-                  color="primary"
-                  // onClick={resetForm}
-                  // sx={{ marginTop: 2, marginLeft: 2 }}
+                 
+                  sx={{backgroundColor:'#3095E5'}}
+                  
                 >
                   Print Preview
                 </Button>
@@ -101,7 +101,7 @@ function CashReceipt() {
                   variant="contained"
                   color="primary"
                   // onClick={handleSaveOrUpdate}
-                  sx={{ marginTop: 2, marginLeft: 2 }}
+                  sx={{ marginTop: 2, marginLeft: 2 ,backgroundColor:'#3095E5'}}
                 >
                   Print
                 </Button>
@@ -109,24 +109,24 @@ function CashReceipt() {
                   variant="contained"
                   color="primary"
                   // onClick={resetForm}
-                  sx={{ marginTop: 2, marginLeft: 2 }}
+                  sx={{ marginTop: 2, marginLeft: 2 ,backgroundColor:'#3095E5'}}
                 >
                   New
                 </Button>
                 <Button
                 variant='contained'
                 color='primary'
-                sx={{marginTop:2, marginLeft:2}}
+                sx={{marginTop:2, marginLeft:2,backgroundColor:'#3095E5'}}
                 >Save</Button>
                 <Button 
                 variant='contained'
                 color='primary'
-                sx={{marginTop:2,marginLeft:2}}
+                sx={{marginTop:2,marginLeft:2,backgroundColor:'#3095E5'}}
                 >Delete</Button>
                 <Button
                 variant='contained'
-                color='primary'
-                sx={{marginTop:2,marginLeft:2}}
+                
+                sx={{marginTop:2,marginLeft:2,backgroundColor:'#3095E5'}}
                 >Exit</Button>
               </Grid>
              

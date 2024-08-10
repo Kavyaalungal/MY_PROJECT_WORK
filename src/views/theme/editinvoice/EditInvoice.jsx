@@ -1160,20 +1160,20 @@ return (
           <Grid item>
             <Button
               variant="contained"
-              color="primary"
+             
               onClick={saveDataToAPI} disabled={!isDataUpdated}
-              sx={{ marginTop: 2, marginRight: 1 }}
+              sx={{ marginTop: 2, marginRight: 1,backgroundColor:'#3095E5' }}
             >Save</Button>
             <Button
               variant="contained"
-              color="primary"
+            
               onClick={handleNewButtonClick}
-              sx={{ marginTop: 2, marginLeft: 2 }}
+              sx={{ marginTop: 2, marginLeft: 2,backgroundColor:'#3095E5' }}
             >New</Button>
             <Button
               variant='contained'
-              color='primary'
-              sx={{ marginTop: 2, marginLeft: 2 }}
+           
+              sx={{ marginTop: 2, marginLeft: 2,backgroundColor:'#3095E5' }}
             >Exit</Button>
           </Grid>
         </Grid>

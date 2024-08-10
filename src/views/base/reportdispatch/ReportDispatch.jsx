@@ -319,7 +319,7 @@ const ReportDispatch = () => {
           marginTop: '16px',
         }}
       >
-        <Button variant="contained" color="primary">
+        <Button variant="contained" sx={{backgroundColor:'#3095E5'}}>
           Remove
         </Button>
       </div>
@@ -354,16 +354,16 @@ const ReportDispatch = () => {
             </Box>
             <Grid item xs={12} container justifyContent="flex-end" spacing={2}>
           <Grid item>
-            <Button variant="contained" color="primary">New</Button>
+            <Button variant="contained" sx={{backgroundColor:'#3095E5'}}>New</Button>
           </Grid>
           <Grid item>
-            <Button variant="contained" color="primary">Delete</Button>
+            <Button variant="contained" sx={{backgroundColor:'#3095E5'}}>Delete</Button>
           </Grid>
           <Grid item>
-            <Button variant="contained" color="primary">Save</Button>
+            <Button variant="contained" sx={{backgroundColor:'#3095E5'}}>Save</Button>
           </Grid>
           <Grid item>
-            <Button variant="contained" color="primary">Exit</Button>
+            <Button variant="contained" sx={{backgroundColor:'#3095E5'}}>Exit</Button>
           </Grid>
         </Grid>
     

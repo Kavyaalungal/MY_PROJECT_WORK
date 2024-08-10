@@ -18,6 +18,7 @@ import BillWisePending from '../views/base/billwisepending/BillWisePending';
 import CashClosing from '../views/base/cashclosing/CashClosing';
 import BillwiseArea from '../views/base/billwise/BillwiseArea';
 import Home from '../views/base/homecollection/Home'
+import ScanQueue from '../views/base/scanqueue/ScanQueue';
 
 
 const NavigationWithModals = () => {
@@ -43,7 +44,7 @@ const NavigationWithModals = () => {
         </CNavLink>
       </CNavItem>
       <CNavItem className="custom-nav-item">
-        <CNavLink className="custom-nav-link" onClick={() => toggleModal('Patient Registration', <Patient />,'lg')}>
+        <CNavLink className="custom-nav-link" onClick={() => toggleModal('Patient Registration', <Patient />,)}>
           <CIcon icon={cilGroup} className="me-2" /> Patient Registration
         </CNavLink>
       </CNavItem>
@@ -112,6 +113,11 @@ const NavigationWithModals = () => {
     <CIcon icon={cilBarcode} className='me-2'/>Home Collection Booking
     </CNavLink>
   </CNavItem>
+  <CNavItem className='custom-nav-item'>
+    <CNavLink className='custom-nav-link' onClick={()=>toggleModal('Scan Queue',<ScanQueue/>,)}>
+    <CIcon icon={cilBarcode} className='me-2'/>Scan Queue
+    </CNavLink>
+  </CNavItem>
   
   
   
@@ -119,6 +125,7 @@ const NavigationWithModals = () => {
               size={modalSize}
               // visible={visibleLg}
               // onClose={() => setVisibleLg(false)}
+              className='modal'
               backdrop='static'
               scrollable
               aria-labelledby="OptionalSizesExample2">

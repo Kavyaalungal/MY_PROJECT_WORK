@@ -19,9 +19,9 @@ const Cashpayment = () => {
     acname: '',
     Acid: '',
   };
-// Add these state variables
-const [username, setUsername] = useState('');
-const [workstation, setWorkstation] = useState('');
+  const [username, setUsername] = useState('');
+  const [workstation, setWorkstation] = useState('OFFICE');
+
 
   const initialParams = {
     LabNo: '',
@@ -34,61 +34,8 @@ const [workstation, setWorkstation] = useState('');
   const [params, setParams] = useState(initialParams);
   const [imgSrc, setImgSrc] = useState('');
   const [file, setFile] = useState(null); // To handle the new file input
-// function takes a single argument that means to be a string  in the format username date-time Work Station
-//   const parseTimestamp = (value) => {
-//     const regex = /^(.*?)\s(\d{2}-\d{2}-\d{4}\s\d{2}:\d{2})\sWork\sStation:(.*)$/;//regular expression that matches the string format
-//     const match = value.match(regex);// it checks whether the string matches the regular expession if no match it returns null
-    
-//     if (!match) return { username: '', dateTime: '', workStation: '' }; // if it is null then it returns the objects with empty string
-//     // returns the matched strings
-//     return {
-//       username: match[1],
-//       dateTime: match[2],
-//       workStation: match[3],
-//     };
-//   };
-// // this function takes two arguments one is the string in the above mentioned format and second is new date and time that replace the current date and time value
-//   const updateTimestamp = (value, newDateTime) => {
-//     const parsed = parseTimestamp(value); // here calling the above function to split the components in the above mentioned format and stored it in a variable named parsed
-//     parsed.dateTime = newDateTime; // here it updates the parsed datetime value with the current date and time value
-//     return `${parsed.username} ${parsed.dateTime} Work Station:${parsed.workStation}`; // assembling all the parsed and updated value to a string format
-//   };
-
-useEffect(() => {
-  if (formData.timestamp) {
-    const { username, dateTime, workstation } = parseUserInfo(formData.timestamp);
-    setUsername(username);
-    // We won't store dateTime as it'll be updated upon saving
-    setWorkstation(workstation);
-  }
-}, [formData.timestamp]);
 
 
-// Function to parse the "User Info" string
-const parseUserInfo = (userInfoString) => {
-  const regex = /^(.*?)\s(\d{2}-\d{2}-\d{4}\s\d{2}:\d{2})\sWork\sStation:(.*)$/;
-  const match = userInfoString.match(regex);
-  
-  if (match) {
-    return {
-      username: match[1],
-      dateTime: match[2],
-      workstation: match[3],
-    };
-  } else {
-    // If the string doesn't match the expected format, return defaults
-    return {
-      username: '',
-      dateTime: '',
-      workstation: '',
-    };
-  }
-};
-
-// Function to reconstruct the "User Info" string
-const constructUserInfo = (username, dateTime, workstation) => {
-  return `${username} ${dateTime} Work Station:${workstation}`;
-};
 
   const handleInputChange = (e) => {
     const { id, value } = e.target;
@@ -101,19 +48,12 @@ const constructUserInfo = (username, dateTime, workstation) => {
     const { id, value } = event.target;  // destructuring the id and new value enetered from event.target 
     let newValue = value; // this variable stores the current value of the form field and holds the updated value of the form field
 
-    // if (id === "timestamp") { // if id equals timestamp then this if block will execute
-    //   const currentDateTime = new Date().toLocaleString(); // takes the current datetime and formats it into a string using .toLocalString()
-    //   // newValue = updateTimestamp(value, currentDateTime); // here calling the updatetimestamp function to update the current datetime value of the string
-    //   newValue = updateTimestamp(`${formData.username} ${formData.dateTime} Work Station:${formData.workStation}`, currentDateTime);
-    // }
-   // Extract components from the current value
-   const [username, date, time, , workstation] = newValue.split(/(\d{2}-\d{2}-\d{4}) (\d{2}:\d{2}) Work Station:/);
+    
+  
 
-   // Reconstruct the timestamp string
-   const updatedTimestamp = `${username}${date} ${time} Work Station:${workstation}`
+ 
     setFormData({ // updates the form
-      ...formData,
-      timestamp: updatedTimestamp, // spreads the existing data
+      ...formData, // spreads the existing data
       [id]: newValue, // updates the value of the corresponding id selected
     });
   };
@@ -222,10 +162,13 @@ const processImage = (base64Image) => {
   
   
   const handleSave = () => {
-    const currentDateTime = new Date().toLocaleString('en-GB', { hour12: false });
-    const formattedDateTime = currentDateTime.replace(',', '');
+    const currentDate = new Date();
+  const formattedDate = currentDate.toLocaleString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' }).replace(',', '');
   
-    const updatedTimestamp = constructUserInfo(username, formattedDateTime, workstation);
+  const name = "KRISHNA";  // Set your dynamic name here
+  const workstation = "OFFICE";  // Set your dynamic workstation name here
+  
+  const updatedTimestamp = `${name} ${formattedDate} Work Station:${workstation}`;
     const dataToSend = {
       VchrDate: formData.date,
       VchrBookId: 678.90,
@@ -236,7 +179,7 @@ const processImage = (base64Image) => {
       VchrPayment: formData.amount,
       VchrReceipt: 0.00,
       VchrTimeStamp: updatedTimestamp,
-      // VchrTimeStamp: formData.timestamp,
+      //  VchrTimeStamp: formData.timestamp,
       VchrUsrId: 6,
       VchrYrId: 2223,
       VchrCpyId: 2,
@@ -309,7 +252,7 @@ const processImage = (base64Image) => {
                onChange={handleFormChange}
                InputLabelProps={{style:{fontSize:'1rem'}}} 
                />
-              <Button variant="contained" component="label" sx={{ ml: 1 }}> 
+              <Button variant="contained" component="label" sx={{ ml: 1,backgroundColor:'#3095E5' }}> 
                <AddIcon /> 
                 <input type="file" hidden /> 
               </Button> 
@@ -399,17 +342,17 @@ const processImage = (base64Image) => {
       </Box>
     </Grid>
     <Box display="flex" flexDirection="row" flexWrap="wrap" gap={1}>
-      <Button variant="contained" component="label" >
+      <Button variant="contained" component="label" sx={{backgroundColor:'#3095E5'}} >
         Browse
         <input type="file" hidden onChange={handleFileChange} />
       </Button>
-      <Button variant="contained" component="label" >
+      <Button variant="contained" component="label" sx={{backgroundColor:'#3095E5'}} >
         Scan
       </Button>
-      <Button variant="contained" onClick={() => setImgSrc('')} >
+      <Button variant="contained" onClick={() => setImgSrc('')} sx={{backgroundColor:'#3095E5'}} >
         Remove File
       </Button>
-      <Button variant="contained" >
+      <Button variant="contained" sx={{backgroundColor:'#3095E5'}} >
         Print Preview
       </Button>
     </Box>
@@ -421,28 +364,28 @@ const processImage = (base64Image) => {
         <Button
             variant="contained"
             color="primary"
-            sx={{ marginTop: 2, marginRight: 1 }}
+            sx={{ marginTop: 2, marginRight: 1 ,backgroundColor:'#3095E5'}}
           >Print</Button>
            <Button
             variant="contained"
             color="primary"
-            sx={{ marginTop: 2, marginRight: 1 }}
+            sx={{ marginTop: 2, marginRight: 1,backgroundColor:'#3095E5' }}
           >New</Button>
           <Button
             variant="contained"
             color="primary"
-            sx={{ marginTop: 2, marginRight: 1 }}
+            sx={{ marginTop: 2, marginRight: 1,backgroundColor:'#3095E5' }}
             onClick={handleSave}
           >Save</Button>
           <Button
             variant="contained"
             color="primary"
-            sx={{ marginTop: 2, marginRight: 1 }}
+            sx={{ marginTop: 2, marginRight: 1,backgroundColor:'#3095E5'}}
           >Delete</Button>
           <Button
             variant="contained"
             color="primary"
-            sx={{ marginTop: 2, marginRight: 1 }}
+            sx={{ marginTop: 2, marginRight: 1,backgroundColor:'#3095E5' }}
           >Exit</Button>
         </Grid>
       </Grid>
