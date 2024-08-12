@@ -19,6 +19,7 @@ import CashClosing from '../views/base/cashclosing/CashClosing';
 import BillwiseArea from '../views/base/billwise/BillwiseArea';
 import Home from '../views/base/homecollection/Home'
 import ScanQueue from '../views/base/scanqueue/ScanQueue';
+import BasicForm from '../views/base/basicfrom/BasicForm';
 
 
 const NavigationWithModals = () => {
@@ -44,7 +45,7 @@ const NavigationWithModals = () => {
         </CNavLink>
       </CNavItem>
       <CNavItem className="custom-nav-item">
-        <CNavLink className="custom-nav-link" onClick={() => toggleModal('Patient Registration', <Patient />,)}>
+        <CNavLink className="custom-nav-link" onClick={() => toggleModal('Patient Registration', <Patient />,'lg')}>
           <CIcon icon={cilGroup} className="me-2" /> Patient Registration
         </CNavLink>
       </CNavItem>
@@ -118,7 +119,11 @@ const NavigationWithModals = () => {
     <CIcon icon={cilBarcode} className='me-2'/>Scan Queue
     </CNavLink>
   </CNavItem>
-  
+  {/* <CNavItem className='custom-nav-item'>
+    <CNavLink className='custom-nav-link' onClick={()=>toggleModal('Basic Form',<BasicForm/>,)}>
+    <CIcon icon={cilBarcode} className='me-2'/>Basic Form
+    </CNavLink>
+  </CNavItem> */}
   
   
       <CModal visible={modal} onClose={() => setModal(false)}
